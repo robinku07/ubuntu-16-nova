@@ -484,17 +484,17 @@ grep:
             pattern: '^root:[*\!]:'
             tag: CIS-1.4.3
       description: Require Authentication for Single-User Mode
-    selinux_boot_enabled:
-      data:
-        Ubuntu-16.04:
-        - /boot/grub/grub.cfg:
-            match_output: '0'
-            pattern: '^selinux'
-            tag: CIS-1.6.1.1
-        - /boot/grub/grub.cfg:
-            match_output: '0'
-            pattern: '^enforcing'
-            tag: CIS-1.6.1.1
+#    selinux_boot_enabled: #L2 Check so disabled
+#      data:
+#        Ubuntu-16.04:
+#        - /boot/grub/grub.cfg:
+#            match_output: '0'
+#            pattern: 'selinux'
+#            tag: CIS-1.6.1.1
+#        - /boot/grub/grub.cfg:
+#            match_output: '0'
+#            pattern: 'enforcing'
+#            tag: CIS-1.6.1.1
       description: Ensure SELinux is not disabled in bootloader configuration
     rsh_inet:
       data:
@@ -573,48 +573,48 @@ grep:
         Ubuntu-16.04:
         - /etc/motd:
             pattern: '\v'
-            tag: CIS-11.2
+            tag: CIS-1.7.1.1
         - /etc/motd:
             pattern: '\r'
-            tag: CIS-11.2
+            tag: CIS-1.7.1.1
         - /etc/motd:
             pattern: '\m'
-            tag: CIS-11.2
+            tag: CIS-1.7.1.1
         - /etc/motd:
             pattern: '\s'
-            tag: CIS-11.2
+            tag: CIS-1.7.1.1
       description: Remove OS Information from Login Warning Banners
     banner_os_info_issue:
       data:
         Ubuntu-16.04:
         - /etc/issue:
             pattern: '\v'
-            tag: CIS-11.2
+            tag: CIS-1.7.1.2
         - /etc/issue:
             pattern: '\r'
-            tag: CIS-11.2
+            tag: CIS-1.7.1.2
         - /etc/issue:
             pattern: '\m'
-            tag: CIS-11.2
+            tag: CIS-1.7.1.2
         - /etc/issue:
             pattern: '\s'
-            tag: CIS-11.2
+            tag: CIS-1.7.1.2
       description: Remove OS Information from Login Warning Banners
     banner_os_info_issue_net:
       data:
         Ubuntu-16.04:
         - /etc/issue.net:
             pattern: '\v'
-            tag: CIS-11.2
+            tag: CIS-1.7.1.3
         - /etc/issue.net:
             pattern: '\r'
-            tag: CIS-11.2
+            tag: CIS-1.7.1.3
         - /etc/issue.net:
             pattern: '\m'
-            tag: CIS-11.2
+            tag: CIS-1.7.1.3
         - /etc/issue.net:
             pattern: '\s'
-            tag: CIS-11.2
+            tag: CIS-1.7.1.3
       description: Remove OS Information from Login Warning Banners
     legacy_entries_passwd:
       data:
@@ -963,7 +963,7 @@ stat:
           mode: 600
           tag: CIS-9.3.3
     description: Set Permissions on /etc/ssh/sshd_config
-  banner_files:
+  banner_files_motd:
     data:
       Ubuntu-16.04:
       - /etc/motd:
@@ -972,21 +972,25 @@ stat:
           user: root
           group: root
           mode: 644
-          tag: CIS-11.1
+          tag: CIS-1.7.1.4
+    description: Set Warning Banner for Standard Login Services
+  banner_files_issue:
       - /etc/issue:
           uid: 0
           gid: 0
           user: root
           group: root
           mode: 644
-          tag: CIS-11.1
+          tag: CIS-1.7.1.5
+    description: Set Warning Banner for Standard Login Services
+  banner_files_issue_net:
       - /etc/issue.net:
           uid: 0
           gid: 0
           user: root
           group: root
           mode: 644
-          tag: CIS-11.1
+          tag: CIS-1.7.1.6
     description: Set Warning Banner for Standard Login Services
   passwd_perms:
     data:
