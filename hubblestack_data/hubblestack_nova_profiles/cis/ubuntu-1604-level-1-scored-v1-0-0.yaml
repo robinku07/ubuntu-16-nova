@@ -219,7 +219,7 @@ grep:
         Ubuntu-16.04:
         - /boot/grub/grub.cfg:
             pattern: password
-            tag: CIS-3.3
+            tag: CIS-1.4.2
       description: Set Boot Loader Password
     core_hard_limit:
       data:
@@ -480,9 +480,9 @@ grep:
     root_passwd_set:
       data:
         Ubuntu-16.04:
-        - /etc/passwd:
+        - /etc/shadow:
             pattern: '^root:[*\!]:'
-            tag: CIS-3.4
+            tag: CIS-1.4.3
       description: Require Authentication for Single-User Mode
     rsh_inet:
       data:
@@ -811,22 +811,22 @@ pkg:
       description: Install the rsyslog package
 
 stat:
-  grub_cfg_owner:
-    data:
-      Ubuntu-16.04:
-      - /boot/grub/grub.cfg:
-          gid: 0
-          group: root
-          uid: 0
-          user: root
-          tag: CIS-1.4.1
-    description: Set User/Group Owner on bootloader config
+#  grub_cfg_owner: #No Such check in Latest CIS Benchmark
+#    data:
+#      Ubuntu-16.04:
+#      - /boot/grub/grub.cfg:
+#          gid: 0
+#          group: root
+#          uid: 0
+#          user: root
+#          tag: CIS-1.4.1
+#    description: Set User/Group Owner on bootloader config
   grub_cfg_perms:
     data:
       Ubuntu-16.04:
       - /boot/grub/grub.cfg:
           mode: 600
-          tag: CIS-3.2
+          tag: CIS-1.4.1
     description: Set Permissions on bootloader config
   hosts_allow_perms:
     data:
