@@ -1,0 +1,642 @@
+[DEBUG   ] Reading configuration from /etc/hubble/hubble
+[DEBUG   ] Please install 'virt-what' to improve results of the 'virtual' grain.
+[DEBUG   ] LazyLoaded config.get
+[INFO    ] Setting up the fileclient/fileserver
+[DEBUG   ] LazyLoaded roots.envs
+[DEBUG   ] Popen(['git', 'version'], cwd=/home/ubuntu, universal_newlines=False, shell=None)
+[DEBUG   ] Popen(['git', 'version'], cwd=/home/ubuntu, universal_newlines=False, shell=None)
+[DEBUG   ] Could not LazyLoad roots.init: 'roots.init' is not available.
+[DEBUG   ] Updating roots fileserver cache
+[DEBUG   ] Updating roots fileserver cache
+[DEBUG   ] Parsed args: [] | Parsed kwargs: {'verbose': 'True'}
+[INFO    ] Executing user-requested function hubble.audit
+[DEBUG   ] LazyLoaded hubble.audit
+[DEBUG   ] syncing nova modules
+[DEBUG   ] LazyLoaded cp.cache_dir
+[DEBUG   ] LazyLoaded roots.envs
+[DEBUG   ] Could not LazyLoad roots.init: 'roots.init' is not available.
+[DEBUG   ] Updating roots fileserver cache
+[INFO    ] Caching directory 'hubblestack_nova/' for environment 'base'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova/__init__.py' to resolve 'salt://hubblestack_nova/__init__.py'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova/__init__.py' to resolve 'salt://hubblestack_nova/__init__.py'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova/command.py' to resolve 'salt://hubblestack_nova/command.py'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova/command.py' to resolve 'salt://hubblestack_nova/command.py'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova/cve_scan.py' to resolve 'salt://hubblestack_nova/cve_scan.py'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova/cve_scan.py' to resolve 'salt://hubblestack_nova/cve_scan.py'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova/cve_scan_v2.py' to resolve 'salt://hubblestack_nova/cve_scan_v2.py'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova/cve_scan_v2.py' to resolve 'salt://hubblestack_nova/cve_scan_v2.py'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova/firewall.py' to resolve 'salt://hubblestack_nova/firewall.py'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova/firewall.py' to resolve 'salt://hubblestack_nova/firewall.py'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova/grep.py' to resolve 'salt://hubblestack_nova/grep.py'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova/grep.py' to resolve 'salt://hubblestack_nova/grep.py'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova/misc.py' to resolve 'salt://hubblestack_nova/misc.py'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova/misc.py' to resolve 'salt://hubblestack_nova/misc.py'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova/mount.py' to resolve 'salt://hubblestack_nova/mount.py'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova/mount.py' to resolve 'salt://hubblestack_nova/mount.py'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova/netstat.py' to resolve 'salt://hubblestack_nova/netstat.py'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova/netstat.py' to resolve 'salt://hubblestack_nova/netstat.py'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova/openssl.py' to resolve 'salt://hubblestack_nova/openssl.py'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova/openssl.py' to resolve 'salt://hubblestack_nova/openssl.py'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova/pkg.py' to resolve 'salt://hubblestack_nova/pkg.py'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova/pkg.py' to resolve 'salt://hubblestack_nova/pkg.py'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova/pkgng_audit.py' to resolve 'salt://hubblestack_nova/pkgng_audit.py'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova/pkgng_audit.py' to resolve 'salt://hubblestack_nova/pkgng_audit.py'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova/service.py' to resolve 'salt://hubblestack_nova/service.py'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova/service.py' to resolve 'salt://hubblestack_nova/service.py'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova/stat_nova.py' to resolve 'salt://hubblestack_nova/stat_nova.py'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova/stat_nova.py' to resolve 'salt://hubblestack_nova/stat_nova.py'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova/sysctl.py' to resolve 'salt://hubblestack_nova/sysctl.py'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova/sysctl.py' to resolve 'salt://hubblestack_nova/sysctl.py'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova/systemctl.py' to resolve 'salt://hubblestack_nova/systemctl.py'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova/systemctl.py' to resolve 'salt://hubblestack_nova/systemctl.py'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova/vulners_scanner.py' to resolve 'salt://hubblestack_nova/vulners_scanner.py'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova/vulners_scanner.py' to resolve 'salt://hubblestack_nova/vulners_scanner.py'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova/win_auditpol.py' to resolve 'salt://hubblestack_nova/win_auditpol.py'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova/win_auditpol.py' to resolve 'salt://hubblestack_nova/win_auditpol.py'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova/win_firewall.py' to resolve 'salt://hubblestack_nova/win_firewall.py'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova/win_firewall.py' to resolve 'salt://hubblestack_nova/win_firewall.py'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova/win_gp.py' to resolve 'salt://hubblestack_nova/win_gp.py'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova/win_gp.py' to resolve 'salt://hubblestack_nova/win_gp.py'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova/win_pkg.py' to resolve 'salt://hubblestack_nova/win_pkg.py'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova/win_pkg.py' to resolve 'salt://hubblestack_nova/win_pkg.py'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova/win_reg.py' to resolve 'salt://hubblestack_nova/win_reg.py'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova/win_reg.py' to resolve 'salt://hubblestack_nova/win_reg.py'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova/win_secedit.py' to resolve 'salt://hubblestack_nova/win_secedit.py'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova/win_secedit.py' to resolve 'salt://hubblestack_nova/win_secedit.py'
+[INFO    ] Caching directory 'hubblestack_nova_profiles/' for environment 'base'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/centos_6.json' to resolve 'salt://hubblestack_nova_profiles/centos_6.json'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/centos_6.json' to resolve 'salt://hubblestack_nova_profiles/centos_6.json'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/centos_7.json' to resolve 'salt://hubblestack_nova_profiles/centos_7.json'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/centos_7.json' to resolve 'salt://hubblestack_nova_profiles/centos_7.json'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cis/amazon-201409-level-1-scored-v1-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/amazon-201409-level-1-scored-v1-0-0.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cis/amazon-201409-level-1-scored-v1-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/amazon-201409-level-1-scored-v1-0-0.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cis/amazon-level-1-scored-v1-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/amazon-level-1-scored-v1-0-0.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cis/amazon-level-1-scored-v1-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/amazon-level-1-scored-v1-0-0.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cis/amazon-level-1-scored-v2-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/amazon-level-1-scored-v2-0-0.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cis/amazon-level-1-scored-v2-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/amazon-level-1-scored-v2-0-0.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cis/centos-6-level-1-scored-v1-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/centos-6-level-1-scored-v1-0-0.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cis/centos-6-level-1-scored-v1-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/centos-6-level-1-scored-v1-0-0.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cis/centos-6-level-1-scored-v2-0-1.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/centos-6-level-1-scored-v2-0-1.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cis/centos-6-level-1-scored-v2-0-1.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/centos-6-level-1-scored-v2-0-1.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cis/centos-7-level-1-scored-v1-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/centos-7-level-1-scored-v1-0-0.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cis/centos-7-level-1-scored-v1-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/centos-7-level-1-scored-v1-0-0.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cis/centos-7-level-1-scored-v2-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/centos-7-level-1-scored-v2-0-0.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cis/centos-7-level-1-scored-v2-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/centos-7-level-1-scored-v2-0-0.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cis/centos-7-level-1-scored-v2-1-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/centos-7-level-1-scored-v2-1-0.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cis/centos-7-level-1-scored-v2-1-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/centos-7-level-1-scored-v2-1-0.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cis/centos-7-level-1-scored-v2-1-1.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/centos-7-level-1-scored-v2-1-1.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cis/centos-7-level-1-scored-v2-1-1.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/centos-7-level-1-scored-v2-1-1.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cis/coreos-level-1.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/coreos-level-1.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cis/coreos-level-1.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/coreos-level-1.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cis/debian-7.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/debian-7.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cis/debian-7.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/debian-7.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cis/debian-8-level-1-scored-v1-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/debian-8-level-1-scored-v1-0-0.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cis/debian-8-level-1-scored-v1-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/debian-8-level-1-scored-v1-0-0.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cis/debian-9.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/debian-9.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cis/debian-9.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/debian-9.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cis/rhels-5-level-1-scored-v2-2-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/rhels-5-level-1-scored-v2-2-0.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cis/rhels-5-level-1-scored-v2-2-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/rhels-5-level-1-scored-v2-2-0.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cis/rhels-6-level-1-scored-v1-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/rhels-6-level-1-scored-v1-0-0.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cis/rhels-6-level-1-scored-v1-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/rhels-6-level-1-scored-v1-0-0.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cis/rhels-6-level-1-scored-v2-0-1.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/rhels-6-level-1-scored-v2-0-1.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cis/rhels-6-level-1-scored-v2-0-1.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/rhels-6-level-1-scored-v2-0-1.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cis/rhels-7-level-1-scored-v1-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/rhels-7-level-1-scored-v1-0-0.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cis/rhels-7-level-1-scored-v1-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/rhels-7-level-1-scored-v1-0-0.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cis/rhels-7-level-1-scored-v2-1-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/rhels-7-level-1-scored-v2-1-0.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cis/rhels-7-level-1-scored-v2-1-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/rhels-7-level-1-scored-v2-1-0.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cis/rhelw-7-level-1-scored-v2-1-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/rhelw-7-level-1-scored-v2-1-0.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cis/rhelw-7-level-1-scored-v2-1-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/rhelw-7-level-1-scored-v2-1-0.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cis/ubuntu-1204-level-1-scored-v1-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/ubuntu-1204-level-1-scored-v1-0-0.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cis/ubuntu-1204-level-1-scored-v1-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/ubuntu-1204-level-1-scored-v1-0-0.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cis/ubuntu-1404-level-1-scored-v1-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/ubuntu-1404-level-1-scored-v1-0-0.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cis/ubuntu-1404-level-1-scored-v1-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/ubuntu-1404-level-1-scored-v1-0-0.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cis/ubuntu-1604-level-1-scored-v1-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/ubuntu-1604-level-1-scored-v1-0-0.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cis/ubuntu-1604-level-1-scored-v1-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/ubuntu-1604-level-1-scored-v1-0-0.yaml'
+[DEBUG   ] Fetching file from saltenv 'base', ** attempting ** 'salt://hubblestack_nova_profiles/cis/ubuntu-1604-level-1-scored-v1-0-0.yaml'
+[DEBUG   ] No dest file found
+[INFO    ] Fetching file from saltenv 'base', ** done ** 'hubblestack_nova_profiles/cis/ubuntu-1604-level-1-scored-v1-0-0.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cis/windows-2008r2-level-1-scored-v1.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/windows-2008r2-level-1-scored-v1.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cis/windows-2008r2-level-1-scored-v1.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/windows-2008r2-level-1-scored-v1.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cis/windows-2008r2-level-1-scored-v3-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/windows-2008r2-level-1-scored-v3-0-0.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cis/windows-2008r2-level-1-scored-v3-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/windows-2008r2-level-1-scored-v3-0-0.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cis/windows-2012r2-level-1-scored-v1-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/windows-2012r2-level-1-scored-v1-0-0.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cis/windows-2012r2-level-1-scored-v1-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/windows-2012r2-level-1-scored-v1-0-0.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cis/windows-2012r2-level-1-scored-v2-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/windows-2012r2-level-1-scored-v2-0-0.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cis/windows-2012r2-level-1-scored-v2-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/windows-2012r2-level-1-scored-v2-0-0.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cis/windows-2016-level-1-scored-v1-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/windows-2016-level-1-scored-v1-0-0.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cis/windows-2016-level-1-scored-v1-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/windows-2016-level-1-scored-v1-0-0.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cve/centos-6-salt.yaml' to resolve 'salt://hubblestack_nova_profiles/cve/centos-6-salt.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cve/centos-6-salt.yaml' to resolve 'salt://hubblestack_nova_profiles/cve/centos-6-salt.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cve/centos-7-salt.yaml' to resolve 'salt://hubblestack_nova_profiles/cve/centos-7-salt.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cve/centos-7-salt.yaml' to resolve 'salt://hubblestack_nova_profiles/cve/centos-7-salt.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cve/scan-v1.yaml' to resolve 'salt://hubblestack_nova_profiles/cve/scan-v1.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cve/scan-v1.yaml' to resolve 'salt://hubblestack_nova_profiles/cve/scan-v1.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cve/scan-v2-salt.yaml' to resolve 'salt://hubblestack_nova_profiles/cve/scan-v2-salt.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cve/scan-v2-salt.yaml' to resolve 'salt://hubblestack_nova_profiles/cve/scan-v2-salt.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cve/scan-v2.yaml' to resolve 'salt://hubblestack_nova_profiles/cve/scan-v2.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cve/scan-v2.yaml' to resolve 'salt://hubblestack_nova_profiles/cve/scan-v2.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cve/scan-v3.yaml' to resolve 'salt://hubblestack_nova_profiles/cve/scan-v3.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cve/scan-v3.yaml' to resolve 'salt://hubblestack_nova_profiles/cve/scan-v3.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/firewall/ssh.yaml' to resolve 'salt://hubblestack_nova_profiles/firewall/ssh.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/firewall/ssh.yaml' to resolve 'salt://hubblestack_nova_profiles/firewall/ssh.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/misc.yaml' to resolve 'salt://hubblestack_nova_profiles/misc.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/misc.yaml' to resolve 'salt://hubblestack_nova_profiles/misc.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/network/smtp.yaml' to resolve 'salt://hubblestack_nova_profiles/network/smtp.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/network/smtp.yaml' to resolve 'salt://hubblestack_nova_profiles/network/smtp.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/network/ssh.yaml' to resolve 'salt://hubblestack_nova_profiles/network/ssh.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/network/ssh.yaml' to resolve 'salt://hubblestack_nova_profiles/network/ssh.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/samples/dont_blame_nrpe.yaml' to resolve 'salt://hubblestack_nova_profiles/samples/dont_blame_nrpe.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/samples/dont_blame_nrpe.yaml' to resolve 'salt://hubblestack_nova_profiles/samples/dont_blame_nrpe.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/samples/sample_cis.yaml' to resolve 'salt://hubblestack_nova_profiles/samples/sample_cis.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/samples/sample_cis.yaml' to resolve 'salt://hubblestack_nova_profiles/samples/sample_cis.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/samples/sample_command.yaml' to resolve 'salt://hubblestack_nova_profiles/samples/sample_command.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/samples/sample_command.yaml' to resolve 'salt://hubblestack_nova_profiles/samples/sample_command.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/samples/sample_control.yaml' to resolve 'salt://hubblestack_nova_profiles/samples/sample_control.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/samples/sample_control.yaml' to resolve 'salt://hubblestack_nova_profiles/samples/sample_control.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/samples/sample_firewall.yaml' to resolve 'salt://hubblestack_nova_profiles/samples/sample_firewall.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/samples/sample_firewall.yaml' to resolve 'salt://hubblestack_nova_profiles/samples/sample_firewall.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/samples/sample_openssl.yaml' to resolve 'salt://hubblestack_nova_profiles/samples/sample_openssl.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/samples/sample_openssl.yaml' to resolve 'salt://hubblestack_nova_profiles/samples/sample_openssl.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/stig/rhel-6-mac-1-classified.yaml' to resolve 'salt://hubblestack_nova_profiles/stig/rhel-6-mac-1-classified.yaml'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/stig/rhel-6-mac-1-classified.yaml' to resolve 'salt://hubblestack_nova_profiles/stig/rhel-6-mac-1-classified.yaml'
+[DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/top.nova' to resolve 'salt://hubblestack_nova_profiles/top.nova'
+[DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/top.nova' to resolve 'salt://hubblestack_nova_profiles/top.nova'
+[DEBUG   ] loading nova modules
+[DEBUG   ] Error loading nova./win_secedit.py: This audit module only runs on windows
+[DEBUG   ] Error loading nova./win_firewall.py: This audit module only runs on windows
+[DEBUG   ] Error loading nova./pkgng_audit.py: This audit module only runs on FreeBSD
+[DEBUG   ] Error loading nova./win_gp.py: This audit module only runs on windows
+[DEBUG   ] Error loading nova./cve_scan.py: This module requires Linux and the oscap binary
+[DEBUG   ] LazyLoaded network.netstat
+[DEBUG   ] Error loading nova./win_reg.py: This audit module only runs on windows
+[DEBUG   ] Error loading nova./win_pkg.py: This audit module only runs on windows
+[DEBUG   ] Error loading nova./win_auditpol.py: This audit module only runs on windows
+[DEBUG   ] LazyLoaded match.compound
+[DEBUG   ] compound_match: ip-172-31-27-101.ap-south-1.compute.internal ? G@osfinger:Ubuntu-12.04
+[DEBUG   ] grains target: osfinger:Ubuntu-12.04
+[DEBUG   ] Attempting to match 'Ubuntu-12.04' in 'osfinger' using delimiter ':'
+[DEBUG   ] compound_match ip-172-31-27-101.ap-south-1.compute.internal ? "G@osfinger:Ubuntu-12.04" => "False"
+[DEBUG   ] compound_match: ip-172-31-27-101.ap-south-1.compute.internal ? G@osfinger:Ubuntu-16.04
+[DEBUG   ] grains target: osfinger:Ubuntu-16.04
+[DEBUG   ] Attempting to match 'Ubuntu-16.04' in 'osfinger' using delimiter ':'
+[DEBUG   ] compound_match ip-172-31-27-101.ap-south-1.compute.internal ? "G@osfinger:Ubuntu-16.04" => "True"
+[DEBUG   ] compound_match: ip-172-31-27-101.ap-south-1.compute.internal ? G@osfinger:Amazon*Linux*2014*
+[DEBUG   ] grains target: osfinger:Amazon*Linux*2014*
+[DEBUG   ] Attempting to match 'Amazon*Linux*2014*' in 'osfinger' using delimiter ':'
+[DEBUG   ] compound_match ip-172-31-27-101.ap-south-1.compute.internal ? "G@osfinger:Amazon*Linux*2014*" => "False"
+[DEBUG   ] compound_match: ip-172-31-27-101.ap-south-1.compute.internal ? G@osfinger:Amazon*Linux*2015*
+[DEBUG   ] grains target: osfinger:Amazon*Linux*2015*
+[DEBUG   ] Attempting to match 'Amazon*Linux*2015*' in 'osfinger' using delimiter ':'
+[DEBUG   ] compound_match ip-172-31-27-101.ap-south-1.compute.internal ? "G@osfinger:Amazon*Linux*2015*" => "False"
+[DEBUG   ] compound_match: ip-172-31-27-101.ap-south-1.compute.internal ? G@osfinger:Ubuntu-14.04
+[DEBUG   ] grains target: osfinger:Ubuntu-14.04
+[DEBUG   ] Attempting to match 'Ubuntu-14.04' in 'osfinger' using delimiter ':'
+[DEBUG   ] compound_match ip-172-31-27-101.ap-south-1.compute.internal ? "G@osfinger:Ubuntu-14.04" => "False"
+[DEBUG   ] compound_match: ip-172-31-27-101.ap-south-1.compute.internal ? G@osfullname:Microsoft*Windows*Server*2016*
+[DEBUG   ] grains target: osfullname:Microsoft*Windows*Server*2016*
+[DEBUG   ] Attempting to match 'Microsoft*Windows*Server*2016*' in 'osfullname' using delimiter ':'
+[DEBUG   ] compound_match ip-172-31-27-101.ap-south-1.compute.internal ? "G@osfullname:Microsoft*Windows*Server*2016*" => "False"
+[DEBUG   ] compound_match: ip-172-31-27-101.ap-south-1.compute.internal ? G@osfinger:Amazon*Linux*2016*
+[DEBUG   ] grains target: osfinger:Amazon*Linux*2016*
+[DEBUG   ] Attempting to match 'Amazon*Linux*2016*' in 'osfinger' using delimiter ':'
+[DEBUG   ] compound_match ip-172-31-27-101.ap-south-1.compute.internal ? "G@osfinger:Amazon*Linux*2016*" => "False"
+[DEBUG   ] compound_match: ip-172-31-27-101.ap-south-1.compute.internal ? G@osfinger:Debian*8
+[DEBUG   ] grains target: osfinger:Debian*8
+[DEBUG   ] Attempting to match 'Debian*8' in 'osfinger' using delimiter ':'
+[DEBUG   ] compound_match ip-172-31-27-101.ap-south-1.compute.internal ? "G@osfinger:Debian*8" => "False"
+[DEBUG   ] compound_match: ip-172-31-27-101.ap-south-1.compute.internal ? G@osfinger:Amazon*Linux*2017*
+[DEBUG   ] grains target: osfinger:Amazon*Linux*2017*
+[DEBUG   ] Attempting to match 'Amazon*Linux*2017*' in 'osfinger' using delimiter ':'
+[DEBUG   ] compound_match ip-172-31-27-101.ap-south-1.compute.internal ? "G@osfinger:Amazon*Linux*2017*" => "False"
+[DEBUG   ] compound_match: ip-172-31-27-101.ap-south-1.compute.internal ? G@osfullname:Microsoft*Windows*Server*2012*
+[DEBUG   ] grains target: osfullname:Microsoft*Windows*Server*2012*
+[DEBUG   ] Attempting to match 'Microsoft*Windows*Server*2012*' in 'osfullname' using delimiter ':'
+[DEBUG   ] compound_match ip-172-31-27-101.ap-south-1.compute.internal ? "G@osfullname:Microsoft*Windows*Server*2012*" => "False"
+[DEBUG   ] compound_match: ip-172-31-27-101.ap-south-1.compute.internal ? G@osfinger:*CoreOS*
+[DEBUG   ] grains target: osfinger:*CoreOS*
+[DEBUG   ] Attempting to match '*CoreOS*' in 'osfinger' using delimiter ':'
+[DEBUG   ] compound_match ip-172-31-27-101.ap-south-1.compute.internal ? "G@osfinger:*CoreOS*" => "False"
+[DEBUG   ] compound_match: ip-172-31-27-101.ap-south-1.compute.internal ? G@osfinger:Red*Hat*Enterprise*Linux*Server-7
+[DEBUG   ] grains target: osfinger:Red*Hat*Enterprise*Linux*Server-7
+[DEBUG   ] Attempting to match 'Red*Hat*Enterprise*Linux*Server-7' in 'osfinger' using delimiter ':'
+[DEBUG   ] compound_match ip-172-31-27-101.ap-south-1.compute.internal ? "G@osfinger:Red*Hat*Enterprise*Linux*Server-7" => "False"
+[DEBUG   ] compound_match: ip-172-31-27-101.ap-south-1.compute.internal ? G@osfinger:Red*Hat*Enterprise*Linux*Server-6
+[DEBUG   ] grains target: osfinger:Red*Hat*Enterprise*Linux*Server-6
+[DEBUG   ] Attempting to match 'Red*Hat*Enterprise*Linux*Server-6' in 'osfinger' using delimiter ':'
+[DEBUG   ] compound_match ip-172-31-27-101.ap-south-1.compute.internal ? "G@osfinger:Red*Hat*Enterprise*Linux*Server-6" => "False"
+[DEBUG   ] compound_match: ip-172-31-27-101.ap-south-1.compute.internal ? G@osfinger:Red*Hat*Enterprise*Linux*Workstation-7
+[DEBUG   ] grains target: osfinger:Red*Hat*Enterprise*Linux*Workstation-7
+[DEBUG   ] Attempting to match 'Red*Hat*Enterprise*Linux*Workstation-7' in 'osfinger' using delimiter ':'
+[DEBUG   ] compound_match ip-172-31-27-101.ap-south-1.compute.internal ? "G@osfinger:Red*Hat*Enterprise*Linux*Workstation-7" => "False"
+[DEBUG   ] compound_match: ip-172-31-27-101.ap-south-1.compute.internal ? G@osfinger:Debian*7
+[DEBUG   ] grains target: osfinger:Debian*7
+[DEBUG   ] Attempting to match 'Debian*7' in 'osfinger' using delimiter ':'
+[DEBUG   ] compound_match ip-172-31-27-101.ap-south-1.compute.internal ? "G@osfinger:Debian*7" => "False"
+[DEBUG   ] compound_match: ip-172-31-27-101.ap-south-1.compute.internal ? G@osfinger:CentOS-6
+[DEBUG   ] grains target: osfinger:CentOS-6
+[DEBUG   ] Attempting to match 'CentOS-6' in 'osfinger' using delimiter ':'
+[DEBUG   ] compound_match ip-172-31-27-101.ap-south-1.compute.internal ? "G@osfinger:CentOS-6" => "False"
+[DEBUG   ] compound_match: ip-172-31-27-101.ap-south-1.compute.internal ? G@osfinger:Amazon*Linux*2018*
+[DEBUG   ] grains target: osfinger:Amazon*Linux*2018*
+[DEBUG   ] Attempting to match 'Amazon*Linux*2018*' in 'osfinger' using delimiter ':'
+[DEBUG   ] compound_match ip-172-31-27-101.ap-south-1.compute.internal ? "G@osfinger:Amazon*Linux*2018*" => "False"
+[DEBUG   ] compound_match: ip-172-31-27-101.ap-south-1.compute.internal ? G@osfinger:CentOS*Linux-7
+[DEBUG   ] grains target: osfinger:CentOS*Linux-7
+[DEBUG   ] Attempting to match 'CentOS*Linux-7' in 'osfinger' using delimiter ':'
+[DEBUG   ] compound_match ip-172-31-27-101.ap-south-1.compute.internal ? "G@osfinger:CentOS*Linux-7" => "False"
+[DEBUG   ] compound_match: ip-172-31-27-101.ap-south-1.compute.internal ? G@osfullname:Microsoft*Windows*Server*2008*
+[DEBUG   ] grains target: osfullname:Microsoft*Windows*Server*2008*
+[DEBUG   ] Attempting to match 'Microsoft*Windows*Server*2008*' in 'osfullname' using delimiter ':'
+[DEBUG   ] compound_match ip-172-31-27-101.ap-south-1.compute.internal ? "G@osfullname:Microsoft*Windows*Server*2008*" => "False"
+[DEBUG   ] compound_match: ip-172-31-27-101.ap-south-1.compute.internal ? G@osfinger:Debian*9
+[DEBUG   ] grains target: osfinger:Debian*9
+[DEBUG   ] Attempting to match 'Debian*9' in 'osfinger' using delimiter ':'
+[DEBUG   ] compound_match ip-172-31-27-101.ap-south-1.compute.internal ? "G@osfinger:Debian*9" => "False"
+[DEBUG   ] nova_kwargs: {}
+[DEBUG   ] LazyLoaded pkg.version
+[DEBUG   ] LazyLoaded pkg_resource.version
+[DEBUG   ] LazyLoaded cmd.run_stdout
+[INFO    ] Executing command ['dpkg-query', '--showformat', '${Status} ${Package} ${Version} ${Architecture}', '-W'] in directory '/home/ubuntu'
+[DEBUG   ] os_version: 16.04, os_name: ubuntu
+[DEBUG   ] service audit __data__:
+[DEBUG   ] {'openssl': []}
+[DEBUG   ] service audit __tags__:
+[DEBUG   ] {}
+[INFO    ] Executing command 'grep   /var/tmp /proc/mounts' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep   /var/tmp /proc/mounts' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep   ^*.*[^I][^I]*@ /etc/rsyslog.conf' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep   PermitRootLogin /etc/ssh/sshd_config' in directory '/home/ubuntu'
+[DEBUG   ] stdout: PermitRootLogin no
+#PermitRootLogin no
+[INFO    ] Executing command 'grep   ^+ /etc/group' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep   /tmp /proc/mounts' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep   ^+ /etc/passwd' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep   /tmp /proc/mounts' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep   /var/tmp /proc/mounts' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep   remember /etc/pam.d/common-password' in directory '/home/ubuntu'
+[DEBUG   ] stdout: password 	sufficient 			pam_unix.so remember=5
+[INFO    ] Executing command 'grep   ^talk /etc/inetd.conf' in directory '/home/ubuntu'
+[DEBUG   ] stderr: grep: /etc/inetd.conf: No such file or directory
+[DEBUG   ] retcode: 2
+[INFO    ] Executing command 'grep   ^ntalk /etc/inetd.conf' in directory '/home/ubuntu'
+[DEBUG   ] stderr: grep: /etc/inetd.conf: No such file or directory
+[DEBUG   ] retcode: 2
+[INFO    ] Executing command 'grep   ^tftp /etc/inetd.conf' in directory '/home/ubuntu'
+[DEBUG   ] stderr: grep: /etc/inetd.conf: No such file or directory
+[DEBUG   ] retcode: 2
+[INFO    ] Executing command 'grep   ^root:[*\!]: /etc/shadow' in directory '/home/ubuntu'
+[DEBUG   ] stdout: root:!:17270:0::7:::
+[INFO    ] Executing command 'grep   ClientAliveInterval /etc/ssh/sshd_config' in directory '/home/ubuntu'
+[DEBUG   ] stdout: ClientAliveInterval 600
+[INFO    ] Executing command 'grep   ClientAliveCountMax /etc/ssh/sshd_config' in directory '/home/ubuntu'
+[DEBUG   ] stdout: ClientAliveCountMax 0
+[INFO    ] Executing command 'grep   password /boot/grub/grub.cfg' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep   ^shell /etc/inetd.conf' in directory '/home/ubuntu'
+[DEBUG   ] stderr: grep: /etc/inetd.conf: No such file or directory
+[DEBUG   ] retcode: 2
+[INFO    ] Executing command 'grep   ^login /etc/inetd.conf' in directory '/home/ubuntu'
+[DEBUG   ] stderr: grep: /etc/inetd.conf: No such file or directory
+[DEBUG   ] retcode: 2
+[INFO    ] Executing command 'grep   ^exec /etc/inetd.conf' in directory '/home/ubuntu'
+[DEBUG   ] stderr: grep: /etc/inetd.conf: No such file or directory
+[DEBUG   ] retcode: 2
+[INFO    ] Executing command 'grep   /home /proc/mounts' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep   \v /etc/motd' in directory '/home/ubuntu'
+[DEBUG   ] stderr: grep: /etc/motd: No such file or directory
+[DEBUG   ] retcode: 2
+[INFO    ] Executing command 'grep   \r /etc/motd' in directory '/home/ubuntu'
+[DEBUG   ] stderr: grep: /etc/motd: No such file or directory
+[DEBUG   ] retcode: 2
+[INFO    ] Executing command 'grep   \m /etc/motd' in directory '/home/ubuntu'
+[DEBUG   ] stderr: grep: /etc/motd: No such file or directory
+[DEBUG   ] retcode: 2
+[INFO    ] Executing command 'grep   \s /etc/motd' in directory '/home/ubuntu'
+[DEBUG   ] stderr: grep: /etc/motd: No such file or directory
+[DEBUG   ] retcode: 2
+[INFO    ] Executing command 'grep   ^\$FileCreateMode /etc/rsyslog.conf' in directory '/home/ubuntu'
+[DEBUG   ] stdout: $FileCreateMode 0640
+[INFO    ] Executing command 'grep   pam_cracklib /etc/pam.d/common-password' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep   pam_cracklib /etc/pam.d/common-password' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep   pam_cracklib /etc/pam.d/common-password' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep   pam_cracklib /etc/pam.d/common-password' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep   pam_cracklib /etc/pam.d/common-password' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep   pam_cracklib /etc/pam.d/common-password' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep   Ciphers /etc/ssh/sshd_config' in directory '/home/ubuntu'
+[DEBUG   ] stdout: # **Ciphers** -- If your clients don't support CTR (eg older versions), cbc will be added
+Ciphers aes256-ctr,aes192-ctr,aes128-ctr
+[INFO    ] Executing command 'grep   hard core /etc/security/limits.conf' in directory '/home/ubuntu'
+[DEBUG   ] stdout: /etc/security/limits.conf:#        - "hard" for enforcing hard limits
+/etc/security/limits.conf:#root            hard    core            100000
+/etc/security/limits.conf:#*               hard    rss             10000
+/etc/security/limits.conf:#@student        hard    nproc           20
+/etc/security/limits.conf:#@faculty        hard    nproc           50
+/etc/security/limits.conf:#ftp             hard    nproc           0
+/etc/security/limits.conf:* hard core 0
+[DEBUG   ] stderr: grep: core: No such file or directory
+[DEBUG   ] retcode: 2
+[INFO    ] Executing command 'grep   X11Forwarding /etc/ssh/sshd_config' in directory '/home/ubuntu'
+[DEBUG   ] stdout: X11Forwarding  no
+#X11Forwarding no
+[INFO    ] Executing command 'grep   \v /etc/issue' in directory '/home/ubuntu'
+[DEBUG   ] stdout: Authorized uses only. All activity may be monitored and reported.
+[INFO    ] Executing command 'grep   \r /etc/issue' in directory '/home/ubuntu'
+[DEBUG   ] stdout: Authorized uses only. All activity may be monitored and reported.
+[INFO    ] Executing command 'grep   \m /etc/issue' in directory '/home/ubuntu'
+[DEBUG   ] stdout: Authorized uses only. All activity may be monitored and reported.
+[INFO    ] Executing command 'grep   \s /etc/issue' in directory '/home/ubuntu'
+[DEBUG   ] stdout: Authorized uses only. All activity may be monitored and reported.
+[INFO    ] Executing command 'grep   \v /etc/issue.net' in directory '/home/ubuntu'
+[DEBUG   ] stdout: Authorized uses only. All activity may be monitored and reported.
+[INFO    ] Executing command 'grep   \r /etc/issue.net' in directory '/home/ubuntu'
+[DEBUG   ] stdout: Authorized uses only. All activity may be monitored and reported.
+[INFO    ] Executing command 'grep   \m /etc/issue.net' in directory '/home/ubuntu'
+[DEBUG   ] stdout: Authorized uses only. All activity may be monitored and reported.
+[INFO    ] Executing command 'grep   \s /etc/issue.net' in directory '/home/ubuntu'
+[DEBUG   ] stdout: Authorized uses only. All activity may be monitored and reported.
+[INFO    ] Executing command 'grep  -B 3 chargen-stream /etc/xinetd.d/chargen' in directory '/home/ubuntu'
+[DEBUG   ] stdout: {
+	disable		= yes
+	type		= INTERNAL
+	id		= chargen-stream
+[INFO    ] Executing command 'grep  -B 3 chargen-dgram /etc/xinetd.d/chargen' in directory '/home/ubuntu'
+[DEBUG   ] stdout: {
+	disable		= no
+	type		= INTERNAL
+	id		= chargen-dgram
+[INFO    ] Executing command 'grep  -r vfat /etc/modprobe.d' in directory '/home/ubuntu'
+[DEBUG   ] stdout: /etc/modprobe.d/CIS.conf:install vfat /bin/true
+[INFO    ] Executing command 'grep   AllowUsers /etc/ssh/sshd_config' in directory '/home/ubuntu'
+[DEBUG   ] stdout: #AllowUsers user1
+[INFO    ] Executing command 'grep   AllowGroups /etc/ssh/sshd_config' in directory '/home/ubuntu'
+[DEBUG   ] stdout: #AllowGroups group1
+[INFO    ] Executing command 'grep   DenyUsers /etc/ssh/sshd_config' in directory '/home/ubuntu'
+[DEBUG   ] stdout: #DenyUsers *
+[INFO    ] Executing command 'grep   DenyGroups /etc/ssh/sshd_config' in directory '/home/ubuntu'
+[DEBUG   ] stdout: #DenyGroups *
+[INFO    ] Executing command 'grep  -r hfsplus /etc/modprobe.d' in directory '/home/ubuntu'
+[DEBUG   ] stdout: /etc/modprobe.d/CIS.conf:install hfsplus /bin/true
+[INFO    ] Executing command 'grep   /tmp /proc/mounts' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep   PermitUserEnvironment /etc/ssh/sshd_config' in directory '/home/ubuntu'
+[DEBUG   ] stdout: PermitUserEnvironment no
+[INFO    ] Executing command 'grep  -r cramfs /etc/modprobe.d' in directory '/home/ubuntu'
+[DEBUG   ] stdout: /etc/modprobe.d/CIS.conf:install cramfs /bin/true
+[INFO    ] Executing command 'grep  -r freevxfs /etc/modprobe.d' in directory '/home/ubuntu'
+[DEBUG   ] stdout: /etc/modprobe.d/CIS.conf:install freevxfs /bin/true
+[INFO    ] Executing command 'grep  -r jffs2 /etc/modprobe.d' in directory '/home/ubuntu'
+[DEBUG   ] stdout: /etc/modprobe.d/CIS.conf:install jffs2 /bin/true
+[INFO    ] Executing command 'grep   PASS_MAX_DAYS /etc/login.defs' in directory '/home/ubuntu'
+[DEBUG   ] stdout: #	PASS_MAX_DAYS	Maximum number of days a password may be used.
+PASS_MAX_DAYS 90
+[INFO    ] Executing command 'grep   PASS_MIN_DAYS /etc/login.defs' in directory '/home/ubuntu'
+[DEBUG   ] stdout: #	PASS_MIN_DAYS	Minimum number of days allowed between password changes.
+PASS_MIN_DAYS 7
+[INFO    ] Executing command 'grep   PASS_WARN_AGE /etc/login.defs' in directory '/home/ubuntu'
+[DEBUG   ] stdout: #	PASS_WARN_AGE	Number of days warning given before a password expires.
+PASS_WARN_AGE 7
+[INFO    ] Executing command 'grep   /var /proc/mounts' in directory '/home/ubuntu'
+[DEBUG   ] stdout: lxcfs /var/lib/lxcfs fuse.lxcfs rw,nosuid,nodev,relatime,user_id=0,group_id=0,allow_other 0 0
+[INFO    ] Executing command 'grep   Protocol /etc/ssh/sshd_config' in directory '/home/ubuntu'
+[DEBUG   ] stdout: Protocol 2
+[INFO    ] Executing command 'grep   ^+ /etc/shadow' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep  -r hfs /etc/modprobe.d' in directory '/home/ubuntu'
+[DEBUG   ] stdout: /etc/modprobe.d/CIS.conf:install hfs /bin/true
+/etc/modprobe.d/CIS.conf:install hfsplus /bin/true
+/etc/modprobe.d/CIS.conf:install squashfs /bin/true
+[INFO    ] Executing command 'grep  -r squashfs /etc/modprobe.d' in directory '/home/ubuntu'
+[DEBUG   ] stdout: /etc/modprobe.d/CIS.conf:install squashfs /bin/true
+[INFO    ] Executing command 'grep   aide /var/spool/cron/crontabs/root' in directory '/home/ubuntu'
+[DEBUG   ] stdout: 0 5 * * * /usr/bin/aide --check
+[INFO    ] Executing command 'grep   /var /etc/fstab' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep   ^RSYNC_ENABLE /etc/default/rsync' in directory '/home/ubuntu'
+[DEBUG   ] stdout: RSYNC_ENABLE=false
+[INFO    ] Executing command 'grep   ^inet_interfaces /etc/postfix/main.cf' in directory '/home/ubuntu'
+[DEBUG   ] stderr: grep: /etc/postfix/main.cf: No such file or directory
+[DEBUG   ] retcode: 2
+[INFO    ] Executing command 'grep   LogLevel /etc/ssh/sshd_config' in directory '/home/ubuntu'
+[DEBUG   ] stdout: LogLevel INFO
+[INFO    ] Executing command 'grep   ^restrict /etc/ntp.conf' in directory '/home/ubuntu'
+[DEBUG   ] stdout: restrict 0.pool.ntp.org nomodify notrap noquery
+restrict 1.pool.ntp.org nomodify notrap noquery
+restrict 2.pool.ntp.org nomodify notrap noquery
+restrict 3.pool.ntp.org nomodify notrap noquery
+restrict default kod notrap nomodify nopeer noquery
+restrict 127.0.0.1
+restrict -6 default kod notrap nomodify nopeer noquery
+restrict -6 ::1
+[INFO    ] Executing command 'grep   restrict -6 default /etc/ntp.conf' in directory '/home/ubuntu'
+[DEBUG   ] stdout: /etc/ntp.conf-
+/etc/ntp.conf-
+/etc/ntp.conf-disable monitor
+/etc/ntp.conf-
+/etc/ntp.conf-
+/etc/ntp.conf-server 0.pool.ntp.org iburst minpoll 6 maxpoll 10
+/etc/ntp.conf:restrict 0.pool.ntp.org nomodify notrap noquery
+/etc/ntp.conf-server 1.pool.ntp.org iburst minpoll 6 maxpoll 10
+/etc/ntp.conf:restrict 1.pool.ntp.org nomodify notrap noquery
+/etc/ntp.conf-server 2.pool.ntp.org iburst minpoll 6 maxpoll 10
+/etc/ntp.conf:restrict 2.pool.ntp.org nomodify notrap noquery
+/etc/ntp.conf-server 3.pool.ntp.org iburst minpoll 6 maxpoll 10
+/etc/ntp.conf:restrict 3.pool.ntp.org nomodify notrap noquery
+/etc/ntp.conf-
+/etc/ntp.conf:restrict default kod notrap nomodify nopeer noquery
+/etc/ntp.conf:restrict 127.0.0.1
+/etc/ntp.conf:restrict -6 default kod notrap nomodify nopeer noquery
+/etc/ntp.conf:restrict -6 ::1
+/etc/ntp.conf-
+/etc/ntp.conf-
+/etc/ntp.conf-
+/etc/ntp.conf-
+[DEBUG   ] stderr: grep: default: No such file or directory
+[DEBUG   ] retcode: 2
+[INFO    ] Executing command 'grep   ^server /etc/ntp.conf' in directory '/home/ubuntu'
+[DEBUG   ] stdout: server 0.pool.ntp.org iburst minpoll 6 maxpoll 10
+server 1.pool.ntp.org iburst minpoll 6 maxpoll 10
+server 2.pool.ntp.org iburst minpoll 6 maxpoll 10
+server 3.pool.ntp.org iburst minpoll 6 maxpoll 10
+[INFO    ] Executing command 'grep   RUNASUSER= /etc/init.d/ntp' in directory '/home/ubuntu'
+[DEBUG   ] stdout: RUNASUSER=ntp
+[INFO    ] Executing command 'grep  -r udf /etc/modprobe.d' in directory '/home/ubuntu'
+[DEBUG   ] stdout: /etc/modprobe.d/CIS.conf:install udf /bin/true
+[INFO    ] Executing command 'grep   HostbasedAuthentication /etc/ssh/sshd_config' in directory '/home/ubuntu'
+[DEBUG   ] stdout: HostbasedAuthentication no
+[INFO    ] Executing command 'grep   IgnoreRhosts /etc/ssh/sshd_config' in directory '/home/ubuntu'
+[DEBUG   ] stdout: IgnoreRhosts yes
+[INFO    ] Executing command 'grep   MaxAuthTries /etc/ssh/sshd_config' in directory '/home/ubuntu'
+[DEBUG   ] stdout: MaxAuthTries 4
+[INFO    ] Executing command 'grep   pam_wheel.so /etc/pam.d/su' in directory '/home/ubuntu'
+[DEBUG   ] stdout: # auth       required   pam_wheel.so
+# auth       sufficient pam_wheel.so trust
+# auth       required   pam_wheel.so deny group=nosu
+auth required pam_wheel.so use_uid
+[INFO    ] Executing command 'grep   wheel /etc/group' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep   PermitEmptyPasswords /etc/ssh/sshd_config' in directory '/home/ubuntu'
+[DEBUG   ] stdout: PermitEmptyPasswords no
+[INFO    ] Executing command 'grep   ^daytime /etc/inetd.conf' in directory '/home/ubuntu'
+[DEBUG   ] stderr: grep: /etc/inetd.conf: No such file or directory
+[DEBUG   ] retcode: 2
+[INFO    ] Executing command 'grep   ^echo /etc/inetd.conf' in directory '/home/ubuntu'
+[DEBUG   ] stderr: grep: /etc/inetd.conf: No such file or directory
+[DEBUG   ] retcode: 2
+[INFO    ] Executing command 'grep   ^discard /etc/inetd.conf' in directory '/home/ubuntu'
+[DEBUG   ] stderr: grep: /etc/inetd.conf: No such file or directory
+[DEBUG   ] retcode: 2
+[INFO    ] Executing command 'grep   ^time /etc/inetd.conf' in directory '/home/ubuntu'
+[DEBUG   ] stderr: grep: /etc/inetd.conf: No such file or directory
+[DEBUG   ] retcode: 2
+[INFO    ] Executing command 'grep   /dev/shm /proc/mounts' in directory '/home/ubuntu'
+[DEBUG   ] stdout: tmpfs /dev/shm tmpfs rw,nosuid,nodev,noexec 0 0
+[INFO    ] Executing command 'grep   ^telnet /etc/inetd.conf' in directory '/home/ubuntu'
+[DEBUG   ] stderr: grep: /etc/inetd.conf: No such file or directory
+[DEBUG   ] retcode: 2
+[INFO    ] Executing command 'grep   /var/log/audit /proc/mounts' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep   /var/log /proc/mounts' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep   /home /proc/mounts' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep   Banner /etc/sshd_conf' in directory '/home/ubuntu'
+[DEBUG   ] stderr: grep: /etc/sshd_conf: No such file or directory
+[DEBUG   ] retcode: 2
+[INFO    ] Executing command 'grep   /dev/shm /proc/mounts' in directory '/home/ubuntu'
+[DEBUG   ] stdout: tmpfs /dev/shm tmpfs rw,nosuid,nodev,noexec 0 0
+[INFO    ] Executing command 'grep   UMASK /etc/login.defs' in directory '/home/ubuntu'
+[DEBUG   ] stdout: #	UMASK		Default "umask" value.
+# UMASK is the default umask value for pam_umask and is used by
+# 022 is the "historical" value in Debian for UMASK
+# If USERGROUPS_ENAB is set to "yes", that will modify this UMASK default value
+UMASK		022
+[INFO    ] Executing command 'grep   /dev/shm /proc/mounts' in directory '/home/ubuntu'
+[DEBUG   ] stdout: tmpfs /dev/shm tmpfs rw,nosuid,nodev,noexec 0 0
+[DEBUG   ] LazyLoaded service.status
+[INFO    ] Executing command ['systemctl', 'status', 'isc-dhcp-server.service', '-n', '0'] in directory '/home/ubuntu'
+[DEBUG   ] stdout: * isc-dhcp-server.service
+   Loaded: not-found (Reason: No such file or directory)
+   Active: inactive (dead)
+[DEBUG   ] retcode: 3
+[INFO    ] Executing command ['systemctl', 'is-active', 'isc-dhcp-server.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: inactive
+[INFO    ] Executing command ['systemctl', 'status', 'cups.service', '-n', '0'] in directory '/home/ubuntu'
+[DEBUG   ] stdout: * cups.service
+   Loaded: not-found (Reason: No such file or directory)
+   Active: inactive (dead)
+[DEBUG   ] retcode: 3
+[INFO    ] Executing command ['systemctl', 'is-active', 'cups.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: inactive
+[INFO    ] Executing command ['systemctl', 'status', 'avahi-daemon.service', '-n', '0'] in directory '/home/ubuntu'
+[DEBUG   ] stdout: * avahi-daemon.service
+   Loaded: not-found (Reason: No such file or directory)
+   Active: inactive (dead)
+[DEBUG   ] retcode: 3
+[INFO    ] Executing command ['systemctl', 'is-active', 'avahi-daemon.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: inactive
+[INFO    ] Executing command ['systemctl', 'status', 'rsyslog.service', '-n', '0'] in directory '/home/ubuntu'
+[DEBUG   ] stdout: * rsyslog.service - System Logging Service
+   Loaded: loaded (/lib/systemd/system/rsyslog.service; enabled; vendor preset: enabled)
+   Active: active (running) since Fri 2017-11-10 07:13:23 UTC; 4 days ago
+     Docs: man:rsyslogd(8)
+           http://www.rsyslog.com/doc/
+ Main PID: 1173 (rsyslogd)
+    Tasks: 4
+   Memory: 2.1M
+      CPU: 245ms
+   CGroup: /system.slice/rsyslog.service
+           `-1173 /usr/sbin/rsyslogd -n
+[INFO    ] Executing command ['systemctl', 'is-active', 'rsyslog.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: active
+[INFO    ] Executing command ['systemctl', 'status', 'autofs.service', '-n', '0'] in directory '/home/ubuntu'
+[DEBUG   ] stdout: * autofs.service
+   Loaded: not-found (Reason: No such file or directory)
+   Active: inactive (dead)
+[DEBUG   ] retcode: 3
+[INFO    ] Executing command ['systemctl', 'is-active', 'autofs.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: inactive
+[INFO    ] Executing command ['systemctl', 'status', 'cron.service', '-n', '0'] in directory '/home/ubuntu'
+[DEBUG   ] stdout: * cron.service - Regular background program processing daemon
+   Loaded: loaded (/lib/systemd/system/cron.service; enabled; vendor preset: enabled)
+   Active: active (running) since Fri 2017-11-10 07:13:23 UTC; 4 days ago
+     Docs: man:cron(8)
+ Main PID: 1204 (cron)
+    Tasks: 1
+   Memory: 59.4M
+      CPU: 6.558s
+   CGroup: /system.slice/cron.service
+           `-1204 /usr/sbin/cron -f
+[INFO    ] Executing command ['systemctl', 'is-active', 'cron.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: active
+[INFO    ] Executing command ['systemctl', 'status', 'apport.service', '-n', '0'] in directory '/home/ubuntu'
+[DEBUG   ] stdout: * apport.service - LSB: automatic crash report generation
+   Loaded: loaded (/etc/init.d/apport; bad; vendor preset: enabled)
+   Active: active (exited) since Fri 2017-11-10 07:13:23 UTC; 4 days ago
+     Docs: man:systemd-sysv-generator(8)
+    Tasks: 0
+   Memory: 0B
+      CPU: 0
+[INFO    ] Executing command ['systemctl', 'is-active', 'apport.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: active
+[INFO    ] Executing command ['systemctl', 'status', 'whoopsie.service', '-n', '0'] in directory '/home/ubuntu'
+[DEBUG   ] stdout: * whoopsie.service
+   Loaded: not-found (Reason: No such file or directory)
+   Active: inactive (dead)
+[DEBUG   ] retcode: 3
+[INFO    ] Executing command ['systemctl', 'is-active', 'whoopsie.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: inactive
+[INFO    ] Executing command ['systemctl', 'status', 'xinetd.service', '-n', '0'] in directory '/home/ubuntu'
+[DEBUG   ] stdout: * xinetd.service - LSB: Starts or stops the xinetd daemon.
+   Loaded: loaded (/etc/init.d/xinetd; bad; vendor preset: enabled)
+   Active: active (running) since Tue 2017-11-14 05:32:34 UTC; 4h 16min ago
+     Docs: man:systemd-sysv-generator(8)
+  Process: 24427 ExecStop=/etc/init.d/xinetd stop (code=exited, status=0/SUCCESS)
+  Process: 24436 ExecStart=/etc/init.d/xinetd start (code=exited, status=0/SUCCESS)
+    Tasks: 1
+   Memory: 196.0K
+      CPU: 16ms
+   CGroup: /system.slice/xinetd.service
+           `-24447 /usr/sbin/xinetd -pidfile /run/xinetd.pid -stayalive -inetd_compat -inetd_ipv6
+[INFO    ] Executing command ['systemctl', 'is-active', 'xinetd.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: active
+[INFO    ] Executing command 'df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type d \( -perm -0002 -a ! -perm -1000 \) 2>/dev/null' in directory '/home/ubuntu'
+[DEBUG   ] output: 
+[INFO    ] Executing command 'sysctl -n net.ipv4.conf.all.accept_source_route' in directory '/home/ubuntu'
+[DEBUG   ] output: 0
+[INFO    ] Executing command 'sysctl -n net.ipv4.conf.all.accept_redirects' in directory '/home/ubuntu'
+[DEBUG   ] output: 0
+[INFO    ] Executing command 'sysctl -n net.ipv4.conf.all.secure_redirects' in directory '/home/ubuntu'
+[DEBUG   ] output: 0
+[INFO    ] Executing command 'sysctl -n net.ipv4.conf.all.log_martians' in directory '/home/ubuntu'
+[DEBUG   ] output: 1
+[INFO    ] Executing command 'sysctl -n net.ipv4.icmp_echo_ignore_broadcasts' in directory '/home/ubuntu'
+[DEBUG   ] output: 1
+[INFO    ] Executing command 'sysctl -n net.ipv4.icmp_ignore_bogus_error_responses' in directory '/home/ubuntu'
+[DEBUG   ] output: 1
+[INFO    ] Executing command 'sysctl -n net.ipv4.conf.all.rp_filter' in directory '/home/ubuntu'
+[DEBUG   ] output: 1
+[INFO    ] Executing command 'sysctl -n net.ipv4.tcp_syncookies' in directory '/home/ubuntu'
+[DEBUG   ] output: 1
+[INFO    ] Executing command 'sysctl -n fs.suid_dumpable' in directory '/home/ubuntu'
+[DEBUG   ] output: 0
+[INFO    ] Executing command 'sysctl -n net.ipv4.conf.all.send_redirects' in directory '/home/ubuntu'
+[DEBUG   ] output: 0
+[INFO    ] Executing command 'sysctl -n kernel.randomize_va_space' in directory '/home/ubuntu'
+[DEBUG   ] output: 2
+[INFO    ] Executing command 'sysctl -n net.ipv4.ip_forward' in directory '/home/ubuntu'
+[DEBUG   ] output: 0

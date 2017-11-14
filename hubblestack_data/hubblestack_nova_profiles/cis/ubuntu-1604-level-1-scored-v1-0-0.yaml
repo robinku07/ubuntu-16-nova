@@ -534,43 +534,145 @@ grep:
             pattern: '^tftp'
             tag: CIS-5.1.7
       description: Ensure tftp-server is not enabled
+    chargen:
+      data:
+        Ubuntu-16.04:
+        - /etc/xinetd.d/chargen:
+            match_output: '^\s*disable\s*=\s*yes'
+            pattern: chargen-stream
+            match_output_regex: True
+            grep_args:
+              - '-B'
+              - '3'
+            tag: CIS-2.1.1
+        - /etc/xinetd.d/chargen:
+            match_output: '^\s*disable\s*=\s*yes'
+            pattern: chargen-dgram
+            match_output_regex: True
+            grep_args:
+              - '-B'
+              - '3'
+            tag: CIS-2.1.1
+      description: Ensure Chargen is not Enabled
+
 #    chargen:
 #      data:
 #        Ubuntu-16.04:
-#        - /etc/xinetd.d:
-#            pattern: '^chargen'
-#            grep_args:
-#              - '-r'
+#        - /etc/xinetd.d/chargen:
+#            match_output: 'disable'
+#            pattern: 'chargen-stream'
+#            grep-args:
+#              - '-B 3'
 #            tag: CIS-2.1.1
 #      description: Ensure Chargen is not Enabled
     daytime:
       data:
         Ubuntu-16.04:
-        - /etc/inetd.conf:
-            pattern: '^daytime'
-            tag: CIS-5.3
+        - /etc/xinetd.d/daytime:
+            match_output: '^\s*disable\s*=\s*yes'
+            pattern: daytime-stream
+            match_output_regex: True
+            grep_args:
+              - '-B'
+              - '3'
+            tag: CIS-2.1.2
+        - /etc/xinetd.d/daytime:
+            match_output: '^\s*disable\s*=\s*yes'
+            pattern: daytime-dgram
+            match_output_regex: True
+            grep_args:
+              - '-B'
+              - '3'
+            tag: CIS-2.1.2
       description: Ensure daytime is not Enabled
+#    daytime:
+#      data:
+#        Ubuntu-16.04:
+#        - /etc/inetd.conf:
+#            pattern: '^daytime'
+#            tag: CIS-5.3
+#      description: Ensure daytime is not Enabled
     echo:
       data:
         Ubuntu-16.04:
-        - /etc/inetd.conf:
-            pattern: '^echo'
-            tag: CIS-5.4
-      description: Ensure echo is not Enabled
+        - /etc/xinetd.d/echo:
+            match_output: '^\s*disable\s*=\s*yes'
+            pattern: echo-stream
+            match_output_regex: True
+            grep_args:
+              - '-B'
+              - '3'
+            tag: CIS-2.1.4
+        - /etc/xinetd.d/echo:
+            match_output: '^\s*disable\s*=\s*yes'
+            pattern: echo-dgram
+            match_output_regex: True
+            grep_args:
+              - '-B'
+              - '3'
+            tag: CIS-2.1.4
+      description: Ensure echo is not Enabled 
+#    echo:
+#      data:
+#        Ubuntu-16.04:
+#        - /etc/inetd.conf:
+#            pattern: '^echo'
+#            tag: CIS-5.4
+#      description: Ensure echo is not Enabled
     discard:
       data:
         Ubuntu-16.04:
-        - /etc/inetd.conf:
-            pattern: '^discard'
-            tag: CIS-5.5
+        - /etc/xinetd.d/discard:
+            match_output: '^\s*disable\s*=\s*yes'
+            pattern: discard-stream
+            match_output_regex: True
+            grep_args:
+              - '-B'
+              - '3'
+            tag: CIS-2.1.3
+        - /etc/xinetd.d/discard:
+            match_output: '^\s*disable\s*=\s*yes'
+            pattern: discard-dgram
+            match_output_regex: True
+            grep_args:
+              - '-B'
+              - '3'
+            tag: CIS-2.1.3
       description: Ensure discard is not Enabled
+#    discard:
+#      data:
+#        Ubuntu-16.04:
+#        - /etc/inetd.conf:
+#            pattern: '^discard'
+#            tag: CIS-5.5
+#      description: Ensure discard is not Enabled
     time:
       data:
         Ubuntu-16.04:
-        - /etc/inetd.conf:
-            pattern: '^time'
-            tag: CIS-5.6
+        - /etc/xinetd.d/time:
+            match_output: '^\s*disable\s*=\s*yes'
+            pattern: time-stream
+            match_output_regex: True
+            grep_args:
+              - '-B'
+              - '3'
+            tag: CIS-2.1.5
+        - /etc/xinetd.d/time:
+            match_output: '^\s*disable\s*=\s*yes'
+            pattern: time-dgram
+            match_output_regex: True
+            grep_args:
+              - '-B'
+              - '3'
+            tag: CIS-2.1.5
       description: Ensure time is not Enabled
+#    time:
+#      data:
+#        Ubuntu-16.04:
+#        - /etc/inetd.conf:
+#            pattern: '^time'
+#            tag: CIS-5.6
+#      description: Ensure time is not Enabled
     banner_os_info_motd:
       data:
         Ubuntu-16.04:
@@ -689,12 +791,12 @@ service:
         Ubuntu-16.04:
           - cron: CIS-9.1.1
       description: Enable cron Daemon
-    chargen_disabled:
-      data:
-        Ubuntu-16.04:
-        - chargen-dgram: CIS-2.1.1
-        - chargen-stream: CIS-2.1.1
-      description: Ensure chargen services are not enabled
+#    chargen_disabled: #Not working so disabled
+#      data:
+#        Ubuntu-16.04:
+#        - chargen-dgram: CIS-2.1.1
+#        - chargen-stream: CIS-2.1.1
+#      description: Ensure chargen services are not enabled
 
 sysctl:
   disable_suid_dumpable:
