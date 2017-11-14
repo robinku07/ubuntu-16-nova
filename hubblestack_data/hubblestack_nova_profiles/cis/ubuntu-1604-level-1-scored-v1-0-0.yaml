@@ -495,6 +495,7 @@ grep:
 #            match_output: '0'
 #            pattern: 'enforcing'
 #            tag: CIS-1.6.1.1
+# CIS-1.7.2 is not applicable as we are not using linux in graphical mode
       description: Ensure SELinux is not disabled in bootloader configuration
     rsh_inet:
       data:
@@ -533,13 +534,15 @@ grep:
             pattern: '^tftp'
             tag: CIS-5.1.7
       description: Ensure tftp-server is not enabled
-    chargen:
-      data:
-        Ubuntu-16.04:
-        - /etc/inetd.conf:
-            pattern: '^chargen'
-            tag: CIS-5.2
-      description: Ensure Chargen is not Enabled
+#    chargen:
+#      data:
+#        Ubuntu-16.04:
+#        - /etc/xinetd.d:
+#            pattern: '^chargen'
+#            grep_args:
+#              - '-r'
+#            tag: CIS-2.1.1
+#      description: Ensure Chargen is not Enabled
     daytime:
       data:
         Ubuntu-16.04:
@@ -686,6 +689,12 @@ service:
         Ubuntu-16.04:
           - cron: CIS-9.1.1
       description: Enable cron Daemon
+    chargen_disabled:
+      data:
+        Ubuntu-16.04:
+        - chargen-dgram: CIS-2.1.1
+        - chargen-stream: CIS-2.1.1
+      description: Ensure chargen services are not enabled
 
 sysctl:
   disable_suid_dumpable:
@@ -821,18 +830,17 @@ pkg:
         Ubuntu-16.04:
         - rsyslog: CIS-8.2.1
       description: Install the rsyslog package
-
 stat:
-#  grub_cfg_owner: #No Such check in Latest CIS Benchmark
-#    data:
-#      Ubuntu-16.04:
-#      - /boot/grub/grub.cfg:
-#          gid: 0
-#          group: root
-#          uid: 0
-#          user: root
-#          tag: CIS-1.4.1
-#    description: Set User/Group Owner on bootloader config
+  grub_cfg_owner:
+    data:
+      Ubuntu-16.04:
+      - /boot/grub/grub.cfg:
+          gid: 0
+          group: root
+          uid: 0
+          user: root
+          tag: CIS-1.4.1
+    description: Set User/Group Owner on bootloader config
   grub_cfg_perms:
     data:
       Ubuntu-16.04:
@@ -975,6 +983,8 @@ stat:
           tag: CIS-1.7.1.4
     description: Set Warning Banner for Standard Login Services
   banner_files_issue:
+    data:
+      Ubuntu-16.04:
       - /etc/issue:
           uid: 0
           gid: 0
@@ -984,6 +994,8 @@ stat:
           tag: CIS-1.7.1.5
     description: Set Warning Banner for Standard Login Services
   banner_files_issue_net:
+    data:
+      Ubuntu-16.04:
       - /etc/issue.net:
           uid: 0
           gid: 0
