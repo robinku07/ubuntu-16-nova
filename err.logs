@@ -3,8 +3,8 @@
 [DEBUG   ] LazyLoaded config.get
 [INFO    ] Setting up the fileclient/fileserver
 [DEBUG   ] LazyLoaded roots.envs
-[DEBUG   ] Popen(['git', 'version'], cwd=/home/ubuntu, universal_newlines=False, shell=None)
-[DEBUG   ] Popen(['git', 'version'], cwd=/home/ubuntu, universal_newlines=False, shell=None)
+[DEBUG   ] Popen(['git', 'version'], cwd=/hubble-conf, universal_newlines=False, shell=None)
+[DEBUG   ] Popen(['git', 'version'], cwd=/hubble-conf, universal_newlines=False, shell=None)
 [DEBUG   ] Could not LazyLoad roots.init: 'roots.init' is not available.
 [DEBUG   ] Updating roots fileserver cache
 [DEBUG   ] Updating roots fileserver cache
@@ -550,15 +550,17 @@ UMASK		022
 [DEBUG   ] LazyLoaded service.status
 [INFO    ] Executing command ['systemctl', 'status', 'isc-dhcp-server.service', '-n', '0'] in directory '/home/ubuntu'
 [DEBUG   ] stdout: * isc-dhcp-server.service
-   Loaded: not-found (Reason: No such file or directory)
-   Active: inactive (dead)
+   Loaded: masked (/dev/null; bad)
+   Active: failed (Result: exit-code) since Wed 2017-11-15 11:10:49 UTC; 1h 31min ago
+ Main PID: 31128 (code=exited, status=1/FAILURE)
 [DEBUG   ] retcode: 3
 [INFO    ] Executing command ['systemctl', 'is-active', 'isc-dhcp-server.service'] in directory '/home/ubuntu'
-[DEBUG   ] output: inactive
+[DEBUG   ] output: failed
 [INFO    ] Executing command ['systemctl', 'status', 'isc-dhcp-server6.service', '-n', '0'] in directory '/home/ubuntu'
 [DEBUG   ] stdout: * isc-dhcp-server6.service
-   Loaded: not-found (Reason: No such file or directory)
+   Loaded: masked (/dev/null; bad)
    Active: inactive (dead)
+Condition: start condition failed at Wed 2017-11-15 11:10:15 UTC; 1h 32min ago
 [DEBUG   ] retcode: 3
 [INFO    ] Executing command ['systemctl', 'is-active', 'isc-dhcp-server6.service'] in directory '/home/ubuntu'
 [DEBUG   ] output: inactive
@@ -568,6 +570,23 @@ UMASK		022
    Active: inactive (dead)
 [DEBUG   ] retcode: 3
 [INFO    ] Executing command ['systemctl', 'is-active', 'cups.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: inactive
+[INFO    ] Executing command ['systemctl', 'status', 'nfs-kernel-server.service', '-n', '0'] in directory '/home/ubuntu'
+[DEBUG   ] stdout: * nfs-kernel-server.service - LSB: Kernel NFS server support
+   Loaded: loaded (/etc/init.d/nfs-kernel-server; bad; vendor preset: enabled)
+   Active: inactive (dead)
+     Docs: man:systemd-sysv-generator(8)
+[DEBUG   ] retcode: 3
+[INFO    ] Executing command ['systemctl', 'is-active', 'nfs-kernel-server.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: inactive
+[INFO    ] Executing command ['systemctl', 'status', 'rpcbind.service', '-n', '0'] in directory '/home/ubuntu'
+[DEBUG   ] stdout: Warning: rpcbind.service changed on disk. Run 'systemctl daemon-reload' to reload units.
+* rpcbind.service
+   Loaded: masked (/dev/null; bad)
+   Active: inactive (dead)
+[DEBUG   ] retcode: 3
+[INFO    ] Executing command ['systemctl', '--system', 'daemon-reload'] in directory '/home/ubuntu'
+[INFO    ] Executing command ['systemctl', 'is-active', 'rpcbind.service'] in directory '/home/ubuntu'
 [DEBUG   ] output: inactive
 [INFO    ] Executing command ['systemctl', 'status', 'slapd.service', '-n', '0'] in directory '/home/ubuntu'
 [DEBUG   ] stdout: * slapd.service - LSB: OpenLDAP standalone server (Lightweight Directory Access Protocol)
@@ -583,6 +602,16 @@ UMASK		022
    Active: inactive (dead)
 [DEBUG   ] retcode: 3
 [INFO    ] Executing command ['systemctl', 'is-active', 'avahi-daemon.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: inactive
+[INFO    ] Executing command ['systemctl', 'status', 'bind9.service', '-n', '0'] in directory '/home/ubuntu'
+[DEBUG   ] stdout: * bind9.service - BIND Domain Name Server
+   Loaded: loaded (/lib/systemd/system/bind9.service; disabled; vendor preset: enabled)
+  Drop-In: /run/systemd/generator/bind9.service.d
+           `-50-insserv.conf-$named.conf
+   Active: inactive (dead)
+     Docs: man:named(8)
+[DEBUG   ] retcode: 3
+[INFO    ] Executing command ['systemctl', 'is-active', 'bind9.service'] in directory '/home/ubuntu'
 [DEBUG   ] output: inactive
 [INFO    ] Executing command ['systemctl', 'status', 'rsyslog.service', '-n', '0'] in directory '/home/ubuntu'
 [DEBUG   ] stdout: * rsyslog.service - System Logging Service
@@ -605,14 +634,6 @@ UMASK		022
            `-1204 /usr/sbin/cron -f
 [INFO    ] Executing command ['systemctl', 'is-active', 'cron.service'] in directory '/home/ubuntu'
 [DEBUG   ] output: active
-[INFO    ] Executing command ['systemctl', 'status', 'xinetd.service', '-n', '0'] in directory '/home/ubuntu'
-[DEBUG   ] stdout: * xinetd.service - LSB: Starts or stops the xinetd daemon.
-   Loaded: loaded (/etc/init.d/xinetd; bad; vendor preset: enabled)
-   Active: inactive (dead)
-     Docs: man:systemd-sysv-generator(8)
-[DEBUG   ] retcode: 3
-[INFO    ] Executing command ['systemctl', 'is-active', 'xinetd.service'] in directory '/home/ubuntu'
-[DEBUG   ] output: inactive
 [INFO    ] Executing command ['systemctl', 'status', 'whoopsie.service', '-n', '0'] in directory '/home/ubuntu'
 [DEBUG   ] stdout: * whoopsie.service
    Loaded: not-found (Reason: No such file or directory)
@@ -627,6 +648,14 @@ UMASK		022
      Docs: man:systemd-sysv-generator(8)
 [INFO    ] Executing command ['systemctl', 'is-active', 'apport.service'] in directory '/home/ubuntu'
 [DEBUG   ] output: active
+[INFO    ] Executing command ['systemctl', 'status', 'xinetd.service', '-n', '0'] in directory '/home/ubuntu'
+[DEBUG   ] stdout: * xinetd.service - LSB: Starts or stops the xinetd daemon.
+   Loaded: loaded (/etc/init.d/xinetd; bad; vendor preset: enabled)
+   Active: inactive (dead)
+     Docs: man:systemd-sysv-generator(8)
+[DEBUG   ] retcode: 3
+[INFO    ] Executing command ['systemctl', 'is-active', 'xinetd.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: inactive
 [INFO    ] Executing command ['systemctl', 'status', 'autofs.service', '-n', '0'] in directory '/home/ubuntu'
 [DEBUG   ] stdout: * autofs.service
    Loaded: not-found (Reason: No such file or directory)
@@ -660,15 +689,14 @@ UMASK		022
 [DEBUG   ] output: 2
 [INFO    ] Executing command 'sysctl -n net.ipv4.ip_forward' in directory '/home/ubuntu'
 [DEBUG   ] output: 0
-[INFO    ] Executing command ['systemctl', 'is-enabled', 'dhcpd.service'] in directory '/home/ubuntu'
-[DEBUG   ] output: Failed to get unit file state for dhcpd.service: No such file or directory
+[INFO    ] Executing command ['systemctl', 'is-enabled', 'isc-dhcp-server.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: masked
 [DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
 [DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
 [DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
 [DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
-[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
 [DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
 [DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
 [DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
@@ -683,6 +711,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
 [DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
 [DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
@@ -698,6 +727,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
 [DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
 [DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'bind9' found, but systemd unit 'bind9.service' already exists
 [DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
 [DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
 [DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
@@ -718,7 +748,6 @@ UMASK		022
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
 [DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
-[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
 [DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
 [DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
 [DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
@@ -733,6 +762,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
 [DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
 [DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
@@ -748,6 +778,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
 [DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
 [DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'bind9' found, but systemd unit 'bind9.service' already exists
 [DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
 [DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
 [DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
@@ -760,17 +791,16 @@ UMASK		022
 [DEBUG   ] sysvinit script 'cphalod' found, but systemd unit 'cphalod.service' already exists
 [DEBUG   ] sysvinit script 'hubble' found, but systemd unit 'hubble.service' already exists
 [DEBUG   ] sysvinit script 'reboot' found, but systemd unit 'reboot.service' already exists
-[INFO    ] Executing command ['systemctl', 'is-enabled', 'rpcbind.service'] in directory '/home/ubuntu'
-[DEBUG   ] output: indirect
-[INFO    ] Executing command ['systemctl', 'is-enabled', 'nfs.service'] in directory '/home/ubuntu'
-[DEBUG   ] output: Failed to get unit file state for nfs.service: No such file or directory
+[INFO    ] Executing command ['systemctl', 'is-enabled', 'nfs-kernel-server.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: nfs-kernel-server.service is not a native service, redirecting to systemd-sysv-install
+Executing /lib/systemd/systemd-sysv-install is-enabled nfs-kernel-server
+disabled
 [DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
 [DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
 [DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
 [DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
-[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
 [DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
 [DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
 [DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
@@ -785,6 +815,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
 [DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
 [DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
@@ -800,6 +831,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
 [DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
 [DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'bind9' found, but systemd unit 'bind9.service' already exists
 [DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
 [DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
 [DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
@@ -812,6 +844,12 @@ UMASK		022
 [DEBUG   ] sysvinit script 'cphalod' found, but systemd unit 'cphalod.service' already exists
 [DEBUG   ] sysvinit script 'hubble' found, but systemd unit 'hubble.service' already exists
 [DEBUG   ] sysvinit script 'reboot' found, but systemd unit 'reboot.service' already exists
+[INFO    ] Executing command 'runlevel' in directory '/home/ubuntu'
+[DEBUG   ] output: N 5
+[INFO    ] Executing command ['systemctl', 'is-enabled', 'slapd.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: slapd.service is not a native service, redirecting to systemd-sysv-install
+Executing /lib/systemd/systemd-sysv-install is-enabled slapd
+enabled
 [INFO    ] Executing command ['systemctl', 'is-enabled', 'avahi-daemon.service'] in directory '/home/ubuntu'
 [DEBUG   ] output: Failed to get unit file state for avahi-daemon.service: No such file or directory
 [DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
@@ -820,7 +858,6 @@ UMASK		022
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
 [DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
-[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
 [DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
 [DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
 [DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
@@ -835,6 +872,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
 [DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
 [DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
@@ -850,6 +888,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
 [DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
 [DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'bind9' found, but systemd unit 'bind9.service' already exists
 [DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
 [DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
 [DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
@@ -863,14 +902,15 @@ UMASK		022
 [DEBUG   ] sysvinit script 'hubble' found, but systemd unit 'hubble.service' already exists
 [DEBUG   ] sysvinit script 'reboot' found, but systemd unit 'reboot.service' already exists
 [INFO    ] Executing command ['systemctl', 'is-enabled', 'vsftpd.service'] in directory '/home/ubuntu'
-[DEBUG   ] output: Failed to get unit file state for vsftpd.service: No such file or directory
+[DEBUG   ] output: vsftpd.service is not a native service, redirecting to systemd-sysv-install
+Executing /lib/systemd/systemd-sysv-install is-enabled vsftpd
+disabled
 [DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
 [DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
 [DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
 [DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
-[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
 [DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
 [DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
 [DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
@@ -885,6 +925,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
 [DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
 [DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
@@ -900,6 +941,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
 [DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
 [DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'bind9' found, but systemd unit 'bind9.service' already exists
 [DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
 [DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
 [DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
@@ -912,15 +954,16 @@ UMASK		022
 [DEBUG   ] sysvinit script 'cphalod' found, but systemd unit 'cphalod.service' already exists
 [DEBUG   ] sysvinit script 'hubble' found, but systemd unit 'hubble.service' already exists
 [DEBUG   ] sysvinit script 'reboot' found, but systemd unit 'reboot.service' already exists
-[INFO    ] Executing command ['systemctl', 'is-enabled', 'named.service'] in directory '/home/ubuntu'
-[DEBUG   ] output: Failed to get unit file state for named.service: No such file or directory
+[INFO    ] Executing command ['systemctl', 'is-enabled', 'proftpd.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: proftpd.service is not a native service, redirecting to systemd-sysv-install
+Executing /lib/systemd/systemd-sysv-install is-enabled proftpd
+disabled
 [DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
 [DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
 [DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
 [DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
-[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
 [DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
 [DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
 [DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
@@ -935,6 +978,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
 [DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
 [DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
@@ -950,6 +994,111 @@ UMASK		022
 [DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
 [DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
 [DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'bind9' found, but systemd unit 'bind9.service' already exists
+[DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
+[DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
+[DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
+[DEBUG   ] sysvinit script 'single' found, but systemd unit 'single.service' already exists
+[DEBUG   ] sysvinit script 'umountroot' found, but systemd unit 'umountroot.service' already exists
+[DEBUG   ] sysvinit script 'unattended-upgrades' found, but systemd unit 'unattended-upgrades.service' already exists
+[DEBUG   ] sysvinit script 'rpcbind' found, but systemd unit 'rpcbind.service' already exists
+[DEBUG   ] sysvinit script 'dbus' found, but systemd unit 'dbus.service' already exists
+[DEBUG   ] sysvinit script 'kmod' found, but systemd unit 'kmod.service' already exists
+[DEBUG   ] sysvinit script 'cphalod' found, but systemd unit 'cphalod.service' already exists
+[DEBUG   ] sysvinit script 'hubble' found, but systemd unit 'hubble.service' already exists
+[DEBUG   ] sysvinit script 'reboot' found, but systemd unit 'reboot.service' already exists
+[INFO    ] Executing command ['systemctl', 'is-enabled', 'pure-ftpd.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: pure-ftpd.service is not a native service, redirecting to systemd-sysv-install
+Executing /lib/systemd/systemd-sysv-install is-enabled pure-ftpd
+disabled
+[DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
+[DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
+[DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
+[DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
+[DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
+[DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
+[DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
+[DEBUG   ] sysvinit script 'rsyslog' found, but systemd unit 'rsyslog.service' already exists
+[DEBUG   ] sysvinit script 'plymouth' found, but systemd unit 'plymouth.service' already exists
+[DEBUG   ] sysvinit script 'rsync' found, but systemd unit 'rsync.service' already exists
+[DEBUG   ] sysvinit script 'cron' found, but systemd unit 'cron.service' already exists
+[DEBUG   ] sysvinit script 'lvm2' found, but systemd unit 'lvm2.service' already exists
+[DEBUG   ] sysvinit script 'lxcfs' found, but systemd unit 'lxcfs.service' already exists
+[DEBUG   ] sysvinit script 'atd' found, but systemd unit 'atd.service' already exists
+[DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
+[DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
+[DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
+[DEBUG   ] sysvinit script 'networking' found, but systemd unit 'networking.service' already exists
+[DEBUG   ] sysvinit script 'ssh' found, but systemd unit 'ssh.service' already exists
+[DEBUG   ] sysvinit script 'procps' found, but systemd unit 'procps.service' already exists
+[DEBUG   ] sysvinit script 'rcS' found, but systemd unit 'rcS.service' already exists
+[DEBUG   ] sysvinit script 'plymouth-log' found, but systemd unit 'plymouth-log.service' already exists
+[DEBUG   ] sysvinit script 'rc' found, but systemd unit 'rc.service' already exists
+[DEBUG   ] sysvinit script 'keyboard-setup' found, but systemd unit 'keyboard-setup.service' already exists
+[DEBUG   ] sysvinit script 'urandom' found, but systemd unit 'urandom.service' already exists
+[DEBUG   ] sysvinit script 'acpid' found, but systemd unit 'acpid.service' already exists
+[DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
+[DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
+[DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'bind9' found, but systemd unit 'bind9.service' already exists
+[DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
+[DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
+[DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
+[DEBUG   ] sysvinit script 'single' found, but systemd unit 'single.service' already exists
+[DEBUG   ] sysvinit script 'umountroot' found, but systemd unit 'umountroot.service' already exists
+[DEBUG   ] sysvinit script 'unattended-upgrades' found, but systemd unit 'unattended-upgrades.service' already exists
+[DEBUG   ] sysvinit script 'rpcbind' found, but systemd unit 'rpcbind.service' already exists
+[DEBUG   ] sysvinit script 'dbus' found, but systemd unit 'dbus.service' already exists
+[DEBUG   ] sysvinit script 'kmod' found, but systemd unit 'kmod.service' already exists
+[DEBUG   ] sysvinit script 'cphalod' found, but systemd unit 'cphalod.service' already exists
+[DEBUG   ] sysvinit script 'hubble' found, but systemd unit 'hubble.service' already exists
+[DEBUG   ] sysvinit script 'reboot' found, but systemd unit 'reboot.service' already exists
+[INFO    ] Executing command ['systemctl', 'is-enabled', 'bind9.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: disabled
+[DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
+[DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
+[DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
+[DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
+[DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
+[DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
+[DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
+[DEBUG   ] sysvinit script 'rsyslog' found, but systemd unit 'rsyslog.service' already exists
+[DEBUG   ] sysvinit script 'plymouth' found, but systemd unit 'plymouth.service' already exists
+[DEBUG   ] sysvinit script 'rsync' found, but systemd unit 'rsync.service' already exists
+[DEBUG   ] sysvinit script 'cron' found, but systemd unit 'cron.service' already exists
+[DEBUG   ] sysvinit script 'lvm2' found, but systemd unit 'lvm2.service' already exists
+[DEBUG   ] sysvinit script 'lxcfs' found, but systemd unit 'lxcfs.service' already exists
+[DEBUG   ] sysvinit script 'atd' found, but systemd unit 'atd.service' already exists
+[DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
+[DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
+[DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
+[DEBUG   ] sysvinit script 'networking' found, but systemd unit 'networking.service' already exists
+[DEBUG   ] sysvinit script 'ssh' found, but systemd unit 'ssh.service' already exists
+[DEBUG   ] sysvinit script 'procps' found, but systemd unit 'procps.service' already exists
+[DEBUG   ] sysvinit script 'rcS' found, but systemd unit 'rcS.service' already exists
+[DEBUG   ] sysvinit script 'plymouth-log' found, but systemd unit 'plymouth-log.service' already exists
+[DEBUG   ] sysvinit script 'rc' found, but systemd unit 'rc.service' already exists
+[DEBUG   ] sysvinit script 'keyboard-setup' found, but systemd unit 'keyboard-setup.service' already exists
+[DEBUG   ] sysvinit script 'urandom' found, but systemd unit 'urandom.service' already exists
+[DEBUG   ] sysvinit script 'acpid' found, but systemd unit 'acpid.service' already exists
+[DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
+[DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
+[DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'bind9' found, but systemd unit 'bind9.service' already exists
 [DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
 [DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
 [DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
@@ -970,7 +1119,6 @@ UMASK		022
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
 [DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
-[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
 [DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
 [DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
 [DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
@@ -985,6 +1133,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
 [DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
 [DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
@@ -1000,6 +1149,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
 [DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
 [DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'bind9' found, but systemd unit 'bind9.service' already exists
 [DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
 [DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
 [DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
@@ -1020,7 +1170,6 @@ UMASK		022
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
 [DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
-[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
 [DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
 [DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
 [DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
@@ -1035,6 +1184,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
 [DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
 [DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
@@ -1050,6 +1200,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
 [DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
 [DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'bind9' found, but systemd unit 'bind9.service' already exists
 [DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
 [DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
 [DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
@@ -1070,7 +1221,6 @@ UMASK		022
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
 [DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
-[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
 [DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
 [DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
 [DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
@@ -1085,6 +1235,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
 [DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
 [DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
@@ -1100,6 +1251,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
 [DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
 [DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'bind9' found, but systemd unit 'bind9.service' already exists
 [DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
 [DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
 [DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
@@ -1120,7 +1272,6 @@ UMASK		022
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
 [DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
-[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
 [DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
 [DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
 [DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
@@ -1135,6 +1286,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
 [DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
 [DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
@@ -1150,6 +1302,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
 [DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
 [DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'bind9' found, but systemd unit 'bind9.service' already exists
 [DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
 [DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
 [DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
@@ -1170,7 +1323,6 @@ UMASK		022
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
 [DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
-[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
 [DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
 [DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
 [DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
@@ -1185,6 +1337,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
 [DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
 [DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
@@ -1200,6 +1353,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
 [DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
 [DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'bind9' found, but systemd unit 'bind9.service' already exists
 [DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
 [DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
 [DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
@@ -1222,7 +1376,6 @@ UMASK		022
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
 [DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
-[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
 [DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
 [DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
 [DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
@@ -1237,6 +1390,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
 [DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
 [DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
@@ -1252,6 +1406,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
 [DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
 [DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'bind9' found, but systemd unit 'bind9.service' already exists
 [DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
 [DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
 [DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
@@ -1272,7 +1427,6 @@ UMASK		022
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
 [DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
-[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
 [DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
 [DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
 [DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
@@ -1287,6 +1441,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
 [DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
 [DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
@@ -1302,6 +1457,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
 [DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
 [DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'bind9' found, but systemd unit 'bind9.service' already exists
 [DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
 [DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
 [DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
@@ -1322,7 +1478,6 @@ UMASK		022
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
 [DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
-[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
 [DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
 [DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
 [DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
@@ -1337,6 +1492,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
 [DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
 [DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
@@ -1352,6 +1508,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
 [DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
 [DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'bind9' found, but systemd unit 'bind9.service' already exists
 [DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
 [DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
 [DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
@@ -1372,7 +1529,6 @@ UMASK		022
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
 [DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
-[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
 [DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
 [DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
 [DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
@@ -1387,6 +1543,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
 [DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
 [DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
@@ -1402,6 +1559,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
 [DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
 [DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'bind9' found, but systemd unit 'bind9.service' already exists
 [DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
 [DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
 [DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
@@ -1422,7 +1580,6 @@ UMASK		022
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
 [DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
-[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
 [DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
 [DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
 [DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
@@ -1437,6 +1594,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
 [DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
 [DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
@@ -1452,6 +1610,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
 [DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
 [DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'bind9' found, but systemd unit 'bind9.service' already exists
 [DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
 [DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
 [DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
@@ -1472,7 +1631,6 @@ UMASK		022
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
 [DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
-[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
 [DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
 [DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
 [DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
@@ -1487,6 +1645,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
 [DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
 [DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
@@ -1502,6 +1661,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
 [DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
 [DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'bind9' found, but systemd unit 'bind9.service' already exists
 [DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
 [DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
 [DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
@@ -1522,7 +1682,6 @@ UMASK		022
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
 [DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
-[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
 [DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
 [DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
 [DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
@@ -1537,6 +1696,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
 [DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
 [DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
@@ -1552,6 +1712,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
 [DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
 [DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'bind9' found, but systemd unit 'bind9.service' already exists
 [DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
 [DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
 [DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
@@ -1572,7 +1733,6 @@ UMASK		022
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
 [DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
-[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
 [DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
 [DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
 [DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
@@ -1587,6 +1747,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
 [DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
 [DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
@@ -1602,6 +1763,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
 [DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
 [DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'bind9' found, but systemd unit 'bind9.service' already exists
 [DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
 [DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
 [DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
@@ -1622,7 +1784,6 @@ UMASK		022
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
 [DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
-[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
 [DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
 [DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
 [DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
@@ -1637,6 +1798,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
 [DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
 [DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
@@ -1652,6 +1814,7 @@ UMASK		022
 [DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
 [DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
 [DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'bind9' found, but systemd unit 'bind9.service' already exists
 [DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
 [DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
 [DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists

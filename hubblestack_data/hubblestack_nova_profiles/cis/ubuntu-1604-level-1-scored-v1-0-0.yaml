@@ -817,6 +817,11 @@ service:
         Ubuntu-16.04:
         - rpcbind: CIS-2.2.7
       description: Ensure NFS and RPC are not enabled(rpcbind-service)
+    bind9:
+      data:
+        Ubuntu-16.04:
+        - bind9: CIS-2.2.8
+      description: Ensure DNS Server is not enabled(bind9-service)
   whitelist:
     rsyslog:
       data:
@@ -1385,13 +1390,17 @@ systemctl:
     dns-server-disabled:
       data:
         Ubuntu-16.04:
-        - named:
+        - bind9:
             tag: CIS-2.2.8
-      description: Ensure DNS Server is not enabled
+      description: Ensure DNS Server is not enabled(bind9-systemctl)
     ftp-server-disabled:
       data:
         Ubuntu-16.04:
         - vsftpd:
+            tag: CIS-2.2.9
+        - proftpd:
+            tag: CIS-2.2.9
+        - pure-ftpd:
             tag: CIS-2.2.9
       description: Ensure FTP Server is not enabled
     http-server-disabled:
