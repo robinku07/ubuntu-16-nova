@@ -235,17 +235,30 @@ grep:
         - /etc/ntp.conf:
             pattern: '^restrict'
             match_output: default
-            tag: CIS-6.5
+            tag: CIS-2.2.1.2
         - /etc/ntp.conf:
             pattern: restrict -6 default
-            tag: CIS-6.5
+            tag: CIS-2.2.1.2
         - /etc/ntp.conf:
             pattern: '^server'
-            tag: CIS-6.5
+            tag: CIS-2.2.1.2
         - /etc/init.d/ntp:
             pattern: RUNASUSER=
-            tag: CIS-6.5
+            tag: CIS-2.2.1.2
       description: Configure Network Time Protocol (NTP)
+    configure_chrony:
+      data:
+        Ubuntu-16.04:
+        - /etc/chrony/chrony.conf:
+            tag: CIS-2.2.1.3
+            pattern: '^server'
+            match_output: 'server *'
+            match_output_regex: True
+        - /etc/chrony/chrony.conf:
+            tag: CIS-2.2.1.3
+            pattern: ^user
+            match_output: '_chrony'
+      description: Ensure chrony is configured
     local_mta:
       data:
         Ubuntu-16.04:
@@ -536,9 +549,11 @@ grep:
     tftp:
       data:
         Ubuntu-16.04:
-        - /etc/inetd.conf:
+        - /etc/xinetd*:
             pattern: '^tftp'
-            tag: CIS-5.1.7
+            grep_args:
+              - '-r'
+            tag: CIS-2.1.9
       description: Ensure tftp-server is not enabled
     chargen:
       data:
@@ -769,23 +784,39 @@ service:
     xinetd:
       data:
         Ubuntu-16.04:
-          - xinetd: CIS-5.1.8
+          - xinetd: CIS-2.1.10
       description: Ensure xinetd is not enabled
     avahi_daemon:
       data:
         Ubuntu-16.04:
-          - avahi-daemon: CIS-6.2
+          - avahi-daemon: CIS-2.2.3
       description: Ensure Avahi Server is not enabled
     cups:
       data:
         Ubuntu-16.04:
-          - cups: CIS-6.3
+          - cups: CIS-2.2.4
       description: Ensure print server is not enabled
     dhcp-server:
       data:
         Ubuntu-16.04:
-          - isc-dhcp-server: CIS-6.4
+          - isc-dhcp-server: CIS-2.2.5
+          - isc-dhcp-server6: CIS-2.2.5
       description: Ensure DHCP Server is not enabled
+    slapd:
+      data:
+        Ubuntu-16.04:
+        - slapd: CIS-2.2.6
+      description: Ensure LDAP server is not enabled
+    nfs-service:
+      data:
+        Ubuntu-16.04:
+        - nfs-kernel-server: CIS-2.2.7
+      description: Ensure NFS and RPC are not enabled(nfs-service)
+    rpc-bind-service:
+      data:
+        Ubuntu-16.04:
+        - rpcbind: CIS-2.2.7
+      description: Ensure NFS and RPC are not enabled(rpcbind-service)
   whitelist:
     rsyslog:
       data:
@@ -920,7 +951,7 @@ pkg:
     xserver:
       data:
         Ubuntu-16.04:
-        - xserver-xorg-core\*: CIS-6.1
+        - xserver-xorg-core\*: CIS-2.2.2
       description: Ensure the X Window system is not installed
     biosdevname:
       data:
@@ -936,7 +967,7 @@ pkg:
     ntp:
       data:
         Ubuntu-16.04:
-        - ntp: CIS-6.5
+        - ntp: CIS-2.2.1.2
       description: Configure Network Time Protocol (NTP)
     aide:
       data:
@@ -1301,3 +1332,143 @@ misc:
         tag: CIS-1.1.20
         function: sticky_bit_on_world_writable_dirs
     description: Ensure sticky bit is set on all world-writable directories
+systemctl:
+  whitelist:
+    rsyslog_enabled:
+      data:
+        Ubuntu-16.04:
+        - rsyslog:
+           tag: CIS-4.2.1.1
+      description: Ensure rsyslog Service is enabled
+    cron_deamon_enabled:
+      data:
+        Ubuntu-16.04:
+        - crond:
+           tag: CIS-5.1.1
+      description: Ensure cron daemon is enabled
+  blacklist:
+    avahi-daemon-disabled:
+      data:
+        Ubuntu-16.04:
+        - avahi-daemon:
+            tag: CIS-2.2.3
+      description: Ensure Avahi Server is not enabled
+    cups-disabled:
+      data:
+        Ubuntu-16.04:
+        - cups:
+            tag: CIS-2.2.4
+      description: Ensure CUPS is not enabled
+    dhcpd-disabled:
+      data:
+        Ubuntu-16.04:
+        - isc-dhcp-server:
+            tag: CIS-2.2.5
+      description: Ensure DHCP Server is not enabled
+    ldap-server-disabled:
+      data:
+        Ubuntu-16.04:
+        - slapd: CIS-2.2.6
+      description: Ensure LDAP server is not enabled
+    nfs-disabled:
+      data:
+        Ubuntu-16.04:
+        - nfs-kernel-server:
+            tag: CIS-2.2.7
+      description: Ensure NFS and RPC are not enabled(nfs-systemctl)
+#    rpc-disabled:
+#      data:
+#        Ubuntu-16.04:
+#        - rpcbind:
+#            tag: CIS-2.2.7
+#      description: Ensure NFS and RPC are not enabled(rpcbind-systemctl)
+    dns-server-disabled:
+      data:
+        Ubuntu-16.04:
+        - named:
+            tag: CIS-2.2.8
+      description: Ensure DNS Server is not enabled
+    ftp-server-disabled:
+      data:
+        Ubuntu-16.04:
+        - vsftpd:
+            tag: CIS-2.2.9
+      description: Ensure FTP Server is not enabled
+    http-server-disabled:
+      data:
+        Ubuntu-16.04:
+        - httpd:
+            tag: CIS-2.2.10
+      description: Ensure HTTP server is not enabled
+    imap-pop3-server-disabled:
+      data:
+        Ubuntu-16.04:
+        - dovecot:
+            tag: CIS-2.2.11
+      description: Ensure IMAP and POP3 server is not enabled
+    samba-server-disabled:
+      data:
+        Ubuntu-16.04:
+        - smb:
+            tag: CIS-2.2.12
+      description: Ensure Samba is not enabled
+    http-proxy-server-disabled:
+      data:
+        Ubuntu-16.04:
+        - squid:
+            tag: CIS-2.2.13
+      description: Ensure HTTP Proxy Server is not enabled
+    snmp-server-disabled:
+      data:
+        Ubuntu-16.04:
+        - snmpd:
+            tag: CIS-2.2.14
+      description: Ensure SNMP Server is not enabled
+    nis-server-disabled:
+      data:
+        Ubuntu-16.04:
+        - ypserv:
+            tag: CIS-2.2.16
+      description: Ensure NIS Server is not enabled
+    rsh-socket-disabled:
+      data:
+        Ubuntu-16.04:
+        - rsh.socket:
+            tag: CIS-2.2.17
+      description: Ensure rsh Server is not enabled
+    rlogin-socket-disabled:
+      data:
+        Ubuntu-16.04:
+        - rlogin.socket:
+            tag: CIS-2.2.17
+      description: Ensure rsh Server is not enabled
+    rexec-socket-disabled:
+      data:
+        Ubuntu-16.04:
+        - rexec.socket:
+            tag: CIS-2.2.17
+      description: Ensure rsh Server is not enabled
+    telnet-server-disabled:
+      data:
+        Ubuntu-16.04:
+        - telnet.socket:
+            tag: CIS-2.2.18
+      description: Ensure telnet server is not enabled
+    tftp-server-disabled:
+      data:
+        Ubuntu-16.04:
+        - tftp.socket:
+            tag: CIS-2.2.19
+      description: Ensure tftp server is not enabled
+    rsync-service-disabled:
+      data:
+        Ubuntu-16.04:
+        - rsyncd:
+            tag: CIS-2.2.20
+      description: Ensure rsync service is not enabled
+    talk-server-disabled:
+      data:
+        Ubuntu-16.04:
+        - ntalk:
+            tag: CIS-2.2.21
+      description: Ensure talk server is not enabled

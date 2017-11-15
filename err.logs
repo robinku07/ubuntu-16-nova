@@ -8,7 +8,7 @@
 [DEBUG   ] Could not LazyLoad roots.init: 'roots.init' is not available.
 [DEBUG   ] Updating roots fileserver cache
 [DEBUG   ] Updating roots fileserver cache
-[DEBUG   ] Parsed args: [] | Parsed kwargs: {'verbose': 'True'}
+[DEBUG   ] Parsed args: [] | Parsed kwargs: {}
 [INFO    ] Executing user-requested function hubble.audit
 [DEBUG   ] LazyLoaded hubble.audit
 [DEBUG   ] syncing nova modules
@@ -112,9 +112,6 @@
 [DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cis/ubuntu-1404-level-1-scored-v1-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/ubuntu-1404-level-1-scored-v1-0-0.yaml'
 [DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cis/ubuntu-1604-level-1-scored-v1-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/ubuntu-1604-level-1-scored-v1-0-0.yaml'
 [DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cis/ubuntu-1604-level-1-scored-v1-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/ubuntu-1604-level-1-scored-v1-0-0.yaml'
-[DEBUG   ] Fetching file from saltenv 'base', ** attempting ** 'salt://hubblestack_nova_profiles/cis/ubuntu-1604-level-1-scored-v1-0-0.yaml'
-[DEBUG   ] No dest file found
-[INFO    ] Fetching file from saltenv 'base', ** done ** 'hubblestack_nova_profiles/cis/ubuntu-1604-level-1-scored-v1-0-0.yaml'
 [DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cis/windows-2008r2-level-1-scored-v1.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/windows-2008r2-level-1-scored-v1.yaml'
 [DEBUG   ] In saltenv 'base', ** considering ** path '/var/cache/hubble/files/base/hubblestack_nova_profiles/cis/windows-2008r2-level-1-scored-v1.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/windows-2008r2-level-1-scored-v1.yaml'
 [DEBUG   ] In saltenv 'base', looking at rel_path 'hubblestack_nova_profiles/cis/windows-2008r2-level-1-scored-v3-0-0.yaml' to resolve 'salt://hubblestack_nova_profiles/cis/windows-2008r2-level-1-scored-v3-0-0.yaml'
@@ -268,49 +265,49 @@
 [DEBUG   ] retcode: 1
 [INFO    ] Executing command 'grep   ^*.*[^I][^I]*@ /etc/rsyslog.conf' in directory '/home/ubuntu'
 [DEBUG   ] retcode: 1
-[INFO    ] Executing command 'grep   PermitRootLogin /etc/ssh/sshd_config' in directory '/home/ubuntu'
-[DEBUG   ] stdout: PermitRootLogin no
-#PermitRootLogin no
 [INFO    ] Executing command 'grep   ^+ /etc/group' in directory '/home/ubuntu'
 [DEBUG   ] retcode: 1
 [INFO    ] Executing command 'grep   /tmp /proc/mounts' in directory '/home/ubuntu'
 [DEBUG   ] retcode: 1
-[INFO    ] Executing command 'grep   ^+ /etc/passwd' in directory '/home/ubuntu'
-[DEBUG   ] retcode: 1
-[INFO    ] Executing command 'grep   /tmp /proc/mounts' in directory '/home/ubuntu'
+[INFO    ] Executing command 'grep   /var /proc/mounts' in directory '/home/ubuntu'
+[DEBUG   ] stdout: lxcfs /var/lib/lxcfs fuse.lxcfs rw,nosuid,nodev,relatime,user_id=0,group_id=0,allow_other 0 0
+[INFO    ] Executing command 'grep   ^+ /etc/shadow' in directory '/home/ubuntu'
 [DEBUG   ] retcode: 1
 [INFO    ] Executing command 'grep   /var/tmp /proc/mounts' in directory '/home/ubuntu'
 [DEBUG   ] retcode: 1
-[INFO    ] Executing command 'grep   remember /etc/pam.d/common-password' in directory '/home/ubuntu'
-[DEBUG   ] stdout: password 	sufficient 			pam_unix.so remember=5
-[INFO    ] Executing command 'grep   ^talk /etc/inetd.conf' in directory '/home/ubuntu'
-[DEBUG   ] stderr: grep: /etc/inetd.conf: No such file or directory
-[DEBUG   ] retcode: 2
-[INFO    ] Executing command 'grep   ^ntalk /etc/inetd.conf' in directory '/home/ubuntu'
-[DEBUG   ] stderr: grep: /etc/inetd.conf: No such file or directory
-[DEBUG   ] retcode: 2
-[INFO    ] Executing command 'grep   ^tftp /etc/inetd.conf' in directory '/home/ubuntu'
-[DEBUG   ] stderr: grep: /etc/inetd.conf: No such file or directory
-[DEBUG   ] retcode: 2
+[INFO    ] Executing command 'grep   /var /etc/fstab' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep   pam_wheel.so /etc/pam.d/su' in directory '/home/ubuntu'
+[DEBUG   ] stdout: # auth       required   pam_wheel.so
+# auth       sufficient pam_wheel.so trust
+# auth       required   pam_wheel.so deny group=nosu
+auth required pam_wheel.so use_uid
+[INFO    ] Executing command 'grep   wheel /etc/group' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep   password /boot/grub/grub.cfg' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
 [INFO    ] Executing command 'grep   ^root:[*\!]: /etc/shadow' in directory '/home/ubuntu'
 [DEBUG   ] stdout: root:!:17270:0::7:::
 [INFO    ] Executing command 'grep   ClientAliveInterval /etc/ssh/sshd_config' in directory '/home/ubuntu'
 [DEBUG   ] stdout: ClientAliveInterval 600
 [INFO    ] Executing command 'grep   ClientAliveCountMax /etc/ssh/sshd_config' in directory '/home/ubuntu'
 [DEBUG   ] stdout: ClientAliveCountMax 0
-[INFO    ] Executing command 'grep   password /boot/grub/grub.cfg' in directory '/home/ubuntu'
+[INFO    ] Executing command 'grep   pam_cracklib /etc/pam.d/common-password' in directory '/home/ubuntu'
 [DEBUG   ] retcode: 1
-[INFO    ] Executing command 'grep   ^shell /etc/inetd.conf' in directory '/home/ubuntu'
-[DEBUG   ] stderr: grep: /etc/inetd.conf: No such file or directory
-[DEBUG   ] retcode: 2
-[INFO    ] Executing command 'grep   ^login /etc/inetd.conf' in directory '/home/ubuntu'
-[DEBUG   ] stderr: grep: /etc/inetd.conf: No such file or directory
-[DEBUG   ] retcode: 2
-[INFO    ] Executing command 'grep   ^exec /etc/inetd.conf' in directory '/home/ubuntu'
-[DEBUG   ] stderr: grep: /etc/inetd.conf: No such file or directory
-[DEBUG   ] retcode: 2
+[INFO    ] Executing command 'grep   pam_cracklib /etc/pam.d/common-password' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep   pam_cracklib /etc/pam.d/common-password' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep   pam_cracklib /etc/pam.d/common-password' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep   pam_cracklib /etc/pam.d/common-password' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep   pam_cracklib /etc/pam.d/common-password' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
 [INFO    ] Executing command 'grep   /home /proc/mounts' in directory '/home/ubuntu'
 [DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep  -r udf /etc/modprobe.d' in directory '/home/ubuntu'
+[DEBUG   ] stdout: /etc/modprobe.d/CIS.conf:install udf /bin/true
 [INFO    ] Executing command 'grep   \v /etc/motd' in directory '/home/ubuntu'
 [DEBUG   ] stderr: grep: /etc/motd: No such file or directory
 [DEBUG   ] retcode: 2
@@ -325,18 +322,27 @@
 [DEBUG   ] retcode: 2
 [INFO    ] Executing command 'grep   ^\$FileCreateMode /etc/rsyslog.conf' in directory '/home/ubuntu'
 [DEBUG   ] stdout: $FileCreateMode 0640
-[INFO    ] Executing command 'grep   pam_cracklib /etc/pam.d/common-password' in directory '/home/ubuntu'
-[DEBUG   ] retcode: 1
-[INFO    ] Executing command 'grep   pam_cracklib /etc/pam.d/common-password' in directory '/home/ubuntu'
-[DEBUG   ] retcode: 1
-[INFO    ] Executing command 'grep   pam_cracklib /etc/pam.d/common-password' in directory '/home/ubuntu'
-[DEBUG   ] retcode: 1
-[INFO    ] Executing command 'grep   pam_cracklib /etc/pam.d/common-password' in directory '/home/ubuntu'
-[DEBUG   ] retcode: 1
-[INFO    ] Executing command 'grep   pam_cracklib /etc/pam.d/common-password' in directory '/home/ubuntu'
-[DEBUG   ] retcode: 1
-[INFO    ] Executing command 'grep   pam_cracklib /etc/pam.d/common-password' in directory '/home/ubuntu'
-[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep  -B 3 daytime-stream /etc/xinetd.d/daytime' in directory '/home/ubuntu'
+[DEBUG   ] stdout: {
+	disable		= yes
+	type		= INTERNAL
+	id		= daytime-stream
+[INFO    ] Executing command 'grep  -B 3 daytime-dgram /etc/xinetd.d/daytime' in directory '/home/ubuntu'
+[DEBUG   ] stdout: {
+	disable		= yes
+	type		= INTERNAL
+	id		= daytime-dgram
+[INFO    ] Executing command 'grep   PASS_WARN_AGE /etc/login.defs' in directory '/home/ubuntu'
+[DEBUG   ] stdout: #	PASS_WARN_AGE	Number of days warning given before a password expires.
+PASS_WARN_AGE 7
+[INFO    ] Executing command 'grep   \v /etc/issue.net' in directory '/home/ubuntu'
+[DEBUG   ] stdout: Authorized uses only. All activity may be monitored and reported.
+[INFO    ] Executing command 'grep   \r /etc/issue.net' in directory '/home/ubuntu'
+[DEBUG   ] stdout: Authorized uses only. All activity may be monitored and reported.
+[INFO    ] Executing command 'grep   \m /etc/issue.net' in directory '/home/ubuntu'
+[DEBUG   ] stdout: Authorized uses only. All activity may be monitored and reported.
+[INFO    ] Executing command 'grep   \s /etc/issue.net' in directory '/home/ubuntu'
+[DEBUG   ] stdout: Authorized uses only. All activity may be monitored and reported.
 [INFO    ] Executing command 'grep   Ciphers /etc/ssh/sshd_config' in directory '/home/ubuntu'
 [DEBUG   ] stdout: # **Ciphers** -- If your clients don't support CTR (eg older versions), cbc will be added
 Ciphers aes256-ctr,aes192-ctr,aes128-ctr
@@ -350,9 +356,6 @@ Ciphers aes256-ctr,aes192-ctr,aes128-ctr
 /etc/security/limits.conf:* hard core 0
 [DEBUG   ] stderr: grep: core: No such file or directory
 [DEBUG   ] retcode: 2
-[INFO    ] Executing command 'grep   X11Forwarding /etc/ssh/sshd_config' in directory '/home/ubuntu'
-[DEBUG   ] stdout: X11Forwarding  no
-#X11Forwarding no
 [INFO    ] Executing command 'grep   \v /etc/issue' in directory '/home/ubuntu'
 [DEBUG   ] stdout: Authorized uses only. All activity may be monitored and reported.
 [INFO    ] Executing command 'grep   \r /etc/issue' in directory '/home/ubuntu'
@@ -361,14 +364,16 @@ Ciphers aes256-ctr,aes192-ctr,aes128-ctr
 [DEBUG   ] stdout: Authorized uses only. All activity may be monitored and reported.
 [INFO    ] Executing command 'grep   \s /etc/issue' in directory '/home/ubuntu'
 [DEBUG   ] stdout: Authorized uses only. All activity may be monitored and reported.
-[INFO    ] Executing command 'grep   \v /etc/issue.net' in directory '/home/ubuntu'
-[DEBUG   ] stdout: Authorized uses only. All activity may be monitored and reported.
-[INFO    ] Executing command 'grep   \r /etc/issue.net' in directory '/home/ubuntu'
-[DEBUG   ] stdout: Authorized uses only. All activity may be monitored and reported.
-[INFO    ] Executing command 'grep   \m /etc/issue.net' in directory '/home/ubuntu'
-[DEBUG   ] stdout: Authorized uses only. All activity may be monitored and reported.
-[INFO    ] Executing command 'grep   \s /etc/issue.net' in directory '/home/ubuntu'
-[DEBUG   ] stdout: Authorized uses only. All activity may be monitored and reported.
+[INFO    ] Executing command 'grep  -B 3 discard-stream /etc/xinetd.d/discard' in directory '/home/ubuntu'
+[DEBUG   ] stdout: {
+	disable		= yes
+	type		= INTERNAL
+	id		= discard-stream
+[INFO    ] Executing command 'grep  -B 3 discard-dgram /etc/xinetd.d/discard' in directory '/home/ubuntu'
+[DEBUG   ] stdout: {
+	disable		= yes
+	type		= INTERNAL
+	id		= discard-dgram
 [INFO    ] Executing command 'grep  -B 3 chargen-stream /etc/xinetd.d/chargen' in directory '/home/ubuntu'
 [DEBUG   ] stdout: {
 	disable		= yes
@@ -376,11 +381,37 @@ Ciphers aes256-ctr,aes192-ctr,aes128-ctr
 	id		= chargen-stream
 [INFO    ] Executing command 'grep  -B 3 chargen-dgram /etc/xinetd.d/chargen' in directory '/home/ubuntu'
 [DEBUG   ] stdout: {
-	disable		= no
+	disable		= yes
 	type		= INTERNAL
 	id		= chargen-dgram
 [INFO    ] Executing command 'grep  -r vfat /etc/modprobe.d' in directory '/home/ubuntu'
 [DEBUG   ] stdout: /etc/modprobe.d/CIS.conf:install vfat /bin/true
+[INFO    ] Executing command 'grep  -r ^talk /etc/xinetd*' in directory '/home/ubuntu'
+[DEBUG   ] stderr: grep: /etc/xinetd*: No such file or directory
+[DEBUG   ] retcode: 2
+[INFO    ] Executing command 'grep  -r ^ntalk /etc/xinetd*' in directory '/home/ubuntu'
+[DEBUG   ] stderr: grep: /etc/xinetd*: No such file or directory
+[DEBUG   ] retcode: 2
+[INFO    ] Executing command 'grep  -B 3 echo-stream /etc/xinetd.d/echo' in directory '/home/ubuntu'
+[DEBUG   ] stdout: {
+	disable		= yes
+	type		= INTERNAL
+	id		= echo-stream
+[INFO    ] Executing command 'grep  -B 3 echo-dgram /etc/xinetd.d/echo' in directory '/home/ubuntu'
+[DEBUG   ] stdout: {
+	disable		= yes
+	type		= INTERNAL
+	id		= echo-dgram
+[INFO    ] Executing command 'grep  -B 3 time-stream /etc/xinetd.d/time' in directory '/home/ubuntu'
+[DEBUG   ] stdout: {
+	disable		= yes
+	type		= INTERNAL
+	id		= time-stream
+[INFO    ] Executing command 'grep  -B 3 time-dgram /etc/xinetd.d/time' in directory '/home/ubuntu'
+[DEBUG   ] stdout: {
+	disable		= yes
+	type		= INTERNAL
+	id		= time-dgram
 [INFO    ] Executing command 'grep   AllowUsers /etc/ssh/sshd_config' in directory '/home/ubuntu'
 [DEBUG   ] stdout: #AllowUsers user1
 [INFO    ] Executing command 'grep   AllowGroups /etc/ssh/sshd_config' in directory '/home/ubuntu'
@@ -391,8 +422,9 @@ Ciphers aes256-ctr,aes192-ctr,aes128-ctr
 [DEBUG   ] stdout: #DenyGroups *
 [INFO    ] Executing command 'grep  -r hfsplus /etc/modprobe.d' in directory '/home/ubuntu'
 [DEBUG   ] stdout: /etc/modprobe.d/CIS.conf:install hfsplus /bin/true
-[INFO    ] Executing command 'grep   /tmp /proc/mounts' in directory '/home/ubuntu'
-[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep   ^telnet /etc/xinetd*' in directory '/home/ubuntu'
+[DEBUG   ] stderr: grep: /etc/xinetd*: No such file or directory
+[DEBUG   ] retcode: 2
 [INFO    ] Executing command 'grep   PermitUserEnvironment /etc/ssh/sshd_config' in directory '/home/ubuntu'
 [DEBUG   ] stdout: PermitUserEnvironment no
 [INFO    ] Executing command 'grep  -r cramfs /etc/modprobe.d' in directory '/home/ubuntu'
@@ -407,14 +439,13 @@ PASS_MAX_DAYS 90
 [INFO    ] Executing command 'grep   PASS_MIN_DAYS /etc/login.defs' in directory '/home/ubuntu'
 [DEBUG   ] stdout: #	PASS_MIN_DAYS	Minimum number of days allowed between password changes.
 PASS_MIN_DAYS 7
-[INFO    ] Executing command 'grep   PASS_WARN_AGE /etc/login.defs' in directory '/home/ubuntu'
-[DEBUG   ] stdout: #	PASS_WARN_AGE	Number of days warning given before a password expires.
-PASS_WARN_AGE 7
-[INFO    ] Executing command 'grep   /var /proc/mounts' in directory '/home/ubuntu'
-[DEBUG   ] stdout: lxcfs /var/lib/lxcfs fuse.lxcfs rw,nosuid,nodev,relatime,user_id=0,group_id=0,allow_other 0 0
+[INFO    ] Executing command 'grep   /tmp /proc/mounts' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep   ^+ /etc/passwd' in directory '/home/ubuntu'
+[DEBUG   ] retcode: 1
 [INFO    ] Executing command 'grep   Protocol /etc/ssh/sshd_config' in directory '/home/ubuntu'
 [DEBUG   ] stdout: Protocol 2
-[INFO    ] Executing command 'grep   ^+ /etc/shadow' in directory '/home/ubuntu'
+[INFO    ] Executing command 'grep   /tmp /proc/mounts' in directory '/home/ubuntu'
 [DEBUG   ] retcode: 1
 [INFO    ] Executing command 'grep  -r hfs /etc/modprobe.d' in directory '/home/ubuntu'
 [DEBUG   ] stdout: /etc/modprobe.d/CIS.conf:install hfs /bin/true
@@ -422,10 +453,12 @@ PASS_WARN_AGE 7
 /etc/modprobe.d/CIS.conf:install squashfs /bin/true
 [INFO    ] Executing command 'grep  -r squashfs /etc/modprobe.d' in directory '/home/ubuntu'
 [DEBUG   ] stdout: /etc/modprobe.d/CIS.conf:install squashfs /bin/true
+[INFO    ] Executing command 'grep   ^server /etc/chrony/chrony.conf' in directory '/home/ubuntu'
+[DEBUG   ] stdout: server time.nist.gov
+[INFO    ] Executing command 'grep   ^user /etc/chrony/chrony.conf' in directory '/home/ubuntu'
+[DEBUG   ] stdout: user _chrony
 [INFO    ] Executing command 'grep   aide /var/spool/cron/crontabs/root' in directory '/home/ubuntu'
 [DEBUG   ] stdout: 0 5 * * * /usr/bin/aide --check
-[INFO    ] Executing command 'grep   /var /etc/fstab' in directory '/home/ubuntu'
-[DEBUG   ] retcode: 1
 [INFO    ] Executing command 'grep   ^RSYNC_ENABLE /etc/default/rsync' in directory '/home/ubuntu'
 [DEBUG   ] stdout: RSYNC_ENABLE=false
 [INFO    ] Executing command 'grep   ^inet_interfaces /etc/postfix/main.cf' in directory '/home/ubuntu'
@@ -474,40 +507,27 @@ server 2.pool.ntp.org iburst minpoll 6 maxpoll 10
 server 3.pool.ntp.org iburst minpoll 6 maxpoll 10
 [INFO    ] Executing command 'grep   RUNASUSER= /etc/init.d/ntp' in directory '/home/ubuntu'
 [DEBUG   ] stdout: RUNASUSER=ntp
-[INFO    ] Executing command 'grep  -r udf /etc/modprobe.d' in directory '/home/ubuntu'
-[DEBUG   ] stdout: /etc/modprobe.d/CIS.conf:install udf /bin/true
+[INFO    ] Executing command 'grep  -r ^tftp /etc/xinetd*' in directory '/home/ubuntu'
+[DEBUG   ] stderr: grep: /etc/xinetd*: No such file or directory
+[DEBUG   ] retcode: 2
 [INFO    ] Executing command 'grep   HostbasedAuthentication /etc/ssh/sshd_config' in directory '/home/ubuntu'
 [DEBUG   ] stdout: HostbasedAuthentication no
 [INFO    ] Executing command 'grep   IgnoreRhosts /etc/ssh/sshd_config' in directory '/home/ubuntu'
 [DEBUG   ] stdout: IgnoreRhosts yes
 [INFO    ] Executing command 'grep   MaxAuthTries /etc/ssh/sshd_config' in directory '/home/ubuntu'
 [DEBUG   ] stdout: MaxAuthTries 4
-[INFO    ] Executing command 'grep   pam_wheel.so /etc/pam.d/su' in directory '/home/ubuntu'
-[DEBUG   ] stdout: # auth       required   pam_wheel.so
-# auth       sufficient pam_wheel.so trust
-# auth       required   pam_wheel.so deny group=nosu
-auth required pam_wheel.so use_uid
-[INFO    ] Executing command 'grep   wheel /etc/group' in directory '/home/ubuntu'
-[DEBUG   ] retcode: 1
+[INFO    ] Executing command 'grep   X11Forwarding /etc/ssh/sshd_config' in directory '/home/ubuntu'
+[DEBUG   ] stdout: X11Forwarding  no
+#X11Forwarding no
 [INFO    ] Executing command 'grep   PermitEmptyPasswords /etc/ssh/sshd_config' in directory '/home/ubuntu'
 [DEBUG   ] stdout: PermitEmptyPasswords no
-[INFO    ] Executing command 'grep   ^daytime /etc/inetd.conf' in directory '/home/ubuntu'
-[DEBUG   ] stderr: grep: /etc/inetd.conf: No such file or directory
-[DEBUG   ] retcode: 2
-[INFO    ] Executing command 'grep   ^echo /etc/inetd.conf' in directory '/home/ubuntu'
-[DEBUG   ] stderr: grep: /etc/inetd.conf: No such file or directory
-[DEBUG   ] retcode: 2
-[INFO    ] Executing command 'grep   ^discard /etc/inetd.conf' in directory '/home/ubuntu'
-[DEBUG   ] stderr: grep: /etc/inetd.conf: No such file or directory
-[DEBUG   ] retcode: 2
-[INFO    ] Executing command 'grep   ^time /etc/inetd.conf' in directory '/home/ubuntu'
-[DEBUG   ] stderr: grep: /etc/inetd.conf: No such file or directory
-[DEBUG   ] retcode: 2
+[INFO    ] Executing command 'grep   PermitRootLogin /etc/ssh/sshd_config' in directory '/home/ubuntu'
+[DEBUG   ] stdout: PermitRootLogin no
+#PermitRootLogin no
+[INFO    ] Executing command 'grep   remember /etc/pam.d/common-password' in directory '/home/ubuntu'
+[DEBUG   ] stdout: password 	sufficient 			pam_unix.so remember=5
 [INFO    ] Executing command 'grep   /dev/shm /proc/mounts' in directory '/home/ubuntu'
 [DEBUG   ] stdout: tmpfs /dev/shm tmpfs rw,nosuid,nodev,noexec 0 0
-[INFO    ] Executing command 'grep   ^telnet /etc/inetd.conf' in directory '/home/ubuntu'
-[DEBUG   ] stderr: grep: /etc/inetd.conf: No such file or directory
-[DEBUG   ] retcode: 2
 [INFO    ] Executing command 'grep   /var/log/audit /proc/mounts' in directory '/home/ubuntu'
 [DEBUG   ] retcode: 1
 [INFO    ] Executing command 'grep   /var/log /proc/mounts' in directory '/home/ubuntu'
@@ -535,12 +555,27 @@ UMASK		022
 [DEBUG   ] retcode: 3
 [INFO    ] Executing command ['systemctl', 'is-active', 'isc-dhcp-server.service'] in directory '/home/ubuntu'
 [DEBUG   ] output: inactive
+[INFO    ] Executing command ['systemctl', 'status', 'isc-dhcp-server6.service', '-n', '0'] in directory '/home/ubuntu'
+[DEBUG   ] stdout: * isc-dhcp-server6.service
+   Loaded: not-found (Reason: No such file or directory)
+   Active: inactive (dead)
+[DEBUG   ] retcode: 3
+[INFO    ] Executing command ['systemctl', 'is-active', 'isc-dhcp-server6.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: inactive
 [INFO    ] Executing command ['systemctl', 'status', 'cups.service', '-n', '0'] in directory '/home/ubuntu'
 [DEBUG   ] stdout: * cups.service
    Loaded: not-found (Reason: No such file or directory)
    Active: inactive (dead)
 [DEBUG   ] retcode: 3
 [INFO    ] Executing command ['systemctl', 'is-active', 'cups.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: inactive
+[INFO    ] Executing command ['systemctl', 'status', 'slapd.service', '-n', '0'] in directory '/home/ubuntu'
+[DEBUG   ] stdout: * slapd.service - LSB: OpenLDAP standalone server (Lightweight Directory Access Protocol)
+   Loaded: loaded (/etc/init.d/slapd; bad; vendor preset: enabled)
+   Active: inactive (dead)
+     Docs: man:systemd-sysv-generator(8)
+[DEBUG   ] retcode: 3
+[INFO    ] Executing command ['systemctl', 'is-active', 'slapd.service'] in directory '/home/ubuntu'
 [DEBUG   ] output: inactive
 [INFO    ] Executing command ['systemctl', 'status', 'avahi-daemon.service', '-n', '0'] in directory '/home/ubuntu'
 [DEBUG   ] stdout: * avahi-daemon.service
@@ -552,16 +587,45 @@ UMASK		022
 [INFO    ] Executing command ['systemctl', 'status', 'rsyslog.service', '-n', '0'] in directory '/home/ubuntu'
 [DEBUG   ] stdout: * rsyslog.service - System Logging Service
    Loaded: loaded (/lib/systemd/system/rsyslog.service; enabled; vendor preset: enabled)
-   Active: active (running) since Fri 2017-11-10 07:13:23 UTC; 4 days ago
+   Active: active (running) since Fri 2017-11-10 07:13:23 UTC; 5 days ago
      Docs: man:rsyslogd(8)
            http://www.rsyslog.com/doc/
  Main PID: 1173 (rsyslogd)
-    Tasks: 4
-   Memory: 2.1M
-      CPU: 245ms
    CGroup: /system.slice/rsyslog.service
            `-1173 /usr/sbin/rsyslogd -n
 [INFO    ] Executing command ['systemctl', 'is-active', 'rsyslog.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: active
+[INFO    ] Executing command ['systemctl', 'status', 'cron.service', '-n', '0'] in directory '/home/ubuntu'
+[DEBUG   ] stdout: * cron.service - Regular background program processing daemon
+   Loaded: loaded (/lib/systemd/system/cron.service; enabled; vendor preset: enabled)
+   Active: active (running) since Fri 2017-11-10 07:13:23 UTC; 5 days ago
+     Docs: man:cron(8)
+ Main PID: 1204 (cron)
+   CGroup: /system.slice/cron.service
+           `-1204 /usr/sbin/cron -f
+[INFO    ] Executing command ['systemctl', 'is-active', 'cron.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: active
+[INFO    ] Executing command ['systemctl', 'status', 'xinetd.service', '-n', '0'] in directory '/home/ubuntu'
+[DEBUG   ] stdout: * xinetd.service - LSB: Starts or stops the xinetd daemon.
+   Loaded: loaded (/etc/init.d/xinetd; bad; vendor preset: enabled)
+   Active: inactive (dead)
+     Docs: man:systemd-sysv-generator(8)
+[DEBUG   ] retcode: 3
+[INFO    ] Executing command ['systemctl', 'is-active', 'xinetd.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: inactive
+[INFO    ] Executing command ['systemctl', 'status', 'whoopsie.service', '-n', '0'] in directory '/home/ubuntu'
+[DEBUG   ] stdout: * whoopsie.service
+   Loaded: not-found (Reason: No such file or directory)
+   Active: inactive (dead)
+[DEBUG   ] retcode: 3
+[INFO    ] Executing command ['systemctl', 'is-active', 'whoopsie.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: inactive
+[INFO    ] Executing command ['systemctl', 'status', 'apport.service', '-n', '0'] in directory '/home/ubuntu'
+[DEBUG   ] stdout: * apport.service - LSB: automatic crash report generation
+   Loaded: loaded (/etc/init.d/apport; bad; vendor preset: enabled)
+   Active: active (exited) since Fri 2017-11-10 07:13:23 UTC; 5 days ago
+     Docs: man:systemd-sysv-generator(8)
+[INFO    ] Executing command ['systemctl', 'is-active', 'apport.service'] in directory '/home/ubuntu'
 [DEBUG   ] output: active
 [INFO    ] Executing command ['systemctl', 'status', 'autofs.service', '-n', '0'] in directory '/home/ubuntu'
 [DEBUG   ] stdout: * autofs.service
@@ -570,50 +634,6 @@ UMASK		022
 [DEBUG   ] retcode: 3
 [INFO    ] Executing command ['systemctl', 'is-active', 'autofs.service'] in directory '/home/ubuntu'
 [DEBUG   ] output: inactive
-[INFO    ] Executing command ['systemctl', 'status', 'cron.service', '-n', '0'] in directory '/home/ubuntu'
-[DEBUG   ] stdout: * cron.service - Regular background program processing daemon
-   Loaded: loaded (/lib/systemd/system/cron.service; enabled; vendor preset: enabled)
-   Active: active (running) since Fri 2017-11-10 07:13:23 UTC; 4 days ago
-     Docs: man:cron(8)
- Main PID: 1204 (cron)
-    Tasks: 1
-   Memory: 59.4M
-      CPU: 6.558s
-   CGroup: /system.slice/cron.service
-           `-1204 /usr/sbin/cron -f
-[INFO    ] Executing command ['systemctl', 'is-active', 'cron.service'] in directory '/home/ubuntu'
-[DEBUG   ] output: active
-[INFO    ] Executing command ['systemctl', 'status', 'apport.service', '-n', '0'] in directory '/home/ubuntu'
-[DEBUG   ] stdout: * apport.service - LSB: automatic crash report generation
-   Loaded: loaded (/etc/init.d/apport; bad; vendor preset: enabled)
-   Active: active (exited) since Fri 2017-11-10 07:13:23 UTC; 4 days ago
-     Docs: man:systemd-sysv-generator(8)
-    Tasks: 0
-   Memory: 0B
-      CPU: 0
-[INFO    ] Executing command ['systemctl', 'is-active', 'apport.service'] in directory '/home/ubuntu'
-[DEBUG   ] output: active
-[INFO    ] Executing command ['systemctl', 'status', 'whoopsie.service', '-n', '0'] in directory '/home/ubuntu'
-[DEBUG   ] stdout: * whoopsie.service
-   Loaded: not-found (Reason: No such file or directory)
-   Active: inactive (dead)
-[DEBUG   ] retcode: 3
-[INFO    ] Executing command ['systemctl', 'is-active', 'whoopsie.service'] in directory '/home/ubuntu'
-[DEBUG   ] output: inactive
-[INFO    ] Executing command ['systemctl', 'status', 'xinetd.service', '-n', '0'] in directory '/home/ubuntu'
-[DEBUG   ] stdout: * xinetd.service - LSB: Starts or stops the xinetd daemon.
-   Loaded: loaded (/etc/init.d/xinetd; bad; vendor preset: enabled)
-   Active: active (running) since Tue 2017-11-14 05:32:34 UTC; 4h 16min ago
-     Docs: man:systemd-sysv-generator(8)
-  Process: 24427 ExecStop=/etc/init.d/xinetd stop (code=exited, status=0/SUCCESS)
-  Process: 24436 ExecStart=/etc/init.d/xinetd start (code=exited, status=0/SUCCESS)
-    Tasks: 1
-   Memory: 196.0K
-      CPU: 16ms
-   CGroup: /system.slice/xinetd.service
-           `-24447 /usr/sbin/xinetd -pidfile /run/xinetd.pid -stayalive -inetd_compat -inetd_ipv6
-[INFO    ] Executing command ['systemctl', 'is-active', 'xinetd.service'] in directory '/home/ubuntu'
-[DEBUG   ] output: active
 [INFO    ] Executing command 'df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type d \( -perm -0002 -a ! -perm -1000 \) 2>/dev/null' in directory '/home/ubuntu'
 [DEBUG   ] output: 
 [INFO    ] Executing command 'sysctl -n net.ipv4.conf.all.accept_source_route' in directory '/home/ubuntu'
@@ -640,3 +660,1007 @@ UMASK		022
 [DEBUG   ] output: 2
 [INFO    ] Executing command 'sysctl -n net.ipv4.ip_forward' in directory '/home/ubuntu'
 [DEBUG   ] output: 0
+[INFO    ] Executing command ['systemctl', 'is-enabled', 'dhcpd.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: Failed to get unit file state for dhcpd.service: No such file or directory
+[DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
+[DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
+[DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
+[DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
+[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
+[DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
+[DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
+[DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
+[DEBUG   ] sysvinit script 'rsyslog' found, but systemd unit 'rsyslog.service' already exists
+[DEBUG   ] sysvinit script 'plymouth' found, but systemd unit 'plymouth.service' already exists
+[DEBUG   ] sysvinit script 'rsync' found, but systemd unit 'rsync.service' already exists
+[DEBUG   ] sysvinit script 'cron' found, but systemd unit 'cron.service' already exists
+[DEBUG   ] sysvinit script 'lvm2' found, but systemd unit 'lvm2.service' already exists
+[DEBUG   ] sysvinit script 'lxcfs' found, but systemd unit 'lxcfs.service' already exists
+[DEBUG   ] sysvinit script 'atd' found, but systemd unit 'atd.service' already exists
+[DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
+[DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
+[DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
+[DEBUG   ] sysvinit script 'networking' found, but systemd unit 'networking.service' already exists
+[DEBUG   ] sysvinit script 'ssh' found, but systemd unit 'ssh.service' already exists
+[DEBUG   ] sysvinit script 'procps' found, but systemd unit 'procps.service' already exists
+[DEBUG   ] sysvinit script 'rcS' found, but systemd unit 'rcS.service' already exists
+[DEBUG   ] sysvinit script 'plymouth-log' found, but systemd unit 'plymouth-log.service' already exists
+[DEBUG   ] sysvinit script 'rc' found, but systemd unit 'rc.service' already exists
+[DEBUG   ] sysvinit script 'keyboard-setup' found, but systemd unit 'keyboard-setup.service' already exists
+[DEBUG   ] sysvinit script 'urandom' found, but systemd unit 'urandom.service' already exists
+[DEBUG   ] sysvinit script 'acpid' found, but systemd unit 'acpid.service' already exists
+[DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
+[DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
+[DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
+[DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
+[DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
+[DEBUG   ] sysvinit script 'single' found, but systemd unit 'single.service' already exists
+[DEBUG   ] sysvinit script 'umountroot' found, but systemd unit 'umountroot.service' already exists
+[DEBUG   ] sysvinit script 'unattended-upgrades' found, but systemd unit 'unattended-upgrades.service' already exists
+[DEBUG   ] sysvinit script 'rpcbind' found, but systemd unit 'rpcbind.service' already exists
+[DEBUG   ] sysvinit script 'dbus' found, but systemd unit 'dbus.service' already exists
+[DEBUG   ] sysvinit script 'kmod' found, but systemd unit 'kmod.service' already exists
+[DEBUG   ] sysvinit script 'cphalod' found, but systemd unit 'cphalod.service' already exists
+[DEBUG   ] sysvinit script 'hubble' found, but systemd unit 'hubble.service' already exists
+[DEBUG   ] sysvinit script 'reboot' found, but systemd unit 'reboot.service' already exists
+[INFO    ] Executing command ['systemctl', 'is-enabled', 'cups.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: Failed to get unit file state for cups.service: No such file or directory
+[DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
+[DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
+[DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
+[DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
+[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
+[DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
+[DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
+[DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
+[DEBUG   ] sysvinit script 'rsyslog' found, but systemd unit 'rsyslog.service' already exists
+[DEBUG   ] sysvinit script 'plymouth' found, but systemd unit 'plymouth.service' already exists
+[DEBUG   ] sysvinit script 'rsync' found, but systemd unit 'rsync.service' already exists
+[DEBUG   ] sysvinit script 'cron' found, but systemd unit 'cron.service' already exists
+[DEBUG   ] sysvinit script 'lvm2' found, but systemd unit 'lvm2.service' already exists
+[DEBUG   ] sysvinit script 'lxcfs' found, but systemd unit 'lxcfs.service' already exists
+[DEBUG   ] sysvinit script 'atd' found, but systemd unit 'atd.service' already exists
+[DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
+[DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
+[DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
+[DEBUG   ] sysvinit script 'networking' found, but systemd unit 'networking.service' already exists
+[DEBUG   ] sysvinit script 'ssh' found, but systemd unit 'ssh.service' already exists
+[DEBUG   ] sysvinit script 'procps' found, but systemd unit 'procps.service' already exists
+[DEBUG   ] sysvinit script 'rcS' found, but systemd unit 'rcS.service' already exists
+[DEBUG   ] sysvinit script 'plymouth-log' found, but systemd unit 'plymouth-log.service' already exists
+[DEBUG   ] sysvinit script 'rc' found, but systemd unit 'rc.service' already exists
+[DEBUG   ] sysvinit script 'keyboard-setup' found, but systemd unit 'keyboard-setup.service' already exists
+[DEBUG   ] sysvinit script 'urandom' found, but systemd unit 'urandom.service' already exists
+[DEBUG   ] sysvinit script 'acpid' found, but systemd unit 'acpid.service' already exists
+[DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
+[DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
+[DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
+[DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
+[DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
+[DEBUG   ] sysvinit script 'single' found, but systemd unit 'single.service' already exists
+[DEBUG   ] sysvinit script 'umountroot' found, but systemd unit 'umountroot.service' already exists
+[DEBUG   ] sysvinit script 'unattended-upgrades' found, but systemd unit 'unattended-upgrades.service' already exists
+[DEBUG   ] sysvinit script 'rpcbind' found, but systemd unit 'rpcbind.service' already exists
+[DEBUG   ] sysvinit script 'dbus' found, but systemd unit 'dbus.service' already exists
+[DEBUG   ] sysvinit script 'kmod' found, but systemd unit 'kmod.service' already exists
+[DEBUG   ] sysvinit script 'cphalod' found, but systemd unit 'cphalod.service' already exists
+[DEBUG   ] sysvinit script 'hubble' found, but systemd unit 'hubble.service' already exists
+[DEBUG   ] sysvinit script 'reboot' found, but systemd unit 'reboot.service' already exists
+[INFO    ] Executing command ['systemctl', 'is-enabled', 'rpcbind.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: indirect
+[INFO    ] Executing command ['systemctl', 'is-enabled', 'nfs.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: Failed to get unit file state for nfs.service: No such file or directory
+[DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
+[DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
+[DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
+[DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
+[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
+[DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
+[DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
+[DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
+[DEBUG   ] sysvinit script 'rsyslog' found, but systemd unit 'rsyslog.service' already exists
+[DEBUG   ] sysvinit script 'plymouth' found, but systemd unit 'plymouth.service' already exists
+[DEBUG   ] sysvinit script 'rsync' found, but systemd unit 'rsync.service' already exists
+[DEBUG   ] sysvinit script 'cron' found, but systemd unit 'cron.service' already exists
+[DEBUG   ] sysvinit script 'lvm2' found, but systemd unit 'lvm2.service' already exists
+[DEBUG   ] sysvinit script 'lxcfs' found, but systemd unit 'lxcfs.service' already exists
+[DEBUG   ] sysvinit script 'atd' found, but systemd unit 'atd.service' already exists
+[DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
+[DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
+[DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
+[DEBUG   ] sysvinit script 'networking' found, but systemd unit 'networking.service' already exists
+[DEBUG   ] sysvinit script 'ssh' found, but systemd unit 'ssh.service' already exists
+[DEBUG   ] sysvinit script 'procps' found, but systemd unit 'procps.service' already exists
+[DEBUG   ] sysvinit script 'rcS' found, but systemd unit 'rcS.service' already exists
+[DEBUG   ] sysvinit script 'plymouth-log' found, but systemd unit 'plymouth-log.service' already exists
+[DEBUG   ] sysvinit script 'rc' found, but systemd unit 'rc.service' already exists
+[DEBUG   ] sysvinit script 'keyboard-setup' found, but systemd unit 'keyboard-setup.service' already exists
+[DEBUG   ] sysvinit script 'urandom' found, but systemd unit 'urandom.service' already exists
+[DEBUG   ] sysvinit script 'acpid' found, but systemd unit 'acpid.service' already exists
+[DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
+[DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
+[DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
+[DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
+[DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
+[DEBUG   ] sysvinit script 'single' found, but systemd unit 'single.service' already exists
+[DEBUG   ] sysvinit script 'umountroot' found, but systemd unit 'umountroot.service' already exists
+[DEBUG   ] sysvinit script 'unattended-upgrades' found, but systemd unit 'unattended-upgrades.service' already exists
+[DEBUG   ] sysvinit script 'rpcbind' found, but systemd unit 'rpcbind.service' already exists
+[DEBUG   ] sysvinit script 'dbus' found, but systemd unit 'dbus.service' already exists
+[DEBUG   ] sysvinit script 'kmod' found, but systemd unit 'kmod.service' already exists
+[DEBUG   ] sysvinit script 'cphalod' found, but systemd unit 'cphalod.service' already exists
+[DEBUG   ] sysvinit script 'hubble' found, but systemd unit 'hubble.service' already exists
+[DEBUG   ] sysvinit script 'reboot' found, but systemd unit 'reboot.service' already exists
+[INFO    ] Executing command ['systemctl', 'is-enabled', 'avahi-daemon.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: Failed to get unit file state for avahi-daemon.service: No such file or directory
+[DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
+[DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
+[DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
+[DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
+[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
+[DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
+[DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
+[DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
+[DEBUG   ] sysvinit script 'rsyslog' found, but systemd unit 'rsyslog.service' already exists
+[DEBUG   ] sysvinit script 'plymouth' found, but systemd unit 'plymouth.service' already exists
+[DEBUG   ] sysvinit script 'rsync' found, but systemd unit 'rsync.service' already exists
+[DEBUG   ] sysvinit script 'cron' found, but systemd unit 'cron.service' already exists
+[DEBUG   ] sysvinit script 'lvm2' found, but systemd unit 'lvm2.service' already exists
+[DEBUG   ] sysvinit script 'lxcfs' found, but systemd unit 'lxcfs.service' already exists
+[DEBUG   ] sysvinit script 'atd' found, but systemd unit 'atd.service' already exists
+[DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
+[DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
+[DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
+[DEBUG   ] sysvinit script 'networking' found, but systemd unit 'networking.service' already exists
+[DEBUG   ] sysvinit script 'ssh' found, but systemd unit 'ssh.service' already exists
+[DEBUG   ] sysvinit script 'procps' found, but systemd unit 'procps.service' already exists
+[DEBUG   ] sysvinit script 'rcS' found, but systemd unit 'rcS.service' already exists
+[DEBUG   ] sysvinit script 'plymouth-log' found, but systemd unit 'plymouth-log.service' already exists
+[DEBUG   ] sysvinit script 'rc' found, but systemd unit 'rc.service' already exists
+[DEBUG   ] sysvinit script 'keyboard-setup' found, but systemd unit 'keyboard-setup.service' already exists
+[DEBUG   ] sysvinit script 'urandom' found, but systemd unit 'urandom.service' already exists
+[DEBUG   ] sysvinit script 'acpid' found, but systemd unit 'acpid.service' already exists
+[DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
+[DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
+[DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
+[DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
+[DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
+[DEBUG   ] sysvinit script 'single' found, but systemd unit 'single.service' already exists
+[DEBUG   ] sysvinit script 'umountroot' found, but systemd unit 'umountroot.service' already exists
+[DEBUG   ] sysvinit script 'unattended-upgrades' found, but systemd unit 'unattended-upgrades.service' already exists
+[DEBUG   ] sysvinit script 'rpcbind' found, but systemd unit 'rpcbind.service' already exists
+[DEBUG   ] sysvinit script 'dbus' found, but systemd unit 'dbus.service' already exists
+[DEBUG   ] sysvinit script 'kmod' found, but systemd unit 'kmod.service' already exists
+[DEBUG   ] sysvinit script 'cphalod' found, but systemd unit 'cphalod.service' already exists
+[DEBUG   ] sysvinit script 'hubble' found, but systemd unit 'hubble.service' already exists
+[DEBUG   ] sysvinit script 'reboot' found, but systemd unit 'reboot.service' already exists
+[INFO    ] Executing command ['systemctl', 'is-enabled', 'vsftpd.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: Failed to get unit file state for vsftpd.service: No such file or directory
+[DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
+[DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
+[DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
+[DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
+[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
+[DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
+[DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
+[DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
+[DEBUG   ] sysvinit script 'rsyslog' found, but systemd unit 'rsyslog.service' already exists
+[DEBUG   ] sysvinit script 'plymouth' found, but systemd unit 'plymouth.service' already exists
+[DEBUG   ] sysvinit script 'rsync' found, but systemd unit 'rsync.service' already exists
+[DEBUG   ] sysvinit script 'cron' found, but systemd unit 'cron.service' already exists
+[DEBUG   ] sysvinit script 'lvm2' found, but systemd unit 'lvm2.service' already exists
+[DEBUG   ] sysvinit script 'lxcfs' found, but systemd unit 'lxcfs.service' already exists
+[DEBUG   ] sysvinit script 'atd' found, but systemd unit 'atd.service' already exists
+[DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
+[DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
+[DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
+[DEBUG   ] sysvinit script 'networking' found, but systemd unit 'networking.service' already exists
+[DEBUG   ] sysvinit script 'ssh' found, but systemd unit 'ssh.service' already exists
+[DEBUG   ] sysvinit script 'procps' found, but systemd unit 'procps.service' already exists
+[DEBUG   ] sysvinit script 'rcS' found, but systemd unit 'rcS.service' already exists
+[DEBUG   ] sysvinit script 'plymouth-log' found, but systemd unit 'plymouth-log.service' already exists
+[DEBUG   ] sysvinit script 'rc' found, but systemd unit 'rc.service' already exists
+[DEBUG   ] sysvinit script 'keyboard-setup' found, but systemd unit 'keyboard-setup.service' already exists
+[DEBUG   ] sysvinit script 'urandom' found, but systemd unit 'urandom.service' already exists
+[DEBUG   ] sysvinit script 'acpid' found, but systemd unit 'acpid.service' already exists
+[DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
+[DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
+[DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
+[DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
+[DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
+[DEBUG   ] sysvinit script 'single' found, but systemd unit 'single.service' already exists
+[DEBUG   ] sysvinit script 'umountroot' found, but systemd unit 'umountroot.service' already exists
+[DEBUG   ] sysvinit script 'unattended-upgrades' found, but systemd unit 'unattended-upgrades.service' already exists
+[DEBUG   ] sysvinit script 'rpcbind' found, but systemd unit 'rpcbind.service' already exists
+[DEBUG   ] sysvinit script 'dbus' found, but systemd unit 'dbus.service' already exists
+[DEBUG   ] sysvinit script 'kmod' found, but systemd unit 'kmod.service' already exists
+[DEBUG   ] sysvinit script 'cphalod' found, but systemd unit 'cphalod.service' already exists
+[DEBUG   ] sysvinit script 'hubble' found, but systemd unit 'hubble.service' already exists
+[DEBUG   ] sysvinit script 'reboot' found, but systemd unit 'reboot.service' already exists
+[INFO    ] Executing command ['systemctl', 'is-enabled', 'named.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: Failed to get unit file state for named.service: No such file or directory
+[DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
+[DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
+[DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
+[DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
+[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
+[DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
+[DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
+[DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
+[DEBUG   ] sysvinit script 'rsyslog' found, but systemd unit 'rsyslog.service' already exists
+[DEBUG   ] sysvinit script 'plymouth' found, but systemd unit 'plymouth.service' already exists
+[DEBUG   ] sysvinit script 'rsync' found, but systemd unit 'rsync.service' already exists
+[DEBUG   ] sysvinit script 'cron' found, but systemd unit 'cron.service' already exists
+[DEBUG   ] sysvinit script 'lvm2' found, but systemd unit 'lvm2.service' already exists
+[DEBUG   ] sysvinit script 'lxcfs' found, but systemd unit 'lxcfs.service' already exists
+[DEBUG   ] sysvinit script 'atd' found, but systemd unit 'atd.service' already exists
+[DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
+[DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
+[DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
+[DEBUG   ] sysvinit script 'networking' found, but systemd unit 'networking.service' already exists
+[DEBUG   ] sysvinit script 'ssh' found, but systemd unit 'ssh.service' already exists
+[DEBUG   ] sysvinit script 'procps' found, but systemd unit 'procps.service' already exists
+[DEBUG   ] sysvinit script 'rcS' found, but systemd unit 'rcS.service' already exists
+[DEBUG   ] sysvinit script 'plymouth-log' found, but systemd unit 'plymouth-log.service' already exists
+[DEBUG   ] sysvinit script 'rc' found, but systemd unit 'rc.service' already exists
+[DEBUG   ] sysvinit script 'keyboard-setup' found, but systemd unit 'keyboard-setup.service' already exists
+[DEBUG   ] sysvinit script 'urandom' found, but systemd unit 'urandom.service' already exists
+[DEBUG   ] sysvinit script 'acpid' found, but systemd unit 'acpid.service' already exists
+[DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
+[DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
+[DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
+[DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
+[DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
+[DEBUG   ] sysvinit script 'single' found, but systemd unit 'single.service' already exists
+[DEBUG   ] sysvinit script 'umountroot' found, but systemd unit 'umountroot.service' already exists
+[DEBUG   ] sysvinit script 'unattended-upgrades' found, but systemd unit 'unattended-upgrades.service' already exists
+[DEBUG   ] sysvinit script 'rpcbind' found, but systemd unit 'rpcbind.service' already exists
+[DEBUG   ] sysvinit script 'dbus' found, but systemd unit 'dbus.service' already exists
+[DEBUG   ] sysvinit script 'kmod' found, but systemd unit 'kmod.service' already exists
+[DEBUG   ] sysvinit script 'cphalod' found, but systemd unit 'cphalod.service' already exists
+[DEBUG   ] sysvinit script 'hubble' found, but systemd unit 'hubble.service' already exists
+[DEBUG   ] sysvinit script 'reboot' found, but systemd unit 'reboot.service' already exists
+[INFO    ] Executing command ['systemctl', 'is-enabled', 'rsyncd.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: Failed to get unit file state for rsyncd.service: No such file or directory
+[DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
+[DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
+[DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
+[DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
+[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
+[DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
+[DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
+[DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
+[DEBUG   ] sysvinit script 'rsyslog' found, but systemd unit 'rsyslog.service' already exists
+[DEBUG   ] sysvinit script 'plymouth' found, but systemd unit 'plymouth.service' already exists
+[DEBUG   ] sysvinit script 'rsync' found, but systemd unit 'rsync.service' already exists
+[DEBUG   ] sysvinit script 'cron' found, but systemd unit 'cron.service' already exists
+[DEBUG   ] sysvinit script 'lvm2' found, but systemd unit 'lvm2.service' already exists
+[DEBUG   ] sysvinit script 'lxcfs' found, but systemd unit 'lxcfs.service' already exists
+[DEBUG   ] sysvinit script 'atd' found, but systemd unit 'atd.service' already exists
+[DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
+[DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
+[DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
+[DEBUG   ] sysvinit script 'networking' found, but systemd unit 'networking.service' already exists
+[DEBUG   ] sysvinit script 'ssh' found, but systemd unit 'ssh.service' already exists
+[DEBUG   ] sysvinit script 'procps' found, but systemd unit 'procps.service' already exists
+[DEBUG   ] sysvinit script 'rcS' found, but systemd unit 'rcS.service' already exists
+[DEBUG   ] sysvinit script 'plymouth-log' found, but systemd unit 'plymouth-log.service' already exists
+[DEBUG   ] sysvinit script 'rc' found, but systemd unit 'rc.service' already exists
+[DEBUG   ] sysvinit script 'keyboard-setup' found, but systemd unit 'keyboard-setup.service' already exists
+[DEBUG   ] sysvinit script 'urandom' found, but systemd unit 'urandom.service' already exists
+[DEBUG   ] sysvinit script 'acpid' found, but systemd unit 'acpid.service' already exists
+[DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
+[DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
+[DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
+[DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
+[DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
+[DEBUG   ] sysvinit script 'single' found, but systemd unit 'single.service' already exists
+[DEBUG   ] sysvinit script 'umountroot' found, but systemd unit 'umountroot.service' already exists
+[DEBUG   ] sysvinit script 'unattended-upgrades' found, but systemd unit 'unattended-upgrades.service' already exists
+[DEBUG   ] sysvinit script 'rpcbind' found, but systemd unit 'rpcbind.service' already exists
+[DEBUG   ] sysvinit script 'dbus' found, but systemd unit 'dbus.service' already exists
+[DEBUG   ] sysvinit script 'kmod' found, but systemd unit 'kmod.service' already exists
+[DEBUG   ] sysvinit script 'cphalod' found, but systemd unit 'cphalod.service' already exists
+[DEBUG   ] sysvinit script 'hubble' found, but systemd unit 'hubble.service' already exists
+[DEBUG   ] sysvinit script 'reboot' found, but systemd unit 'reboot.service' already exists
+[INFO    ] Executing command ['systemctl', 'is-enabled', 'ntalk.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: Failed to get unit file state for ntalk.service: No such file or directory
+[DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
+[DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
+[DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
+[DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
+[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
+[DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
+[DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
+[DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
+[DEBUG   ] sysvinit script 'rsyslog' found, but systemd unit 'rsyslog.service' already exists
+[DEBUG   ] sysvinit script 'plymouth' found, but systemd unit 'plymouth.service' already exists
+[DEBUG   ] sysvinit script 'rsync' found, but systemd unit 'rsync.service' already exists
+[DEBUG   ] sysvinit script 'cron' found, but systemd unit 'cron.service' already exists
+[DEBUG   ] sysvinit script 'lvm2' found, but systemd unit 'lvm2.service' already exists
+[DEBUG   ] sysvinit script 'lxcfs' found, but systemd unit 'lxcfs.service' already exists
+[DEBUG   ] sysvinit script 'atd' found, but systemd unit 'atd.service' already exists
+[DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
+[DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
+[DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
+[DEBUG   ] sysvinit script 'networking' found, but systemd unit 'networking.service' already exists
+[DEBUG   ] sysvinit script 'ssh' found, but systemd unit 'ssh.service' already exists
+[DEBUG   ] sysvinit script 'procps' found, but systemd unit 'procps.service' already exists
+[DEBUG   ] sysvinit script 'rcS' found, but systemd unit 'rcS.service' already exists
+[DEBUG   ] sysvinit script 'plymouth-log' found, but systemd unit 'plymouth-log.service' already exists
+[DEBUG   ] sysvinit script 'rc' found, but systemd unit 'rc.service' already exists
+[DEBUG   ] sysvinit script 'keyboard-setup' found, but systemd unit 'keyboard-setup.service' already exists
+[DEBUG   ] sysvinit script 'urandom' found, but systemd unit 'urandom.service' already exists
+[DEBUG   ] sysvinit script 'acpid' found, but systemd unit 'acpid.service' already exists
+[DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
+[DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
+[DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
+[DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
+[DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
+[DEBUG   ] sysvinit script 'single' found, but systemd unit 'single.service' already exists
+[DEBUG   ] sysvinit script 'umountroot' found, but systemd unit 'umountroot.service' already exists
+[DEBUG   ] sysvinit script 'unattended-upgrades' found, but systemd unit 'unattended-upgrades.service' already exists
+[DEBUG   ] sysvinit script 'rpcbind' found, but systemd unit 'rpcbind.service' already exists
+[DEBUG   ] sysvinit script 'dbus' found, but systemd unit 'dbus.service' already exists
+[DEBUG   ] sysvinit script 'kmod' found, but systemd unit 'kmod.service' already exists
+[DEBUG   ] sysvinit script 'cphalod' found, but systemd unit 'cphalod.service' already exists
+[DEBUG   ] sysvinit script 'hubble' found, but systemd unit 'hubble.service' already exists
+[DEBUG   ] sysvinit script 'reboot' found, but systemd unit 'reboot.service' already exists
+[INFO    ] Executing command ['systemctl', 'is-enabled', 'crond.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: Failed to get unit file state for crond.service: No such file or directory
+[DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
+[DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
+[DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
+[DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
+[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
+[DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
+[DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
+[DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
+[DEBUG   ] sysvinit script 'rsyslog' found, but systemd unit 'rsyslog.service' already exists
+[DEBUG   ] sysvinit script 'plymouth' found, but systemd unit 'plymouth.service' already exists
+[DEBUG   ] sysvinit script 'rsync' found, but systemd unit 'rsync.service' already exists
+[DEBUG   ] sysvinit script 'cron' found, but systemd unit 'cron.service' already exists
+[DEBUG   ] sysvinit script 'lvm2' found, but systemd unit 'lvm2.service' already exists
+[DEBUG   ] sysvinit script 'lxcfs' found, but systemd unit 'lxcfs.service' already exists
+[DEBUG   ] sysvinit script 'atd' found, but systemd unit 'atd.service' already exists
+[DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
+[DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
+[DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
+[DEBUG   ] sysvinit script 'networking' found, but systemd unit 'networking.service' already exists
+[DEBUG   ] sysvinit script 'ssh' found, but systemd unit 'ssh.service' already exists
+[DEBUG   ] sysvinit script 'procps' found, but systemd unit 'procps.service' already exists
+[DEBUG   ] sysvinit script 'rcS' found, but systemd unit 'rcS.service' already exists
+[DEBUG   ] sysvinit script 'plymouth-log' found, but systemd unit 'plymouth-log.service' already exists
+[DEBUG   ] sysvinit script 'rc' found, but systemd unit 'rc.service' already exists
+[DEBUG   ] sysvinit script 'keyboard-setup' found, but systemd unit 'keyboard-setup.service' already exists
+[DEBUG   ] sysvinit script 'urandom' found, but systemd unit 'urandom.service' already exists
+[DEBUG   ] sysvinit script 'acpid' found, but systemd unit 'acpid.service' already exists
+[DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
+[DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
+[DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
+[DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
+[DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
+[DEBUG   ] sysvinit script 'single' found, but systemd unit 'single.service' already exists
+[DEBUG   ] sysvinit script 'umountroot' found, but systemd unit 'umountroot.service' already exists
+[DEBUG   ] sysvinit script 'unattended-upgrades' found, but systemd unit 'unattended-upgrades.service' already exists
+[DEBUG   ] sysvinit script 'rpcbind' found, but systemd unit 'rpcbind.service' already exists
+[DEBUG   ] sysvinit script 'dbus' found, but systemd unit 'dbus.service' already exists
+[DEBUG   ] sysvinit script 'kmod' found, but systemd unit 'kmod.service' already exists
+[DEBUG   ] sysvinit script 'cphalod' found, but systemd unit 'cphalod.service' already exists
+[DEBUG   ] sysvinit script 'hubble' found, but systemd unit 'hubble.service' already exists
+[DEBUG   ] sysvinit script 'reboot' found, but systemd unit 'reboot.service' already exists
+[INFO    ] Executing command ['systemctl', 'is-enabled', 'tftp.socket'] in directory '/home/ubuntu'
+[DEBUG   ] output: Failed to get unit file state for tftp.socket: No such file or directory
+[DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
+[DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
+[DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
+[DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
+[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
+[DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
+[DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
+[DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
+[DEBUG   ] sysvinit script 'rsyslog' found, but systemd unit 'rsyslog.service' already exists
+[DEBUG   ] sysvinit script 'plymouth' found, but systemd unit 'plymouth.service' already exists
+[DEBUG   ] sysvinit script 'rsync' found, but systemd unit 'rsync.service' already exists
+[DEBUG   ] sysvinit script 'cron' found, but systemd unit 'cron.service' already exists
+[DEBUG   ] sysvinit script 'lvm2' found, but systemd unit 'lvm2.service' already exists
+[DEBUG   ] sysvinit script 'lxcfs' found, but systemd unit 'lxcfs.service' already exists
+[DEBUG   ] sysvinit script 'atd' found, but systemd unit 'atd.service' already exists
+[DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
+[DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
+[DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
+[DEBUG   ] sysvinit script 'networking' found, but systemd unit 'networking.service' already exists
+[DEBUG   ] sysvinit script 'ssh' found, but systemd unit 'ssh.service' already exists
+[DEBUG   ] sysvinit script 'procps' found, but systemd unit 'procps.service' already exists
+[DEBUG   ] sysvinit script 'rcS' found, but systemd unit 'rcS.service' already exists
+[DEBUG   ] sysvinit script 'plymouth-log' found, but systemd unit 'plymouth-log.service' already exists
+[DEBUG   ] sysvinit script 'rc' found, but systemd unit 'rc.service' already exists
+[DEBUG   ] sysvinit script 'keyboard-setup' found, but systemd unit 'keyboard-setup.service' already exists
+[DEBUG   ] sysvinit script 'urandom' found, but systemd unit 'urandom.service' already exists
+[DEBUG   ] sysvinit script 'acpid' found, but systemd unit 'acpid.service' already exists
+[DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
+[DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
+[DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
+[DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
+[DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
+[DEBUG   ] sysvinit script 'single' found, but systemd unit 'single.service' already exists
+[DEBUG   ] sysvinit script 'umountroot' found, but systemd unit 'umountroot.service' already exists
+[DEBUG   ] sysvinit script 'unattended-upgrades' found, but systemd unit 'unattended-upgrades.service' already exists
+[DEBUG   ] sysvinit script 'rpcbind' found, but systemd unit 'rpcbind.service' already exists
+[DEBUG   ] sysvinit script 'dbus' found, but systemd unit 'dbus.service' already exists
+[DEBUG   ] sysvinit script 'kmod' found, but systemd unit 'kmod.service' already exists
+[DEBUG   ] sysvinit script 'cphalod' found, but systemd unit 'cphalod.service' already exists
+[DEBUG   ] sysvinit script 'hubble' found, but systemd unit 'hubble.service' already exists
+[DEBUG   ] sysvinit script 'reboot' found, but systemd unit 'reboot.service' already exists
+[INFO    ] Executing command ['systemctl', 'is-enabled', 'telnet.socket'] in directory '/home/ubuntu'
+[DEBUG   ] output: Failed to get unit file state for telnet.socket: No such file or directory
+[DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
+[DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
+[DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
+[DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
+[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
+[DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
+[DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
+[DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
+[DEBUG   ] sysvinit script 'rsyslog' found, but systemd unit 'rsyslog.service' already exists
+[DEBUG   ] sysvinit script 'plymouth' found, but systemd unit 'plymouth.service' already exists
+[DEBUG   ] sysvinit script 'rsync' found, but systemd unit 'rsync.service' already exists
+[DEBUG   ] sysvinit script 'cron' found, but systemd unit 'cron.service' already exists
+[DEBUG   ] sysvinit script 'lvm2' found, but systemd unit 'lvm2.service' already exists
+[DEBUG   ] sysvinit script 'lxcfs' found, but systemd unit 'lxcfs.service' already exists
+[DEBUG   ] sysvinit script 'atd' found, but systemd unit 'atd.service' already exists
+[DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
+[DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
+[DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
+[DEBUG   ] sysvinit script 'networking' found, but systemd unit 'networking.service' already exists
+[DEBUG   ] sysvinit script 'ssh' found, but systemd unit 'ssh.service' already exists
+[DEBUG   ] sysvinit script 'procps' found, but systemd unit 'procps.service' already exists
+[DEBUG   ] sysvinit script 'rcS' found, but systemd unit 'rcS.service' already exists
+[DEBUG   ] sysvinit script 'plymouth-log' found, but systemd unit 'plymouth-log.service' already exists
+[DEBUG   ] sysvinit script 'rc' found, but systemd unit 'rc.service' already exists
+[DEBUG   ] sysvinit script 'keyboard-setup' found, but systemd unit 'keyboard-setup.service' already exists
+[DEBUG   ] sysvinit script 'urandom' found, but systemd unit 'urandom.service' already exists
+[DEBUG   ] sysvinit script 'acpid' found, but systemd unit 'acpid.service' already exists
+[DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
+[DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
+[DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
+[DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
+[DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
+[DEBUG   ] sysvinit script 'single' found, but systemd unit 'single.service' already exists
+[DEBUG   ] sysvinit script 'umountroot' found, but systemd unit 'umountroot.service' already exists
+[DEBUG   ] sysvinit script 'unattended-upgrades' found, but systemd unit 'unattended-upgrades.service' already exists
+[DEBUG   ] sysvinit script 'rpcbind' found, but systemd unit 'rpcbind.service' already exists
+[DEBUG   ] sysvinit script 'dbus' found, but systemd unit 'dbus.service' already exists
+[DEBUG   ] sysvinit script 'kmod' found, but systemd unit 'kmod.service' already exists
+[DEBUG   ] sysvinit script 'cphalod' found, but systemd unit 'cphalod.service' already exists
+[DEBUG   ] sysvinit script 'hubble' found, but systemd unit 'hubble.service' already exists
+[DEBUG   ] sysvinit script 'reboot' found, but systemd unit 'reboot.service' already exists
+[INFO    ] Executing command ['systemctl', 'is-enabled', 'rsyslog.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: enabled
+[INFO    ] Executing command ['systemctl', 'is-enabled', 'snmpd.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: Failed to get unit file state for snmpd.service: No such file or directory
+[DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
+[DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
+[DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
+[DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
+[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
+[DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
+[DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
+[DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
+[DEBUG   ] sysvinit script 'rsyslog' found, but systemd unit 'rsyslog.service' already exists
+[DEBUG   ] sysvinit script 'plymouth' found, but systemd unit 'plymouth.service' already exists
+[DEBUG   ] sysvinit script 'rsync' found, but systemd unit 'rsync.service' already exists
+[DEBUG   ] sysvinit script 'cron' found, but systemd unit 'cron.service' already exists
+[DEBUG   ] sysvinit script 'lvm2' found, but systemd unit 'lvm2.service' already exists
+[DEBUG   ] sysvinit script 'lxcfs' found, but systemd unit 'lxcfs.service' already exists
+[DEBUG   ] sysvinit script 'atd' found, but systemd unit 'atd.service' already exists
+[DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
+[DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
+[DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
+[DEBUG   ] sysvinit script 'networking' found, but systemd unit 'networking.service' already exists
+[DEBUG   ] sysvinit script 'ssh' found, but systemd unit 'ssh.service' already exists
+[DEBUG   ] sysvinit script 'procps' found, but systemd unit 'procps.service' already exists
+[DEBUG   ] sysvinit script 'rcS' found, but systemd unit 'rcS.service' already exists
+[DEBUG   ] sysvinit script 'plymouth-log' found, but systemd unit 'plymouth-log.service' already exists
+[DEBUG   ] sysvinit script 'rc' found, but systemd unit 'rc.service' already exists
+[DEBUG   ] sysvinit script 'keyboard-setup' found, but systemd unit 'keyboard-setup.service' already exists
+[DEBUG   ] sysvinit script 'urandom' found, but systemd unit 'urandom.service' already exists
+[DEBUG   ] sysvinit script 'acpid' found, but systemd unit 'acpid.service' already exists
+[DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
+[DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
+[DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
+[DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
+[DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
+[DEBUG   ] sysvinit script 'single' found, but systemd unit 'single.service' already exists
+[DEBUG   ] sysvinit script 'umountroot' found, but systemd unit 'umountroot.service' already exists
+[DEBUG   ] sysvinit script 'unattended-upgrades' found, but systemd unit 'unattended-upgrades.service' already exists
+[DEBUG   ] sysvinit script 'rpcbind' found, but systemd unit 'rpcbind.service' already exists
+[DEBUG   ] sysvinit script 'dbus' found, but systemd unit 'dbus.service' already exists
+[DEBUG   ] sysvinit script 'kmod' found, but systemd unit 'kmod.service' already exists
+[DEBUG   ] sysvinit script 'cphalod' found, but systemd unit 'cphalod.service' already exists
+[DEBUG   ] sysvinit script 'hubble' found, but systemd unit 'hubble.service' already exists
+[DEBUG   ] sysvinit script 'reboot' found, but systemd unit 'reboot.service' already exists
+[INFO    ] Executing command ['systemctl', 'is-enabled', 'rsh.socket'] in directory '/home/ubuntu'
+[DEBUG   ] output: Failed to get unit file state for rsh.socket: No such file or directory
+[DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
+[DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
+[DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
+[DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
+[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
+[DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
+[DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
+[DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
+[DEBUG   ] sysvinit script 'rsyslog' found, but systemd unit 'rsyslog.service' already exists
+[DEBUG   ] sysvinit script 'plymouth' found, but systemd unit 'plymouth.service' already exists
+[DEBUG   ] sysvinit script 'rsync' found, but systemd unit 'rsync.service' already exists
+[DEBUG   ] sysvinit script 'cron' found, but systemd unit 'cron.service' already exists
+[DEBUG   ] sysvinit script 'lvm2' found, but systemd unit 'lvm2.service' already exists
+[DEBUG   ] sysvinit script 'lxcfs' found, but systemd unit 'lxcfs.service' already exists
+[DEBUG   ] sysvinit script 'atd' found, but systemd unit 'atd.service' already exists
+[DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
+[DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
+[DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
+[DEBUG   ] sysvinit script 'networking' found, but systemd unit 'networking.service' already exists
+[DEBUG   ] sysvinit script 'ssh' found, but systemd unit 'ssh.service' already exists
+[DEBUG   ] sysvinit script 'procps' found, but systemd unit 'procps.service' already exists
+[DEBUG   ] sysvinit script 'rcS' found, but systemd unit 'rcS.service' already exists
+[DEBUG   ] sysvinit script 'plymouth-log' found, but systemd unit 'plymouth-log.service' already exists
+[DEBUG   ] sysvinit script 'rc' found, but systemd unit 'rc.service' already exists
+[DEBUG   ] sysvinit script 'keyboard-setup' found, but systemd unit 'keyboard-setup.service' already exists
+[DEBUG   ] sysvinit script 'urandom' found, but systemd unit 'urandom.service' already exists
+[DEBUG   ] sysvinit script 'acpid' found, but systemd unit 'acpid.service' already exists
+[DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
+[DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
+[DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
+[DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
+[DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
+[DEBUG   ] sysvinit script 'single' found, but systemd unit 'single.service' already exists
+[DEBUG   ] sysvinit script 'umountroot' found, but systemd unit 'umountroot.service' already exists
+[DEBUG   ] sysvinit script 'unattended-upgrades' found, but systemd unit 'unattended-upgrades.service' already exists
+[DEBUG   ] sysvinit script 'rpcbind' found, but systemd unit 'rpcbind.service' already exists
+[DEBUG   ] sysvinit script 'dbus' found, but systemd unit 'dbus.service' already exists
+[DEBUG   ] sysvinit script 'kmod' found, but systemd unit 'kmod.service' already exists
+[DEBUG   ] sysvinit script 'cphalod' found, but systemd unit 'cphalod.service' already exists
+[DEBUG   ] sysvinit script 'hubble' found, but systemd unit 'hubble.service' already exists
+[DEBUG   ] sysvinit script 'reboot' found, but systemd unit 'reboot.service' already exists
+[INFO    ] Executing command ['systemctl', 'is-enabled', 'rlogin.socket'] in directory '/home/ubuntu'
+[DEBUG   ] output: Failed to get unit file state for rlogin.socket: No such file or directory
+[DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
+[DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
+[DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
+[DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
+[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
+[DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
+[DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
+[DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
+[DEBUG   ] sysvinit script 'rsyslog' found, but systemd unit 'rsyslog.service' already exists
+[DEBUG   ] sysvinit script 'plymouth' found, but systemd unit 'plymouth.service' already exists
+[DEBUG   ] sysvinit script 'rsync' found, but systemd unit 'rsync.service' already exists
+[DEBUG   ] sysvinit script 'cron' found, but systemd unit 'cron.service' already exists
+[DEBUG   ] sysvinit script 'lvm2' found, but systemd unit 'lvm2.service' already exists
+[DEBUG   ] sysvinit script 'lxcfs' found, but systemd unit 'lxcfs.service' already exists
+[DEBUG   ] sysvinit script 'atd' found, but systemd unit 'atd.service' already exists
+[DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
+[DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
+[DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
+[DEBUG   ] sysvinit script 'networking' found, but systemd unit 'networking.service' already exists
+[DEBUG   ] sysvinit script 'ssh' found, but systemd unit 'ssh.service' already exists
+[DEBUG   ] sysvinit script 'procps' found, but systemd unit 'procps.service' already exists
+[DEBUG   ] sysvinit script 'rcS' found, but systemd unit 'rcS.service' already exists
+[DEBUG   ] sysvinit script 'plymouth-log' found, but systemd unit 'plymouth-log.service' already exists
+[DEBUG   ] sysvinit script 'rc' found, but systemd unit 'rc.service' already exists
+[DEBUG   ] sysvinit script 'keyboard-setup' found, but systemd unit 'keyboard-setup.service' already exists
+[DEBUG   ] sysvinit script 'urandom' found, but systemd unit 'urandom.service' already exists
+[DEBUG   ] sysvinit script 'acpid' found, but systemd unit 'acpid.service' already exists
+[DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
+[DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
+[DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
+[DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
+[DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
+[DEBUG   ] sysvinit script 'single' found, but systemd unit 'single.service' already exists
+[DEBUG   ] sysvinit script 'umountroot' found, but systemd unit 'umountroot.service' already exists
+[DEBUG   ] sysvinit script 'unattended-upgrades' found, but systemd unit 'unattended-upgrades.service' already exists
+[DEBUG   ] sysvinit script 'rpcbind' found, but systemd unit 'rpcbind.service' already exists
+[DEBUG   ] sysvinit script 'dbus' found, but systemd unit 'dbus.service' already exists
+[DEBUG   ] sysvinit script 'kmod' found, but systemd unit 'kmod.service' already exists
+[DEBUG   ] sysvinit script 'cphalod' found, but systemd unit 'cphalod.service' already exists
+[DEBUG   ] sysvinit script 'hubble' found, but systemd unit 'hubble.service' already exists
+[DEBUG   ] sysvinit script 'reboot' found, but systemd unit 'reboot.service' already exists
+[INFO    ] Executing command ['systemctl', 'is-enabled', 'rexec.socket'] in directory '/home/ubuntu'
+[DEBUG   ] output: Failed to get unit file state for rexec.socket: No such file or directory
+[DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
+[DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
+[DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
+[DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
+[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
+[DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
+[DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
+[DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
+[DEBUG   ] sysvinit script 'rsyslog' found, but systemd unit 'rsyslog.service' already exists
+[DEBUG   ] sysvinit script 'plymouth' found, but systemd unit 'plymouth.service' already exists
+[DEBUG   ] sysvinit script 'rsync' found, but systemd unit 'rsync.service' already exists
+[DEBUG   ] sysvinit script 'cron' found, but systemd unit 'cron.service' already exists
+[DEBUG   ] sysvinit script 'lvm2' found, but systemd unit 'lvm2.service' already exists
+[DEBUG   ] sysvinit script 'lxcfs' found, but systemd unit 'lxcfs.service' already exists
+[DEBUG   ] sysvinit script 'atd' found, but systemd unit 'atd.service' already exists
+[DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
+[DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
+[DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
+[DEBUG   ] sysvinit script 'networking' found, but systemd unit 'networking.service' already exists
+[DEBUG   ] sysvinit script 'ssh' found, but systemd unit 'ssh.service' already exists
+[DEBUG   ] sysvinit script 'procps' found, but systemd unit 'procps.service' already exists
+[DEBUG   ] sysvinit script 'rcS' found, but systemd unit 'rcS.service' already exists
+[DEBUG   ] sysvinit script 'plymouth-log' found, but systemd unit 'plymouth-log.service' already exists
+[DEBUG   ] sysvinit script 'rc' found, but systemd unit 'rc.service' already exists
+[DEBUG   ] sysvinit script 'keyboard-setup' found, but systemd unit 'keyboard-setup.service' already exists
+[DEBUG   ] sysvinit script 'urandom' found, but systemd unit 'urandom.service' already exists
+[DEBUG   ] sysvinit script 'acpid' found, but systemd unit 'acpid.service' already exists
+[DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
+[DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
+[DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
+[DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
+[DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
+[DEBUG   ] sysvinit script 'single' found, but systemd unit 'single.service' already exists
+[DEBUG   ] sysvinit script 'umountroot' found, but systemd unit 'umountroot.service' already exists
+[DEBUG   ] sysvinit script 'unattended-upgrades' found, but systemd unit 'unattended-upgrades.service' already exists
+[DEBUG   ] sysvinit script 'rpcbind' found, but systemd unit 'rpcbind.service' already exists
+[DEBUG   ] sysvinit script 'dbus' found, but systemd unit 'dbus.service' already exists
+[DEBUG   ] sysvinit script 'kmod' found, but systemd unit 'kmod.service' already exists
+[DEBUG   ] sysvinit script 'cphalod' found, but systemd unit 'cphalod.service' already exists
+[DEBUG   ] sysvinit script 'hubble' found, but systemd unit 'hubble.service' already exists
+[DEBUG   ] sysvinit script 'reboot' found, but systemd unit 'reboot.service' already exists
+[INFO    ] Executing command ['systemctl', 'is-enabled', 'ypserv.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: Failed to get unit file state for ypserv.service: No such file or directory
+[DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
+[DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
+[DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
+[DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
+[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
+[DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
+[DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
+[DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
+[DEBUG   ] sysvinit script 'rsyslog' found, but systemd unit 'rsyslog.service' already exists
+[DEBUG   ] sysvinit script 'plymouth' found, but systemd unit 'plymouth.service' already exists
+[DEBUG   ] sysvinit script 'rsync' found, but systemd unit 'rsync.service' already exists
+[DEBUG   ] sysvinit script 'cron' found, but systemd unit 'cron.service' already exists
+[DEBUG   ] sysvinit script 'lvm2' found, but systemd unit 'lvm2.service' already exists
+[DEBUG   ] sysvinit script 'lxcfs' found, but systemd unit 'lxcfs.service' already exists
+[DEBUG   ] sysvinit script 'atd' found, but systemd unit 'atd.service' already exists
+[DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
+[DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
+[DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
+[DEBUG   ] sysvinit script 'networking' found, but systemd unit 'networking.service' already exists
+[DEBUG   ] sysvinit script 'ssh' found, but systemd unit 'ssh.service' already exists
+[DEBUG   ] sysvinit script 'procps' found, but systemd unit 'procps.service' already exists
+[DEBUG   ] sysvinit script 'rcS' found, but systemd unit 'rcS.service' already exists
+[DEBUG   ] sysvinit script 'plymouth-log' found, but systemd unit 'plymouth-log.service' already exists
+[DEBUG   ] sysvinit script 'rc' found, but systemd unit 'rc.service' already exists
+[DEBUG   ] sysvinit script 'keyboard-setup' found, but systemd unit 'keyboard-setup.service' already exists
+[DEBUG   ] sysvinit script 'urandom' found, but systemd unit 'urandom.service' already exists
+[DEBUG   ] sysvinit script 'acpid' found, but systemd unit 'acpid.service' already exists
+[DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
+[DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
+[DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
+[DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
+[DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
+[DEBUG   ] sysvinit script 'single' found, but systemd unit 'single.service' already exists
+[DEBUG   ] sysvinit script 'umountroot' found, but systemd unit 'umountroot.service' already exists
+[DEBUG   ] sysvinit script 'unattended-upgrades' found, but systemd unit 'unattended-upgrades.service' already exists
+[DEBUG   ] sysvinit script 'rpcbind' found, but systemd unit 'rpcbind.service' already exists
+[DEBUG   ] sysvinit script 'dbus' found, but systemd unit 'dbus.service' already exists
+[DEBUG   ] sysvinit script 'kmod' found, but systemd unit 'kmod.service' already exists
+[DEBUG   ] sysvinit script 'cphalod' found, but systemd unit 'cphalod.service' already exists
+[DEBUG   ] sysvinit script 'hubble' found, but systemd unit 'hubble.service' already exists
+[DEBUG   ] sysvinit script 'reboot' found, but systemd unit 'reboot.service' already exists
+[INFO    ] Executing command ['systemctl', 'is-enabled', 'dovecot.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: Failed to get unit file state for dovecot.service: No such file or directory
+[DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
+[DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
+[DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
+[DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
+[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
+[DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
+[DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
+[DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
+[DEBUG   ] sysvinit script 'rsyslog' found, but systemd unit 'rsyslog.service' already exists
+[DEBUG   ] sysvinit script 'plymouth' found, but systemd unit 'plymouth.service' already exists
+[DEBUG   ] sysvinit script 'rsync' found, but systemd unit 'rsync.service' already exists
+[DEBUG   ] sysvinit script 'cron' found, but systemd unit 'cron.service' already exists
+[DEBUG   ] sysvinit script 'lvm2' found, but systemd unit 'lvm2.service' already exists
+[DEBUG   ] sysvinit script 'lxcfs' found, but systemd unit 'lxcfs.service' already exists
+[DEBUG   ] sysvinit script 'atd' found, but systemd unit 'atd.service' already exists
+[DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
+[DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
+[DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
+[DEBUG   ] sysvinit script 'networking' found, but systemd unit 'networking.service' already exists
+[DEBUG   ] sysvinit script 'ssh' found, but systemd unit 'ssh.service' already exists
+[DEBUG   ] sysvinit script 'procps' found, but systemd unit 'procps.service' already exists
+[DEBUG   ] sysvinit script 'rcS' found, but systemd unit 'rcS.service' already exists
+[DEBUG   ] sysvinit script 'plymouth-log' found, but systemd unit 'plymouth-log.service' already exists
+[DEBUG   ] sysvinit script 'rc' found, but systemd unit 'rc.service' already exists
+[DEBUG   ] sysvinit script 'keyboard-setup' found, but systemd unit 'keyboard-setup.service' already exists
+[DEBUG   ] sysvinit script 'urandom' found, but systemd unit 'urandom.service' already exists
+[DEBUG   ] sysvinit script 'acpid' found, but systemd unit 'acpid.service' already exists
+[DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
+[DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
+[DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
+[DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
+[DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
+[DEBUG   ] sysvinit script 'single' found, but systemd unit 'single.service' already exists
+[DEBUG   ] sysvinit script 'umountroot' found, but systemd unit 'umountroot.service' already exists
+[DEBUG   ] sysvinit script 'unattended-upgrades' found, but systemd unit 'unattended-upgrades.service' already exists
+[DEBUG   ] sysvinit script 'rpcbind' found, but systemd unit 'rpcbind.service' already exists
+[DEBUG   ] sysvinit script 'dbus' found, but systemd unit 'dbus.service' already exists
+[DEBUG   ] sysvinit script 'kmod' found, but systemd unit 'kmod.service' already exists
+[DEBUG   ] sysvinit script 'cphalod' found, but systemd unit 'cphalod.service' already exists
+[DEBUG   ] sysvinit script 'hubble' found, but systemd unit 'hubble.service' already exists
+[DEBUG   ] sysvinit script 'reboot' found, but systemd unit 'reboot.service' already exists
+[INFO    ] Executing command ['systemctl', 'is-enabled', 'httpd.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: Failed to get unit file state for httpd.service: No such file or directory
+[DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
+[DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
+[DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
+[DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
+[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
+[DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
+[DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
+[DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
+[DEBUG   ] sysvinit script 'rsyslog' found, but systemd unit 'rsyslog.service' already exists
+[DEBUG   ] sysvinit script 'plymouth' found, but systemd unit 'plymouth.service' already exists
+[DEBUG   ] sysvinit script 'rsync' found, but systemd unit 'rsync.service' already exists
+[DEBUG   ] sysvinit script 'cron' found, but systemd unit 'cron.service' already exists
+[DEBUG   ] sysvinit script 'lvm2' found, but systemd unit 'lvm2.service' already exists
+[DEBUG   ] sysvinit script 'lxcfs' found, but systemd unit 'lxcfs.service' already exists
+[DEBUG   ] sysvinit script 'atd' found, but systemd unit 'atd.service' already exists
+[DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
+[DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
+[DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
+[DEBUG   ] sysvinit script 'networking' found, but systemd unit 'networking.service' already exists
+[DEBUG   ] sysvinit script 'ssh' found, but systemd unit 'ssh.service' already exists
+[DEBUG   ] sysvinit script 'procps' found, but systemd unit 'procps.service' already exists
+[DEBUG   ] sysvinit script 'rcS' found, but systemd unit 'rcS.service' already exists
+[DEBUG   ] sysvinit script 'plymouth-log' found, but systemd unit 'plymouth-log.service' already exists
+[DEBUG   ] sysvinit script 'rc' found, but systemd unit 'rc.service' already exists
+[DEBUG   ] sysvinit script 'keyboard-setup' found, but systemd unit 'keyboard-setup.service' already exists
+[DEBUG   ] sysvinit script 'urandom' found, but systemd unit 'urandom.service' already exists
+[DEBUG   ] sysvinit script 'acpid' found, but systemd unit 'acpid.service' already exists
+[DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
+[DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
+[DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
+[DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
+[DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
+[DEBUG   ] sysvinit script 'single' found, but systemd unit 'single.service' already exists
+[DEBUG   ] sysvinit script 'umountroot' found, but systemd unit 'umountroot.service' already exists
+[DEBUG   ] sysvinit script 'unattended-upgrades' found, but systemd unit 'unattended-upgrades.service' already exists
+[DEBUG   ] sysvinit script 'rpcbind' found, but systemd unit 'rpcbind.service' already exists
+[DEBUG   ] sysvinit script 'dbus' found, but systemd unit 'dbus.service' already exists
+[DEBUG   ] sysvinit script 'kmod' found, but systemd unit 'kmod.service' already exists
+[DEBUG   ] sysvinit script 'cphalod' found, but systemd unit 'cphalod.service' already exists
+[DEBUG   ] sysvinit script 'hubble' found, but systemd unit 'hubble.service' already exists
+[DEBUG   ] sysvinit script 'reboot' found, but systemd unit 'reboot.service' already exists
+[INFO    ] Executing command ['systemctl', 'is-enabled', 'squid.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: Failed to get unit file state for squid.service: No such file or directory
+[DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
+[DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
+[DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
+[DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
+[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
+[DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
+[DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
+[DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
+[DEBUG   ] sysvinit script 'rsyslog' found, but systemd unit 'rsyslog.service' already exists
+[DEBUG   ] sysvinit script 'plymouth' found, but systemd unit 'plymouth.service' already exists
+[DEBUG   ] sysvinit script 'rsync' found, but systemd unit 'rsync.service' already exists
+[DEBUG   ] sysvinit script 'cron' found, but systemd unit 'cron.service' already exists
+[DEBUG   ] sysvinit script 'lvm2' found, but systemd unit 'lvm2.service' already exists
+[DEBUG   ] sysvinit script 'lxcfs' found, but systemd unit 'lxcfs.service' already exists
+[DEBUG   ] sysvinit script 'atd' found, but systemd unit 'atd.service' already exists
+[DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
+[DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
+[DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
+[DEBUG   ] sysvinit script 'networking' found, but systemd unit 'networking.service' already exists
+[DEBUG   ] sysvinit script 'ssh' found, but systemd unit 'ssh.service' already exists
+[DEBUG   ] sysvinit script 'procps' found, but systemd unit 'procps.service' already exists
+[DEBUG   ] sysvinit script 'rcS' found, but systemd unit 'rcS.service' already exists
+[DEBUG   ] sysvinit script 'plymouth-log' found, but systemd unit 'plymouth-log.service' already exists
+[DEBUG   ] sysvinit script 'rc' found, but systemd unit 'rc.service' already exists
+[DEBUG   ] sysvinit script 'keyboard-setup' found, but systemd unit 'keyboard-setup.service' already exists
+[DEBUG   ] sysvinit script 'urandom' found, but systemd unit 'urandom.service' already exists
+[DEBUG   ] sysvinit script 'acpid' found, but systemd unit 'acpid.service' already exists
+[DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
+[DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
+[DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
+[DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
+[DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
+[DEBUG   ] sysvinit script 'single' found, but systemd unit 'single.service' already exists
+[DEBUG   ] sysvinit script 'umountroot' found, but systemd unit 'umountroot.service' already exists
+[DEBUG   ] sysvinit script 'unattended-upgrades' found, but systemd unit 'unattended-upgrades.service' already exists
+[DEBUG   ] sysvinit script 'rpcbind' found, but systemd unit 'rpcbind.service' already exists
+[DEBUG   ] sysvinit script 'dbus' found, but systemd unit 'dbus.service' already exists
+[DEBUG   ] sysvinit script 'kmod' found, but systemd unit 'kmod.service' already exists
+[DEBUG   ] sysvinit script 'cphalod' found, but systemd unit 'cphalod.service' already exists
+[DEBUG   ] sysvinit script 'hubble' found, but systemd unit 'hubble.service' already exists
+[DEBUG   ] sysvinit script 'reboot' found, but systemd unit 'reboot.service' already exists
+[INFO    ] Executing command ['systemctl', 'is-enabled', 'smb.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: Failed to get unit file state for smb.service: No such file or directory
+[DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
+[DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
+[DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
+[DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
+[DEBUG   ] sysvinit script 'nfs-kernel-server' found, but systemd unit 'nfs-kernel-server.service' already exists
+[DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
+[DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
+[DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
+[DEBUG   ] sysvinit script 'rsyslog' found, but systemd unit 'rsyslog.service' already exists
+[DEBUG   ] sysvinit script 'plymouth' found, but systemd unit 'plymouth.service' already exists
+[DEBUG   ] sysvinit script 'rsync' found, but systemd unit 'rsync.service' already exists
+[DEBUG   ] sysvinit script 'cron' found, but systemd unit 'cron.service' already exists
+[DEBUG   ] sysvinit script 'lvm2' found, but systemd unit 'lvm2.service' already exists
+[DEBUG   ] sysvinit script 'lxcfs' found, but systemd unit 'lxcfs.service' already exists
+[DEBUG   ] sysvinit script 'atd' found, but systemd unit 'atd.service' already exists
+[DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
+[DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
+[DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
+[DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
+[DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
+[DEBUG   ] sysvinit script 'networking' found, but systemd unit 'networking.service' already exists
+[DEBUG   ] sysvinit script 'ssh' found, but systemd unit 'ssh.service' already exists
+[DEBUG   ] sysvinit script 'procps' found, but systemd unit 'procps.service' already exists
+[DEBUG   ] sysvinit script 'rcS' found, but systemd unit 'rcS.service' already exists
+[DEBUG   ] sysvinit script 'plymouth-log' found, but systemd unit 'plymouth-log.service' already exists
+[DEBUG   ] sysvinit script 'rc' found, but systemd unit 'rc.service' already exists
+[DEBUG   ] sysvinit script 'keyboard-setup' found, but systemd unit 'keyboard-setup.service' already exists
+[DEBUG   ] sysvinit script 'urandom' found, but systemd unit 'urandom.service' already exists
+[DEBUG   ] sysvinit script 'acpid' found, but systemd unit 'acpid.service' already exists
+[DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
+[DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
+[DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
+[DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
+[DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
+[DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
+[DEBUG   ] sysvinit script 'single' found, but systemd unit 'single.service' already exists
+[DEBUG   ] sysvinit script 'umountroot' found, but systemd unit 'umountroot.service' already exists
+[DEBUG   ] sysvinit script 'unattended-upgrades' found, but systemd unit 'unattended-upgrades.service' already exists
+[DEBUG   ] sysvinit script 'rpcbind' found, but systemd unit 'rpcbind.service' already exists
+[DEBUG   ] sysvinit script 'dbus' found, but systemd unit 'dbus.service' already exists
+[DEBUG   ] sysvinit script 'kmod' found, but systemd unit 'kmod.service' already exists
+[DEBUG   ] sysvinit script 'cphalod' found, but systemd unit 'cphalod.service' already exists
+[DEBUG   ] sysvinit script 'hubble' found, but systemd unit 'hubble.service' already exists
+[DEBUG   ] sysvinit script 'reboot' found, but systemd unit 'reboot.service' already exists
