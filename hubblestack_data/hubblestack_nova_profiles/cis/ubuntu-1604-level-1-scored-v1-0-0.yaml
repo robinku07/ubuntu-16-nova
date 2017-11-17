@@ -265,7 +265,7 @@ grep:
           - /etc/postfix/main.cf:
               pattern: '^inet_interfaces'
               match_output: localhost
-              tag: CIS-6.15
+              tag: CIS-2.2.15
       description: Configure Mail Transfer Agent for Local-Only Mode
     rsync:
       data:
@@ -275,6 +275,20 @@ grep:
             match_output: 'false'
             tag: CIS-2.2.16
       description: Ensure rsync service is not enabled
+    hosts_allow:
+      data:
+        Ubuntu-16.04:
+        - /etc/hosts.allow:
+            pattern: ALL
+            tag: CIS-3.4.2
+      description: Ensure /etc/hosts.allow is configured
+    hosts_deny:
+      data:
+        Ubuntu-16.04:
+        - /etc/hosts.deny:
+            pattern:  ALL
+            tag: CIS-3.4.3
+      description: Ensure /etc/hosts.deny is configured
     rsyslog_file_perms:
       data:
         Ubuntu-16.04:
@@ -1003,13 +1017,18 @@ pkg:
     tcpd:
       data:
         Ubuntu-16.04:
-        - tcpd: CIS-7.4.1
+        - tcpd: CIS-3.4.1
       description: Install TCP Wrappers
     rsyslog:
       data:
         Ubuntu-16.04:
         - rsyslog: CIS-8.2.1
       description: Install the rsyslog package
+    iptables:
+      data:
+        Ubuntu-16.04:
+        - iptables: CIS-3.6.1
+      description: Ensure iptables is installed
 stat:
   grub_cfg_owner:
     data:
@@ -1032,15 +1051,25 @@ stat:
     data:
       Ubuntu-16.04:
       - /etc/hosts.allow:
+          gid: 0
+          group: root
           mode: 644
-          tag: CIS-7.4.3
+          tag: CIS-3.4.4
+          uid: 0
+          user: root
+          tag: CIS-3.4.4
     description: Verify Permissions on /etc/hosts.allow
   hosts_deny_perms:
     data:
       Ubuntu-16.04:
       - /etc/hosts.deny:
+          gid: 0
+          group: root
           mode: 644
-          tag: CIS-7.4.5
+          tag: CIS-3.4.4
+          uid: 0
+          user: root
+          tag: CIS-3.4.5
     description: Verify Permissions on /etc/hosts.deny
   crontab_own_perms:
     data:
