@@ -374,7 +374,7 @@ grep:
         - /etc/pam.d/common-password:
             pattern: remember
             match_output: 'remember=5'
-            tag: CIS-9.2.3
+            tag: CIS-5.3.3
       description: Limit Password Reuse
     ssh_version_2:
       data:
@@ -505,16 +505,58 @@ grep:
             pattern: ^Banner
             tag: CIS-5.2.16
       description: Ensure SSH warning banner is configured
+    pam_pwquality_try_first_pass:
+      data:
+        Ubuntu-16.04:
+        - /etc/pam.d/system-auth:
+            match_output: try_first_pass
+            pattern: pam_pwquality.so
+            tag: CIS-5.3.1
+        - /etc/pam.d/system-auth:
+            match_output: retry=3
+            pattern: pam_pwquality.so
+            tag: CIS-5.3.1
+        - /etc/security/pwquality.conf:
+            pattern: minlen
+            match_output: '14'
+            tag: CIS-5.3.1
+        - /etc/security/pwquality.conf:
+            pattern: dcredit
+            match_output: '-1'
+            tag: CIS-5.3.1
+        - /etc/security/pwquality.conf:
+            pattern: ucredit
+            match_output: '-1'
+            tag: CIS-5.3.1
+        - /etc/security/pwquality.conf:
+            pattern: ocredit
+            match_output: '-1'
+            tag: CIS-5.3.1
+        - /etc/security/pwquality.conf:
+            pattern: lcredit
+            match_output: '-1'
+            tag: CIS-5.3.1
+      description: Ensure password creation requirements are configured
+    password_hash:
+      data:
+        Ubuntu-16.04:
+        - /etc/pam.d/password-auth:
+            pattern: '"^password\s+\w+\s+pam_unix\.so"'
+            match_output: sha512
+            grep_args:
+              - '-E'
+            tag: CIS-5.3.4
+      description: Ensure password hashing algorithm is SHA-512
     limit_su_access:
       data:
         Ubuntu-16.04:
         - /etc/pam.d/su:
             pattern: pam_wheel.so
             match_output: use_uid
-            tag: CIS-9.5
+            tag: CIS-5.6
         - /etc/group:
             pattern: wheel
-            tag: CIS-9.5
+            tag: CIS-5.6
       description: Restrict Access to the su Command
     password_max_days:
       data:
@@ -522,7 +564,7 @@ grep:
         - /etc/login.defs:
             pattern: PASS_MAX_DAYS
             match_output: '90'
-            tag: CIS-10.1.1
+            tag: CIS-5.4.1.1
       description: Set Password Expiration Days
     password_min_days:
       data:
@@ -530,7 +572,7 @@ grep:
         - /etc/login.defs:
             pattern: PASS_MIN_DAYS
             match_output: '7'
-            tag: CIS-10.1.2
+            tag: CIS-5.4.1.2
       description: Set Password Change Minimum Number of Days
     password_warn_days:
       data:
@@ -538,15 +580,27 @@ grep:
         - /etc/login.defs:
             pattern: PASS_WARN_AGE
             match_output: '7'
-            tag: CIS-10.1.3
+            tag: CIS-5.4.1.3
       description: Set Password Expiring Warning Days
-    umask:
+    default_umask:
       data:
         Ubuntu-16.04:
-        - /etc/login.defs:
-            pattern: UMASK
-            match_output: '077'
-            tag: CIS-10.4
+        - /etc/bashrc:
+            pattern: umask
+            match_pattern: '027'
+            tag: CIS-5.4.4
+        - /etc/profile:
+            pattern: umask
+            match_pattern: '027'
+            tag: CIS-5.4.4
+      description: Ensure default user umask is 027 or more restrictive 
+#    umask:
+#      data:
+#        Ubuntu-16.04:
+#        - /etc/login.defs:
+#            pattern: UMASK
+#            match_output: '077'
+#            tag: CIS-10.4
       description: Set Default umask for Users
   blacklist:
     root_passwd_set:
@@ -1263,34 +1317,14 @@ stat:
     data:
       Ubuntu-16.04:
       - /etc/passwd:
-          mode: 644
-          tag: CIS-12.1
-    description: Verify Permissions on /etc/passwd
-  shadow_perms:
-    data:
-      Ubuntu-16.04:
-      - /etc/shadow:
-          mode: 640
-          tag: CIS-12.2
-    description: Verify Permissions on /etc/shadow
-  group_perms:
-    data:
-      Ubuntu-16.04:
-      - /etc/group:
-          mode: 644
-          tag: CIS-12.3
-    description: Verify Permissions on /etc/group
-  passwd_owner_group:
-    data:
-      Ubuntu-16.04:
-      - /etc/passwd:
           uid: 0
           gid: 0
           user: root
           group: root
-          tag: CIS-12.4
-    description: Verify User/Group Ownership on /etc/passwd
-  shadow_owner_group:
+          mode: 644
+          tag: CIS-6.1.2
+    description: Verify Permissions on /etc/passwd
+  shadow_perms:
     data:
       Ubuntu-16.04:
       - /etc/shadow:
@@ -1298,9 +1332,10 @@ stat:
           gid: 42
           user: root
           group: shadow
-          tag: CIS-12.5
-    description: Verify User/Group Ownership on /etc/shadow
-  group_user_group:
+          mode: 640
+          tag: CIS-6.1.3
+    description: Verify Permissions on /etc/shadow
+  group_perms:
     data:
       Ubuntu-16.04:
       - /etc/group:
@@ -1308,9 +1343,63 @@ stat:
           gid: 0
           user: root
           group: root
-          tag: CIS-12.6
-    description: Verify User/Group Ownership on /etc/group
-
+          mode: 644
+          tag: CIS-6.1.4
+    description: Verify Permissions on /etc/group
+  gshadow_owner_group:
+    data:
+      Ubuntu-16.04:
+      - /etc/gshadow:
+          uid: 0
+          gid: 42
+          user: root
+          group: shadow
+          tag: CIS-6.1.5
+    description: Verify User/Group Ownership on /etc/gshadow
+  passwd-_own_perm:
+    data:
+      Ubuntu-16.04:
+      - /etc/passwd-:
+          gid: 0
+          group: root
+          mode: 600
+          tag: CIS-6.1.6
+          uid: 0
+          user: root
+    description: Ensure permissions on /etc/passwd- are configured
+  shadow-_own_perm:
+    data:
+      Ubuntu-16.04:
+      - /etc/shadow-:
+          gid: 0
+          group: root
+          mode: 600
+          tag: CIS-6.1.7
+          uid: 0
+          user: root
+    description: Ensure permissions on /etc/shadow- are configured:
+  group-_own_perm:
+    data:
+      Ubuntu-16.04:
+      - /etc/group-:
+          gid: 0
+          group: root
+          mode: 600
+          tag: CIS-6.1.8
+          uid: 0
+          user: root
+    description: Ensure permissions on /etc/group- are configured
+  gshadow-_own_perm:
+    data:
+      Ubuntu-16.04:
+      - /etc/gshadow-:
+          gid: 0
+          group: root
+          mode: 600
+          tag: CIS-6.1.9
+          uid: 0
+          user: root
+    description: Ensure permissions on /etc/gshadow- are configured
 command:
   rsh_client:
     data:
@@ -1333,7 +1422,7 @@ command:
   disable_system_accts:
     data:
       Ubuntu-16.04:
-        tag: CIS-10.2
+        tag: CIS-5.4.2
         commands:
           - ?
               >
@@ -1343,7 +1432,7 @@ command:
             :
               shell: /bin/bash
               fail_if_matched: true
-    description: Disable System Accounts
+    description: Ensure system accounts are non-login
   default_root_group:
     data:
       Ubuntu-16.04:
@@ -1355,7 +1444,7 @@ command:
   inactive_users:
     data:
       Ubuntu-16.04:
-        tag: CIS-10.5
+        tag: CIS-5.4.1.4
         commands:
           - 'useradd -D | grep INACTIVE':
               match_output: '35'
@@ -1433,6 +1522,30 @@ misc:
         tag: CIS-1.1.20
         function: sticky_bit_on_world_writable_dirs
     description: Ensure sticky bit is set on all world-writable directories
+  default_group_for_root_account:
+    data:
+      Ubuntu-16.04:
+       tag: CIS-5.4.3
+       function: default_group_for_root
+       description: Ensure default group for the root account is GID 0
+  no_world_writable_file:
+    data:
+      Ubuntu-16.04:
+       tag: CIS-6.1.10
+       function: world_writable_file
+       description: Ensure no world writable files exist
+  no_unowned_file_or_directories:
+    data:
+      Ubuntu-16.04:
+       tag: CIS-6.1.11
+       function: unowned_files_or_dir
+       description: Ensure no unowned files or directories exist
+  no_ungrouped_file_or_directories:
+    data:
+      Ubuntu-16.04:
+       tag: CIS-6.1.12
+       function: ungrouped_files_or_dir
+       description: Ensure no ungrouped files or directories exist
 systemctl:
   whitelist:
     rsyslog_enabled:
