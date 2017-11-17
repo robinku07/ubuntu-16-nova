@@ -860,21 +860,21 @@ grep:
         Ubuntu-16.04:
         - /etc/passwd:
             pattern: '^+'
-            tag: CIS-13.2
+            tag: CIS-6.2.2
       description: Verify No Legacy "+" Entries Exist in /etc/passwd File
     legacy_entries_shadow:
       data:
         Ubuntu-16.04:
         - /etc/shadow:
             pattern: '^+'
-            tag: CIS-13.3
+            tag: CIS-6.2.3
       description: Verify No Legacy "+" Entries Exist in /etc/shadow File
     legacy_entries_group:
       data:
         Ubuntu-16.04:
         - /etc/group:
             pattern: '^+'
-            tag: CIS-13.4
+            tag: CIS-6.2.4
       description: Verify No Legacy "+" Entries Exist in /etc/group File
 
 service:
@@ -1449,30 +1449,30 @@ command:
           - 'useradd -D | grep INACTIVE':
               match_output: '35'
     description: Lock Inactive User Accounts
-  empty_passwd_field:
-    data:
-      Ubuntu-16.04:
-        tag: CIS-13.1
-        commands:
-          - ?
-              >
-                cat /etc/shadow | /usr/bin/awk -F: '($2 == "" ) { print $1 }'
-            :
-              shell: /bin/bash
-              fail_if_matched: true
-    description: Ensure Password Fields are Not Empty
-  uid_zero_only_root:
-    data:
-      Ubuntu-16.04:
-        tag: CIS-13.5
-        commands:
-          - ?
-              >
-                cat /etc/passwd | /usr/bin/awk -F: '($1!="root" && $3==0) { print $1 }'
-            :
-              shell: /bin/bash
-              fail_if_matched: true
-    description: Verify No UID 0 Accounts Exist Other Than root
+#  empty_passwd_field:
+#    data:
+#      Ubuntu-16.04:
+#        tag: CIS-6.2.1
+#        commands:
+#          - ?
+#              >
+#                cat /etc/shadow | /usr/bin/awk -F: '($2 == "" ) { print $1 }'
+#            :
+#              shell: /bin/bash
+#              fail_if_matched: true
+#    description: Ensure Password Fields are Not Empty
+#  uid_zero_only_root:
+#    data:
+#      Ubuntu-16.04:
+#        tag: CIS-13.5
+#        commands:
+#          - ?
+#              >
+#                cat /etc/passwd | /usr/bin/awk -F: '($1!="root" && $3==0) { print $1 }'
+#            :
+#              shell: /bin/bash
+#              fail_if_matched: true
+#    description: Verify No UID 0 Accounts Exist Other Than root
   root_path:
     data:
       Ubuntu-16.04:
@@ -1546,6 +1546,102 @@ misc:
        tag: CIS-6.1.12
        function: ungrouped_files_or_dir
        description: Ensure no ungrouped files or directories exist
+  ensure_password_fields_non_empty:
+    data:
+      Ubuntu-16.04:
+       tag: CIS-6.2.1
+       function: check_password_fields_not_empty
+       description: Ensure password fields are not empty
+  root_is_only_uid_0_account:
+    data:
+      Ubuntu-16.04:
+       tag: CIS-6.2.5
+       function: root_is_only_uid_0_account
+       description: Ensure root is the only UID 0 account
+  check_path_integrity:
+    data:
+      Ubuntu-16.04:
+       tag: CIS-6.2.6
+       function: check_path_integrity
+       description: Ensure root PATH Integrity
+  valid_home_directory:
+    data:
+      Ubuntu-16.04:
+       tag: CIS-6.2.7
+       function: check_all_users_home_directory
+       description: Ensure all users' home directories exist
+  home_directory_permission:
+    data:
+      Ubuntu-16.04:
+       tag: CIS-6.2.8
+       function: check_users_home_directory_permissions 
+       description: Ensure users' home directories permissions are 750 or more restrictive
+  user_own_home_directory:
+    data:
+      Ubuntu-16.04:
+       tag: CIS-6.2.9
+       function: check_users_own_their_home
+       description: Ensure users own their home directories
+  check_users_dot_files_not_writable:
+    data:
+      Ubuntu-16.04:
+       tag: CIS-6.2.10
+       function: check_users_dot_files
+       description: Ensure users' dot files are not group or world writable
+   check_users_not_forward_files:
+     data:
+       Ubuntu-16.04:
+       tag: CIS-6.2.11
+       function: check_users_forward_files
+       description: Ensure no users have .forward files
+   check_no_users_netrc_files:
+     data:
+       Ubuntu-16.04:
+       tag: CIS-6.2.12
+       function: check_users_netrc_files
+       description: Ensure no users have .netrc files
+   check_netrc_files_not_world_writable:
+     data:
+       Ubuntu-16.04:
+       tag: CIS-6.2.13
+       function: check_netrc_files_accessibility
+       description: Ensure users' .netrc Files are not group or world accessible
+   check_no_users_have_rhosts_files:
+     data:
+       Ubuntu-16.04:
+       tag: CIS-6.2.14
+       function: check_users_rhosts_files
+       description: Ensure no users have .rhosts files
+   check_groups_validity_in_systemfiles:
+     data:
+       Ubuntu-16.04:
+       tag: CIS-6.2.15
+       function: check_groups_validity
+       description: Ensure all groups in /etc/passwd exist in /etc/group
+   no_duplicate_sid:
+     data:
+       Ubuntu-16.04:
+       tag: CIS-6.2.16
+       function: check_duplicate_uids 
+       description: Ensure no duplicate UIDs exist
+   no_duplicate_gid:
+     data:
+       Ubuntu-16.04:
+       tag: CIS-6.2.17
+       function: check_duplicate_gids
+       description: Ensure no duplicate GIDs exist
+   check_duplicate_unames_exist:
+     data:
+       Ubuntu-16.04:
+       tag: CIS-6.2.18
+       function: check_duplicate_unames
+       description: Ensure no duplicate user names exist
+   check_duplicate_gnames_exist:
+     data:
+       Ubuntu-16.04:
+       tag: CIS-6.2.19
+       function: check_duplicate_gnames
+       description: Ensure no duplicate group names exist
 systemctl:
   whitelist:
     rsyslog_enabled:
