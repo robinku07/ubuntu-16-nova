@@ -871,70 +871,70 @@ sysctl:
       Ubuntu-16.04:
       - net.ipv4.ip_forward:
           match_output: '0'
-          tag: CIS-7.1.1
+          tag: CIS-3.1.1
     description: Disable IP Forwarding
   disable_packet_redirect:
     data:
       Ubuntu-16.04:
       - net.ipv4.conf.all.send_redirects:
           match_output: '0'
-          tag: CIS-7.1.2
+          tag: CIS-3.1.2
     description: Disable Send Packet Redirects
   disable_source_routed_packets:
     data:
       Ubuntu-16.04:
       - net.ipv4.conf.all.accept_source_route:
           match_output: '0'
-          tag: CIS-7.2.1
+          tag: CIS-3.2.1
     description: Disable Source Routed Packet Acceptance
   disable_icmp_redirect:
     data:
       Ubuntu-16.04:
       - net.ipv4.conf.all.accept_redirects:
           match_output: '0'
-          tag: CIS-7.2.2
+          tag: CIS-3.2.2
     description: Disable ICMP Redirect Acceptance
   disable_secure_icmp_redirect:
     data:
       Ubuntu-16.04:
       - net.ipv4.conf.all.secure_redirects:
           match_output: '0'
-          tag: CIS-7.2.3
+          tag: CIS-3.2.3
     description: Disable Secure ICMP Redirect Acceptance
   log_martians:
     data:
       Ubuntu-16.04:
       - net.ipv4.conf.all.log_martians:
           match_output: '1'
-          tag: CIS-7.2.4
+          tag: CIS-3.2.4
     description: Log Suspicious Packets
   ignore_broadcast:
     data:
       Ubuntu-16.04:
       - net.ipv4.icmp_echo_ignore_broadcasts:
           match_output: '1'
-          tag: CIS-7.2.5
+          tag: CIS-3.2.5
     description: Enable Ignore Broadcast Requests
   bogus_errors:
     data:
       Ubuntu-16.04:
       - net.ipv4.icmp_ignore_bogus_error_responses:
           match_output: '1'
-          tag: CIS-7.2.6
+          tag: CIS-3.2.6
     description: Enable Bad Error Message Protection
   rp_filter:
     data:
       Ubuntu-16.04:
       - net.ipv4.conf.all.rp_filter:
           match_output: '1'
-          tag: CIS-7.2.7
+          tag: CIS-3.2.7
     description: Enable RFC-recommended Source Route Validation
   tcp_syncookies:
     data:
       Ubuntu-16.04:
       - net.ipv4.tcp_syncookies:
           match_output: '1'
-          tag: CIS-7.2.8
+          tag: CIS-3.2.8
     description: Enable TCP SYN Cookies
 
 pkg:
@@ -959,10 +959,20 @@ pkg:
         Ubuntu-16.04:
         - telnetd: CIS-2.1.8
       description: Ensure Telnet Server is not installed
+    telnet-client:
+      data:
+        Ubuntu-16.04:
+        - telnet: CIS-2.3.4
+      description: Ensure Telnet Client is not installed
+    ldap-client:
+      data:
+        Ubuntu-16.04:
+        - ldap-utils: CIS-2.3.5
+      description: Ensure LDAP Client is not installed
     talk:
       data:
         Ubuntu-16.04:
-        - talk: CIS-5.1.5
+        - talk: CIS-2.3.3
       description: Ensure Talk Client is not installed
     xserver:
       data:
@@ -1472,7 +1482,7 @@ systemctl:
       data:
         Ubuntu-16.04:
         - telnet.socket:
-            tag: CIS-2.2.18
+            tag: CIS-2.1.8
       description: Ensure telnet server is not enabled
     tftp-server-disabled:
       data:
