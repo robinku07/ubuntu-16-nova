@@ -273,7 +273,7 @@ grep:
         - /etc/default/rsync:
             pattern: ^RSYNC_ENABLE
             match_output: 'false'
-            tag: CIS-6.16
+            tag: CIS-2.2.16
       description: Ensure rsync service is not enabled
     rsyslog_file_perms:
       data:
@@ -822,6 +822,17 @@ service:
         Ubuntu-16.04:
         - bind9: CIS-2.2.8
       description: Ensure DNS Server is not enabled(bind9-service)
+    http-server-service:
+      data:
+        Ubuntu-16.04:
+        - apache2: CIS-2.2.10
+      description: Ensure HTTP server is not enabled(Apache2-service)
+    imap-pop3-server-service:
+      data:
+        Ubuntu-16.04:
+        - dovecot: CIS-2.2.11
+      description: Ensure IMAP and POP3 server is not enabled(imap-pop3-service)
+
   whitelist:
     rsyslog:
       data:
@@ -936,7 +947,7 @@ pkg:
     nis:
       data:
         Ubuntu-16.04:
-        - nis: CIS-5.1.1
+        - nis: CIS-2.3.1
       description: Ensure NIS is not installed
     talkd:
       data:
@@ -1219,7 +1230,7 @@ command:
   rsh_client:
     data:
       Ubuntu-16.04:
-        tag: CIS-5.1.3
+        tag: CIS-2.3.2
         commands:
           - 'dpkg -s rsh-client':
               match_output: is not installed
@@ -1406,19 +1417,19 @@ systemctl:
     http-server-disabled:
       data:
         Ubuntu-16.04:
-        - httpd:
+        - apache2:
             tag: CIS-2.2.10
-      description: Ensure HTTP server is not enabled
+      description: Ensure HTTP server is not enabled(Apache2-systemctl)
     imap-pop3-server-disabled:
       data:
         Ubuntu-16.04:
         - dovecot:
             tag: CIS-2.2.11
-      description: Ensure IMAP and POP3 server is not enabled
+      description: Ensure IMAP and POP3 server is not enabled(imap-pop3-systemctl)
     samba-server-disabled:
       data:
         Ubuntu-16.04:
-        - smb:
+        - samba:
             tag: CIS-2.2.12
       description: Ensure Samba is not enabled
     http-proxy-server-disabled:
@@ -1436,26 +1447,26 @@ systemctl:
     nis-server-disabled:
       data:
         Ubuntu-16.04:
-        - ypserv:
-            tag: CIS-2.2.16
+        - nis:
+            tag: CIS-2.2.17
       description: Ensure NIS Server is not enabled
     rsh-socket-disabled:
       data:
         Ubuntu-16.04:
         - rsh.socket:
-            tag: CIS-2.2.17
+            tag: CIS-2.1.6
       description: Ensure rsh Server is not enabled
     rlogin-socket-disabled:
       data:
         Ubuntu-16.04:
         - rlogin.socket:
-            tag: CIS-2.2.17
+            tag: CIS-2.1.6
       description: Ensure rsh Server is not enabled
     rexec-socket-disabled:
       data:
         Ubuntu-16.04:
         - rexec.socket:
-            tag: CIS-2.2.17
+            tag: CIS-2.1.6
       description: Ensure rsh Server is not enabled
     telnet-server-disabled:
       data:
@@ -1472,8 +1483,8 @@ systemctl:
     rsync-service-disabled:
       data:
         Ubuntu-16.04:
-        - rsyncd:
-            tag: CIS-2.2.20
+        - rsync:
+            tag: CIS-2.2.16
       description: Ensure rsync service is not enabled
     talk-server-disabled:
       data:

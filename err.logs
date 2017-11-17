@@ -3,12 +3,12 @@
 [DEBUG   ] LazyLoaded config.get
 [INFO    ] Setting up the fileclient/fileserver
 [DEBUG   ] LazyLoaded roots.envs
-[DEBUG   ] Popen(['git', 'version'], cwd=/hubble-conf, universal_newlines=False, shell=None)
-[DEBUG   ] Popen(['git', 'version'], cwd=/hubble-conf, universal_newlines=False, shell=None)
+[DEBUG   ] Popen(['git', 'version'], cwd=/home/ubuntu, universal_newlines=False, shell=None)
+[DEBUG   ] Popen(['git', 'version'], cwd=/home/ubuntu, universal_newlines=False, shell=None)
 [DEBUG   ] Could not LazyLoad roots.init: 'roots.init' is not available.
 [DEBUG   ] Updating roots fileserver cache
 [DEBUG   ] Updating roots fileserver cache
-[DEBUG   ] Parsed args: [] | Parsed kwargs: {}
+[DEBUG   ] Parsed args: [] | Parsed kwargs: {'verbose': 'True'}
 [INFO    ] Executing user-requested function hubble.audit
 [DEBUG   ] LazyLoaded hubble.audit
 [DEBUG   ] syncing nova modules
@@ -551,7 +551,7 @@ UMASK		022
 [INFO    ] Executing command ['systemctl', 'status', 'isc-dhcp-server.service', '-n', '0'] in directory '/home/ubuntu'
 [DEBUG   ] stdout: * isc-dhcp-server.service
    Loaded: masked (/dev/null; bad)
-   Active: failed (Result: exit-code) since Wed 2017-11-15 11:10:49 UTC; 1h 31min ago
+   Active: failed (Result: exit-code) since Wed 2017-11-15 11:10:49 UTC; 18h ago
  Main PID: 31128 (code=exited, status=1/FAILURE)
 [DEBUG   ] retcode: 3
 [INFO    ] Executing command ['systemctl', 'is-active', 'isc-dhcp-server.service'] in directory '/home/ubuntu'
@@ -560,7 +560,7 @@ UMASK		022
 [DEBUG   ] stdout: * isc-dhcp-server6.service
    Loaded: masked (/dev/null; bad)
    Active: inactive (dead)
-Condition: start condition failed at Wed 2017-11-15 11:10:15 UTC; 1h 32min ago
+Condition: start condition failed at Wed 2017-11-15 11:10:15 UTC; 18h ago
 [DEBUG   ] retcode: 3
 [INFO    ] Executing command ['systemctl', 'is-active', 'isc-dhcp-server6.service'] in directory '/home/ubuntu'
 [DEBUG   ] output: inactive
@@ -603,16 +603,6 @@ Condition: start condition failed at Wed 2017-11-15 11:10:15 UTC; 1h 32min ago
 [DEBUG   ] retcode: 3
 [INFO    ] Executing command ['systemctl', 'is-active', 'avahi-daemon.service'] in directory '/home/ubuntu'
 [DEBUG   ] output: inactive
-[INFO    ] Executing command ['systemctl', 'status', 'bind9.service', '-n', '0'] in directory '/home/ubuntu'
-[DEBUG   ] stdout: * bind9.service - BIND Domain Name Server
-   Loaded: loaded (/lib/systemd/system/bind9.service; disabled; vendor preset: enabled)
-  Drop-In: /run/systemd/generator/bind9.service.d
-           `-50-insserv.conf-$named.conf
-   Active: inactive (dead)
-     Docs: man:named(8)
-[DEBUG   ] retcode: 3
-[INFO    ] Executing command ['systemctl', 'is-active', 'bind9.service'] in directory '/home/ubuntu'
-[DEBUG   ] output: inactive
 [INFO    ] Executing command ['systemctl', 'status', 'rsyslog.service', '-n', '0'] in directory '/home/ubuntu'
 [DEBUG   ] stdout: * rsyslog.service - System Logging Service
    Loaded: loaded (/lib/systemd/system/rsyslog.service; enabled; vendor preset: enabled)
@@ -624,6 +614,23 @@ Condition: start condition failed at Wed 2017-11-15 11:10:15 UTC; 1h 32min ago
            `-1173 /usr/sbin/rsyslogd -n
 [INFO    ] Executing command ['systemctl', 'is-active', 'rsyslog.service'] in directory '/home/ubuntu'
 [DEBUG   ] output: active
+[INFO    ] Executing command ['systemctl', 'status', 'bind9.service', '-n', '0'] in directory '/home/ubuntu'
+[DEBUG   ] stdout: * bind9.service - BIND Domain Name Server
+   Loaded: loaded (/lib/systemd/system/bind9.service; disabled; vendor preset: enabled)
+  Drop-In: /run/systemd/generator/bind9.service.d
+           `-50-insserv.conf-$named.conf
+   Active: inactive (dead)
+     Docs: man:named(8)
+[DEBUG   ] retcode: 3
+[INFO    ] Executing command ['systemctl', 'is-active', 'bind9.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: inactive
+[INFO    ] Executing command ['systemctl', 'status', 'autofs.service', '-n', '0'] in directory '/home/ubuntu'
+[DEBUG   ] stdout: * autofs.service
+   Loaded: not-found (Reason: No such file or directory)
+   Active: inactive (dead)
+[DEBUG   ] retcode: 3
+[INFO    ] Executing command ['systemctl', 'is-active', 'autofs.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: inactive
 [INFO    ] Executing command ['systemctl', 'status', 'cron.service', '-n', '0'] in directory '/home/ubuntu'
 [DEBUG   ] stdout: * cron.service - Regular background program processing daemon
    Loaded: loaded (/lib/systemd/system/cron.service; enabled; vendor preset: enabled)
@@ -656,12 +663,26 @@ Condition: start condition failed at Wed 2017-11-15 11:10:15 UTC; 1h 32min ago
 [DEBUG   ] retcode: 3
 [INFO    ] Executing command ['systemctl', 'is-active', 'xinetd.service'] in directory '/home/ubuntu'
 [DEBUG   ] output: inactive
-[INFO    ] Executing command ['systemctl', 'status', 'autofs.service', '-n', '0'] in directory '/home/ubuntu'
-[DEBUG   ] stdout: * autofs.service
-   Loaded: not-found (Reason: No such file or directory)
+[INFO    ] Executing command ['systemctl', 'status', 'dovecot.service', '-n', '0'] in directory '/home/ubuntu'
+[DEBUG   ] stdout: * dovecot.service - Dovecot IMAP/POP3 email server
+   Loaded: loaded (/lib/systemd/system/dovecot.service; enabled; vendor preset: enabled)
+   Active: active (running) since Thu 2017-11-16 05:34:22 UTC; 29min ago
+     Docs: man:dovecot(1)
+           http://wiki2.dovecot.org/
+ Main PID: 22607 (dovecot)
+   CGroup: /system.slice/dovecot.service
+           |-22607 /usr/sbin/dovecot
+           |-22608 dovecot/anvil
+           `-22609 dovecot/log
+[INFO    ] Executing command ['systemctl', 'is-active', 'dovecot.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: active
+[INFO    ] Executing command ['systemctl', 'status', 'apache2.service', '-n', '0'] in directory '/home/ubuntu'
+[DEBUG   ] stdout: * apache2.service - LSB: Apache2 web server
+   Loaded: loaded (/etc/init.d/apache2; bad; vendor preset: enabled)
    Active: inactive (dead)
+     Docs: man:systemd-sysv-generator(8)
 [DEBUG   ] retcode: 3
-[INFO    ] Executing command ['systemctl', 'is-active', 'autofs.service'] in directory '/home/ubuntu'
+[INFO    ] Executing command ['systemctl', 'is-active', 'apache2.service'] in directory '/home/ubuntu'
 [DEBUG   ] output: inactive
 [INFO    ] Executing command 'df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type d \( -perm -0002 -a ! -perm -1000 \) 2>/dev/null' in directory '/home/ubuntu'
 [DEBUG   ] output: 
@@ -692,6 +713,7 @@ Condition: start condition failed at Wed 2017-11-15 11:10:15 UTC; 1h 32min ago
 [INFO    ] Executing command ['systemctl', 'is-enabled', 'isc-dhcp-server.service'] in directory '/home/ubuntu'
 [DEBUG   ] output: masked
 [DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'dovecot' found, but systemd unit 'dovecot.service' already exists
 [DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
 [DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
@@ -710,6 +732,7 @@ Condition: start condition failed at Wed 2017-11-15 11:10:15 UTC; 1h 32min ago
 [DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'samba' found, but systemd unit 'samba.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
 [DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
@@ -743,6 +766,7 @@ Condition: start condition failed at Wed 2017-11-15 11:10:15 UTC; 1h 32min ago
 [INFO    ] Executing command ['systemctl', 'is-enabled', 'cups.service'] in directory '/home/ubuntu'
 [DEBUG   ] output: Failed to get unit file state for cups.service: No such file or directory
 [DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'dovecot' found, but systemd unit 'dovecot.service' already exists
 [DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
 [DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
@@ -761,6 +785,7 @@ Condition: start condition failed at Wed 2017-11-15 11:10:15 UTC; 1h 32min ago
 [DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'samba' found, but systemd unit 'samba.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
 [DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
@@ -796,6 +821,7 @@ Condition: start condition failed at Wed 2017-11-15 11:10:15 UTC; 1h 32min ago
 Executing /lib/systemd/systemd-sysv-install is-enabled nfs-kernel-server
 disabled
 [DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'dovecot' found, but systemd unit 'dovecot.service' already exists
 [DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
 [DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
@@ -814,6 +840,7 @@ disabled
 [DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'samba' found, but systemd unit 'samba.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
 [DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
@@ -853,6 +880,7 @@ enabled
 [INFO    ] Executing command ['systemctl', 'is-enabled', 'avahi-daemon.service'] in directory '/home/ubuntu'
 [DEBUG   ] output: Failed to get unit file state for avahi-daemon.service: No such file or directory
 [DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'dovecot' found, but systemd unit 'dovecot.service' already exists
 [DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
 [DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
@@ -871,6 +899,7 @@ enabled
 [DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'samba' found, but systemd unit 'samba.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
 [DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
@@ -906,6 +935,7 @@ enabled
 Executing /lib/systemd/systemd-sysv-install is-enabled vsftpd
 disabled
 [DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'dovecot' found, but systemd unit 'dovecot.service' already exists
 [DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
 [DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
@@ -924,6 +954,7 @@ disabled
 [DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'samba' found, but systemd unit 'samba.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
 [DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
@@ -959,6 +990,7 @@ disabled
 Executing /lib/systemd/systemd-sysv-install is-enabled proftpd
 disabled
 [DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'dovecot' found, but systemd unit 'dovecot.service' already exists
 [DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
 [DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
@@ -977,6 +1009,7 @@ disabled
 [DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'samba' found, but systemd unit 'samba.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
 [DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
@@ -1012,6 +1045,7 @@ disabled
 Executing /lib/systemd/systemd-sysv-install is-enabled pure-ftpd
 disabled
 [DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'dovecot' found, but systemd unit 'dovecot.service' already exists
 [DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
 [DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
@@ -1030,6 +1064,7 @@ disabled
 [DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'samba' found, but systemd unit 'samba.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
 [DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
@@ -1063,6 +1098,7 @@ disabled
 [INFO    ] Executing command ['systemctl', 'is-enabled', 'bind9.service'] in directory '/home/ubuntu'
 [DEBUG   ] output: disabled
 [DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'dovecot' found, but systemd unit 'dovecot.service' already exists
 [DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
 [DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
@@ -1081,6 +1117,7 @@ disabled
 [DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'samba' found, but systemd unit 'samba.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
 [DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
@@ -1114,6 +1151,7 @@ disabled
 [INFO    ] Executing command ['systemctl', 'is-enabled', 'rsyncd.service'] in directory '/home/ubuntu'
 [DEBUG   ] output: Failed to get unit file state for rsyncd.service: No such file or directory
 [DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'dovecot' found, but systemd unit 'dovecot.service' already exists
 [DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
 [DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
@@ -1132,6 +1170,7 @@ disabled
 [DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'samba' found, but systemd unit 'samba.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
 [DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
@@ -1165,6 +1204,7 @@ disabled
 [INFO    ] Executing command ['systemctl', 'is-enabled', 'ntalk.service'] in directory '/home/ubuntu'
 [DEBUG   ] output: Failed to get unit file state for ntalk.service: No such file or directory
 [DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'dovecot' found, but systemd unit 'dovecot.service' already exists
 [DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
 [DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
@@ -1183,6 +1223,7 @@ disabled
 [DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'samba' found, but systemd unit 'samba.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
 [DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
@@ -1216,6 +1257,7 @@ disabled
 [INFO    ] Executing command ['systemctl', 'is-enabled', 'crond.service'] in directory '/home/ubuntu'
 [DEBUG   ] output: Failed to get unit file state for crond.service: No such file or directory
 [DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'dovecot' found, but systemd unit 'dovecot.service' already exists
 [DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
 [DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
@@ -1234,6 +1276,7 @@ disabled
 [DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'samba' found, but systemd unit 'samba.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
 [DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
@@ -1267,6 +1310,7 @@ disabled
 [INFO    ] Executing command ['systemctl', 'is-enabled', 'tftp.socket'] in directory '/home/ubuntu'
 [DEBUG   ] output: Failed to get unit file state for tftp.socket: No such file or directory
 [DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'dovecot' found, but systemd unit 'dovecot.service' already exists
 [DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
 [DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
@@ -1285,6 +1329,7 @@ disabled
 [DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'samba' found, but systemd unit 'samba.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
 [DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
@@ -1318,6 +1363,7 @@ disabled
 [INFO    ] Executing command ['systemctl', 'is-enabled', 'telnet.socket'] in directory '/home/ubuntu'
 [DEBUG   ] output: Failed to get unit file state for telnet.socket: No such file or directory
 [DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'dovecot' found, but systemd unit 'dovecot.service' already exists
 [DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
 [DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
@@ -1336,6 +1382,7 @@ disabled
 [DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'samba' found, but systemd unit 'samba.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
 [DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
@@ -1371,6 +1418,7 @@ disabled
 [INFO    ] Executing command ['systemctl', 'is-enabled', 'snmpd.service'] in directory '/home/ubuntu'
 [DEBUG   ] output: Failed to get unit file state for snmpd.service: No such file or directory
 [DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'dovecot' found, but systemd unit 'dovecot.service' already exists
 [DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
 [DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
@@ -1389,6 +1437,7 @@ disabled
 [DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'samba' found, but systemd unit 'samba.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
 [DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
@@ -1422,6 +1471,7 @@ disabled
 [INFO    ] Executing command ['systemctl', 'is-enabled', 'rsh.socket'] in directory '/home/ubuntu'
 [DEBUG   ] output: Failed to get unit file state for rsh.socket: No such file or directory
 [DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'dovecot' found, but systemd unit 'dovecot.service' already exists
 [DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
 [DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
@@ -1440,6 +1490,7 @@ disabled
 [DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'samba' found, but systemd unit 'samba.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
 [DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
@@ -1473,6 +1524,7 @@ disabled
 [INFO    ] Executing command ['systemctl', 'is-enabled', 'rlogin.socket'] in directory '/home/ubuntu'
 [DEBUG   ] output: Failed to get unit file state for rlogin.socket: No such file or directory
 [DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'dovecot' found, but systemd unit 'dovecot.service' already exists
 [DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
 [DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
@@ -1491,6 +1543,7 @@ disabled
 [DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'samba' found, but systemd unit 'samba.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
 [DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
@@ -1524,6 +1577,7 @@ disabled
 [INFO    ] Executing command ['systemctl', 'is-enabled', 'rexec.socket'] in directory '/home/ubuntu'
 [DEBUG   ] output: Failed to get unit file state for rexec.socket: No such file or directory
 [DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'dovecot' found, but systemd unit 'dovecot.service' already exists
 [DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
 [DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
@@ -1542,6 +1596,7 @@ disabled
 [DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'samba' found, but systemd unit 'samba.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
 [DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
@@ -1575,6 +1630,7 @@ disabled
 [INFO    ] Executing command ['systemctl', 'is-enabled', 'ypserv.service'] in directory '/home/ubuntu'
 [DEBUG   ] output: Failed to get unit file state for ypserv.service: No such file or directory
 [DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'dovecot' found, but systemd unit 'dovecot.service' already exists
 [DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
 [DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
@@ -1593,6 +1649,7 @@ disabled
 [DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'samba' found, but systemd unit 'samba.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
 [DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
@@ -1624,8 +1681,13 @@ disabled
 [DEBUG   ] sysvinit script 'hubble' found, but systemd unit 'hubble.service' already exists
 [DEBUG   ] sysvinit script 'reboot' found, but systemd unit 'reboot.service' already exists
 [INFO    ] Executing command ['systemctl', 'is-enabled', 'dovecot.service'] in directory '/home/ubuntu'
-[DEBUG   ] output: Failed to get unit file state for dovecot.service: No such file or directory
+[DEBUG   ] output: enabled
+[INFO    ] Executing command ['systemctl', 'is-enabled', 'apache2.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: apache2.service is not a native service, redirecting to systemd-sysv-install
+Executing /lib/systemd/systemd-sysv-install is-enabled apache2
+disabled
 [DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'dovecot' found, but systemd unit 'dovecot.service' already exists
 [DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
 [DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
@@ -1644,57 +1706,7 @@ disabled
 [DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
-[DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
-[DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
-[DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
-[DEBUG   ] sysvinit script 'open-iscsi' found, but systemd unit 'open-iscsi.service' already exists
-[DEBUG   ] sysvinit script 'x11-common' found, but systemd unit 'x11-common.service' already exists
-[DEBUG   ] sysvinit script 'networking' found, but systemd unit 'networking.service' already exists
-[DEBUG   ] sysvinit script 'ssh' found, but systemd unit 'ssh.service' already exists
-[DEBUG   ] sysvinit script 'procps' found, but systemd unit 'procps.service' already exists
-[DEBUG   ] sysvinit script 'rcS' found, but systemd unit 'rcS.service' already exists
-[DEBUG   ] sysvinit script 'plymouth-log' found, but systemd unit 'plymouth-log.service' already exists
-[DEBUG   ] sysvinit script 'rc' found, but systemd unit 'rc.service' already exists
-[DEBUG   ] sysvinit script 'keyboard-setup' found, but systemd unit 'keyboard-setup.service' already exists
-[DEBUG   ] sysvinit script 'urandom' found, but systemd unit 'urandom.service' already exists
-[DEBUG   ] sysvinit script 'acpid' found, but systemd unit 'acpid.service' already exists
-[DEBUG   ] sysvinit script 'ufw' found, but systemd unit 'ufw.service' already exists
-[DEBUG   ] sysvinit script 'chef-run-linux' found, but systemd unit 'chef-run-linux.service' already exists
-[DEBUG   ] sysvinit script 'lxd' found, but systemd unit 'lxd.service' already exists
-[DEBUG   ] sysvinit script 'bind9' found, but systemd unit 'bind9.service' already exists
-[DEBUG   ] sysvinit script 'umountfs' found, but systemd unit 'umountfs.service' already exists
-[DEBUG   ] sysvinit script 'resolvconf' found, but systemd unit 'resolvconf.service' already exists
-[DEBUG   ] sysvinit script 'rc.local' found, but systemd unit 'rc.local.service' already exists
-[DEBUG   ] sysvinit script 'single' found, but systemd unit 'single.service' already exists
-[DEBUG   ] sysvinit script 'umountroot' found, but systemd unit 'umountroot.service' already exists
-[DEBUG   ] sysvinit script 'unattended-upgrades' found, but systemd unit 'unattended-upgrades.service' already exists
-[DEBUG   ] sysvinit script 'rpcbind' found, but systemd unit 'rpcbind.service' already exists
-[DEBUG   ] sysvinit script 'dbus' found, but systemd unit 'dbus.service' already exists
-[DEBUG   ] sysvinit script 'kmod' found, but systemd unit 'kmod.service' already exists
-[DEBUG   ] sysvinit script 'cphalod' found, but systemd unit 'cphalod.service' already exists
-[DEBUG   ] sysvinit script 'hubble' found, but systemd unit 'hubble.service' already exists
-[DEBUG   ] sysvinit script 'reboot' found, but systemd unit 'reboot.service' already exists
-[INFO    ] Executing command ['systemctl', 'is-enabled', 'httpd.service'] in directory '/home/ubuntu'
-[DEBUG   ] output: Failed to get unit file state for httpd.service: No such file or directory
-[DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
-[DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
-[DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
-[DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
-[DEBUG   ] sysvinit script 'cryptdisks' found, but systemd unit 'cryptdisks.service' already exists
-[DEBUG   ] sysvinit script 'uuidd' found, but systemd unit 'uuidd.service' already exists
-[DEBUG   ] sysvinit script 'screen-cleanup' found, but systemd unit 'screen-cleanup.service' already exists
-[DEBUG   ] sysvinit script 'sendsigs' found, but systemd unit 'sendsigs.service' already exists
-[DEBUG   ] sysvinit script 'console-setup' found, but systemd unit 'console-setup.service' already exists
-[DEBUG   ] sysvinit script 'rsyslog' found, but systemd unit 'rsyslog.service' already exists
-[DEBUG   ] sysvinit script 'plymouth' found, but systemd unit 'plymouth.service' already exists
-[DEBUG   ] sysvinit script 'rsync' found, but systemd unit 'rsync.service' already exists
-[DEBUG   ] sysvinit script 'cron' found, but systemd unit 'cron.service' already exists
-[DEBUG   ] sysvinit script 'lvm2' found, but systemd unit 'lvm2.service' already exists
-[DEBUG   ] sysvinit script 'lxcfs' found, but systemd unit 'lxcfs.service' already exists
-[DEBUG   ] sysvinit script 'atd' found, but systemd unit 'atd.service' already exists
-[DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
-[DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
-[DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'samba' found, but systemd unit 'samba.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
 [DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
@@ -1728,6 +1740,7 @@ disabled
 [INFO    ] Executing command ['systemctl', 'is-enabled', 'squid.service'] in directory '/home/ubuntu'
 [DEBUG   ] output: Failed to get unit file state for squid.service: No such file or directory
 [DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'dovecot' found, but systemd unit 'dovecot.service' already exists
 [DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
 [DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
@@ -1746,6 +1759,7 @@ disabled
 [DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'samba' found, but systemd unit 'samba.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
 [DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
@@ -1776,9 +1790,10 @@ disabled
 [DEBUG   ] sysvinit script 'cphalod' found, but systemd unit 'cphalod.service' already exists
 [DEBUG   ] sysvinit script 'hubble' found, but systemd unit 'hubble.service' already exists
 [DEBUG   ] sysvinit script 'reboot' found, but systemd unit 'reboot.service' already exists
-[INFO    ] Executing command ['systemctl', 'is-enabled', 'smb.service'] in directory '/home/ubuntu'
-[DEBUG   ] output: Failed to get unit file state for smb.service: No such file or directory
+[INFO    ] Executing command ['systemctl', 'is-enabled', 'samba.service'] in directory '/home/ubuntu'
+[DEBUG   ] output: masked
 [DEBUG   ] sysvinit script 'open-vm-tools' found, but systemd unit 'open-vm-tools.service' already exists
+[DEBUG   ] sysvinit script 'dovecot' found, but systemd unit 'dovecot.service' already exists
 [DEBUG   ] sysvinit script 'iscsid' found, but systemd unit 'iscsid.service' already exists
 [DEBUG   ] sysvinit script 'netfilter-persistent' found, but systemd unit 'netfilter-persistent.service' already exists
 [DEBUG   ] sysvinit script 'killprocs' found, but systemd unit 'killprocs.service' already exists
@@ -1797,6 +1812,7 @@ disabled
 [DEBUG   ] sysvinit script 'udev' found, but systemd unit 'udev.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmpolld' found, but systemd unit 'lvm2-lvmpolld.service' already exists
 [DEBUG   ] sysvinit script 'cryptdisks-early' found, but systemd unit 'cryptdisks-early.service' already exists
+[DEBUG   ] sysvinit script 'samba' found, but systemd unit 'samba.service' already exists
 [DEBUG   ] sysvinit script 'halt' found, but systemd unit 'halt.service' already exists
 [DEBUG   ] sysvinit script 'isc-dhcp-server' found, but systemd unit 'isc-dhcp-server.service' already exists
 [DEBUG   ] sysvinit script 'lvm2-lvmetad' found, but systemd unit 'lvm2-lvmetad.service' already exists
