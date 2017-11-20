@@ -1377,7 +1377,7 @@ stat:
           tag: CIS-6.1.7
           uid: 0
           user: root
-    description: Ensure permissions on /etc/shadow- are configured:
+    description: 'Ensure permissions on /etc/shadow- are configured'
   group-_own_perm:
     data:
       Ubuntu-16.04:
@@ -1388,7 +1388,7 @@ stat:
           tag: CIS-6.1.8
           uid: 0
           user: root
-    description: Ensure permissions on /etc/group- are configured
+    description: 'Ensure permissions on /etc/group- are configured'
   gshadow-_own_perm:
     data:
       Ubuntu-16.04:
@@ -1399,7 +1399,7 @@ stat:
           tag: CIS-6.1.9
           uid: 0
           user: root
-    description: Ensure permissions on /etc/gshadow- are configured
+    description: 'Ensure permissions on /etc/gshadow- are configured'
 command:
   rsh_client:
     data:
@@ -1473,48 +1473,48 @@ command:
 #              shell: /bin/bash
 #              fail_if_matched: true
 #    description: Verify No UID 0 Accounts Exist Other Than root
-  root_path:
-    data:
-      Ubuntu-16.04:
-        tag: CIS-13.6
-        commands:
-          - ?
-              |-
-                if [ "`echo $PATH | grep :: `" != "" ]; then
-                echo "Empty Directory in PATH (::)"
-                fi
-                if [ "`echo $PATH | grep :$`" != "" ]; then
-                echo "Trailing : in PATH"
-                fi
-                p=`echo $PATH | sed -e 's/::/:/' -e 's/:$//' -e 's/:/ /g'`
-                set -- $p
-                while [ "$1" != "" ]; do
-                if [ "$1" = "." ]; then
-                echo "PATH contains ."
-                shift
-                continue
-                fi
-                if [ -d $1 ]; then
-                dirperm=`ls -ldH $1 | cut -f1 -d" "`
-                if [ `echo $dirperm | cut -c6 ` != "-" ]; then
-                echo "Group Write permission set on directory $1"
-                fi
-                if [ `echo $dirperm | cut -c9 ` != "-" ]; then
-                echo "Other Write permission set on directory $1"
-                fi
-                dirown=`ls -ldH $1 | awk '{print $3}'`
-                if [ "$dirown" != "root" ] ; then
-                echo $1 is not owned by root
-                fi
-                else
-                echo $1 is not a directory
-                fi
-                shift
-                done
-            :
-              shell: /bin/bash
-              fail_if_matched: true
-    description: Ensure root PATH Integrity
+#  root_path:
+#    data:
+#      Ubuntu-16.04:
+#        tag: CIS-13.6
+#        commands:
+#          - ?
+#              |-
+#                if [ "`echo $PATH | grep :: `" != "" ]; then
+#                echo "Empty Directory in PATH (::)"
+#                fi
+#                if [ "`echo $PATH | grep :$`" != "" ]; then
+#                echo "Trailing : in PATH"
+#                fi
+#                p=`echo $PATH | sed -e 's/::/:/' -e 's/:$//' -e 's/:/ /g'`
+#                set -- $p
+#                while [ "$1" != "" ]; do
+#                if [ "$1" = "." ]; then
+#                echo "PATH contains ."
+#                shift
+#                continue
+#                fi
+#                if [ -d $1 ]; then
+#                dirperm=`ls -ldH $1 | cut -f1 -d" "`
+#                if [ `echo $dirperm | cut -c6 ` != "-" ]; then
+#                echo "Group Write permission set on directory $1"
+#                fi
+#                if [ `echo $dirperm | cut -c9 ` != "-" ]; then
+#                echo "Other Write permission set on directory $1"
+#                fi
+#                dirown=`ls -ldH $1 | awk '{print $3}'`
+#                if [ "$dirown" != "root" ] ; then
+#                echo $1 is not owned by root
+#                fi
+#                else
+#                echo $1 is not a directory
+#                fi
+#                shift
+#                done
+#            :
+#              shell: /bin/bash
+#              fail_if_matched: true
+#    description: Ensure root PATH Integrity
 misc:
   sticky_bit_on_world_writable_directories:
     data:
@@ -1525,123 +1525,123 @@ misc:
   default_group_for_root_account:
     data:
       Ubuntu-16.04:
-       tag: CIS-5.4.3
-       function: default_group_for_root
-       description: Ensure default group for the root account is GID 0
+        tag: CIS-5.4.3
+        function: default_group_for_root
+    description: 'Ensure default group for the root account is GID 0'
   no_world_writable_file:
     data:
       Ubuntu-16.04:
-       tag: CIS-6.1.10
-       function: world_writable_file
-       description: Ensure no world writable files exist
+        tag: CIS-6.1.10
+        function: world_writable_file
+    description: Ensure no world writable files exist
   no_unowned_file_or_directories:
     data:
       Ubuntu-16.04:
-       tag: CIS-6.1.11
-       function: unowned_files_or_dir
-       description: Ensure no unowned files or directories exist
+        tag: CIS-6.1.11
+        function: unowned_files_or_dir
+    description: Ensure no unowned files or directories exist
   no_ungrouped_file_or_directories:
     data:
       Ubuntu-16.04:
-       tag: CIS-6.1.12
-       function: ungrouped_files_or_dir
-       description: Ensure no ungrouped files or directories exist
+        tag: CIS-6.1.12
+        function: ungrouped_files_or_dir
+    description: Ensure no ungrouped files or directories exist
   ensure_password_fields_non_empty:
     data:
       Ubuntu-16.04:
-       tag: CIS-6.2.1
-       function: check_password_fields_not_empty
-       description: Ensure password fields are not empty
+        tag: CIS-6.2.1
+        function: check_password_fields_not_empty
+    description: Ensure password fields are not empty
   root_is_only_uid_0_account:
     data:
       Ubuntu-16.04:
-       tag: CIS-6.2.5
-       function: root_is_only_uid_0_account
-       description: Ensure root is the only UID 0 account
+        tag: CIS-6.2.5
+        function: root_is_only_uid_0_account
+    description: 'Ensure root is the only UID 0 account'
   check_path_integrity:
     data:
       Ubuntu-16.04:
-       tag: CIS-6.2.6
-       function: check_path_integrity
-       description: Ensure root PATH Integrity
+        tag: CIS-6.2.6
+        function: check_path_integrity
+    description: Ensure root PATH Integrity
   valid_home_directory:
     data:
       Ubuntu-16.04:
-       tag: CIS-6.2.7
-       function: check_all_users_home_directory
-       description: Ensure all users' home directories exist
+        tag: CIS-6.2.7
+        function: check_all_users_home_directory(1000)
+    description: 'Ensure all users home directories exist'
   home_directory_permission:
     data:
       Ubuntu-16.04:
-       tag: CIS-6.2.8
-       function: check_users_home_directory_permissions 
-       description: Ensure users' home directories permissions are 750 or more restrictive
+        tag: CIS-6.2.8
+        function: check_users_home_directory_permissions 
+    description: 'Ensure users home directories permissions are 750 or more restrictive'
   user_own_home_directory:
     data:
       Ubuntu-16.04:
-       tag: CIS-6.2.9
-       function: check_users_own_their_home
-       description: Ensure users own their home directories
+        tag: CIS-6.2.9
+        function: check_users_own_their_home(1000)
+    description: Ensure users own their home directories
   check_users_dot_files_not_writable:
     data:
       Ubuntu-16.04:
-       tag: CIS-6.2.10
-       function: check_users_dot_files
-       description: Ensure users' dot files are not group or world writable
-   check_users_not_forward_files:
-     data:
-       Ubuntu-16.04:
-       tag: CIS-6.2.11
-       function: check_users_forward_files
-       description: Ensure no users have .forward files
-   check_no_users_netrc_files:
-     data:
-       Ubuntu-16.04:
-       tag: CIS-6.2.12
-       function: check_users_netrc_files
-       description: Ensure no users have .netrc files
-   check_netrc_files_not_world_writable:
-     data:
-       Ubuntu-16.04:
-       tag: CIS-6.2.13
-       function: check_netrc_files_accessibility
-       description: Ensure users' .netrc Files are not group or world accessible
-   check_no_users_have_rhosts_files:
-     data:
-       Ubuntu-16.04:
-       tag: CIS-6.2.14
-       function: check_users_rhosts_files
-       description: Ensure no users have .rhosts files
-   check_groups_validity_in_systemfiles:
-     data:
-       Ubuntu-16.04:
-       tag: CIS-6.2.15
-       function: check_groups_validity
-       description: Ensure all groups in /etc/passwd exist in /etc/group
-   no_duplicate_sid:
-     data:
-       Ubuntu-16.04:
-       tag: CIS-6.2.16
-       function: check_duplicate_uids 
-       description: Ensure no duplicate UIDs exist
-   no_duplicate_gid:
-     data:
-       Ubuntu-16.04:
-       tag: CIS-6.2.17
-       function: check_duplicate_gids
-       description: Ensure no duplicate GIDs exist
-   check_duplicate_unames_exist:
-     data:
-       Ubuntu-16.04:
-       tag: CIS-6.2.18
-       function: check_duplicate_unames
-       description: Ensure no duplicate user names exist
-   check_duplicate_gnames_exist:
-     data:
-       Ubuntu-16.04:
-       tag: CIS-6.2.19
-       function: check_duplicate_gnames
-       description: Ensure no duplicate group names exist
+        tag: CIS-6.2.10
+        function: check_users_dot_files
+    description: Ensure users dot files are not group or world writable
+  check_users_not_forward_files:
+    data:
+      Ubuntu-16.04:
+        tag: CIS-6.2.11
+        function: check_users_forward_files
+    description: 'Ensure no users have .forward files'
+  check_no_users_netrc_files:
+    data:
+      Ubuntu-16.04:
+        tag: CIS-6.2.12
+        function: check_users_netrc_files
+    description: Ensure no users have .netrc files
+  check_netrc_files_not_world_writable:
+    data:
+      Ubuntu-16.04:
+        tag: CIS-6.2.13
+        function: check_netrc_files_accessibility
+    description: 'Ensure users .netrc Files are not group or world accessible'
+  check_no_users_have_rhosts_files:
+    data:
+      Ubuntu-16.04:
+        tag: CIS-6.2.14
+        function: check_users_rhosts_files
+    description: Ensure no users have .rhosts files
+  check_groups_validity_in_systemfiles:
+    data:
+      Ubuntu-16.04:
+        tag: CIS-6.2.15
+        function: check_groups_validity
+    description: Ensure all groups in /etc/passwd exist in /etc/group
+  no_duplicate_sid:
+    data:
+      Ubuntu-16.04:
+        tag: CIS-6.2.16
+        function: check_duplicate_uids 
+    description: Ensure no duplicate UIDs exist
+  no_duplicate_gid:
+    data:
+      Ubuntu-16.04:
+        tag: CIS-6.2.17
+        function: check_duplicate_gids
+    description: Ensure no duplicate GIDs exist
+  check_duplicate_unames_exist:
+    data:
+      Ubuntu-16.04:
+        tag: CIS-6.2.18
+        function: check_duplicate_unames
+    description: Ensure no duplicate user names exist
+  check_duplicate_gnames_exist:
+    data:
+      Ubuntu-16.04:
+        tag: CIS-6.2.19
+        function: check_duplicate_gnames
+    description: Ensure no duplicate group names exist
 systemctl:
   whitelist:
     rsyslog_enabled:
@@ -1683,8 +1683,7 @@ systemctl:
     nfs-disabled:
       data:
         Ubuntu-16.04:
-        - nfs-kernel-server:
-            tag: CIS-2.2.7
+        - nfs-kernel-server: CIS-2.2.7
       description: Ensure NFS and RPC are not enabled(nfs-systemctl)
 #    rpc-disabled:
 #      data:
