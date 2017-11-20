@@ -1568,7 +1568,9 @@ misc:
     data:
       Ubuntu-16.04:
         tag: CIS-6.2.7
-        function: check_all_users_home_directory(1000)
+        function: check_all_users_home_directory
+        args:
+        - 500
     description: 'Ensure all users home directories exist'
   home_directory_permission:
     data:
@@ -1580,7 +1582,9 @@ misc:
     data:
       Ubuntu-16.04:
         tag: CIS-6.2.9
-        function: check_users_own_their_home(1000)
+        function: check_users_own_their_home
+        args:
+        - 500
     description: Ensure users own their home directories
   check_users_dot_files_not_writable:
     data:
