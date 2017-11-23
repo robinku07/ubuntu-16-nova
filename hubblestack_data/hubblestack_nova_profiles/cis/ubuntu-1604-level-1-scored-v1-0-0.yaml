@@ -508,11 +508,11 @@ grep:
     pam_pwquality_try_first_pass:
       data:
         Ubuntu-16.04:
-        - /etc/pam.d/system-auth:
+        - /etc/pam.d/common-password:
             match_output: try_first_pass
             pattern: pam_pwquality.so
             tag: CIS-5.3.1
-        - /etc/pam.d/system-auth:
+        - /etc/pam.d/common-password:
             match_output: retry=3
             pattern: pam_pwquality.so
             tag: CIS-5.3.1
@@ -540,8 +540,8 @@ grep:
     password_hash:
       data:
         Ubuntu-16.04:
-        - /etc/pam.d/password-auth:
-            pattern: '"^password\s+\w+\s+pam_unix\.so"'
+        - /etc/pam.d/common-password:
+            pattern: '"^password\s+\w+\s+pam_unix.so"'
             match_output: sha512
             grep_args:
               - '-E'
