@@ -1,6 +1,6 @@
 # This is mostly a copy from the 14.04 profile, until we have time to do
 # a proper profile
-
+#4.2.4 Not Implemented
 grep:
   whitelist:
     disable_mount_cramfs:
@@ -137,14 +137,6 @@ grep:
             pattern: /tmp
             tag: CIS-1.1.3
       description: Ensure nodev option set on /tmp partition
-#    mounts_tmp_partition_noexec: #No Check in latest CIS Benchmark
-#      data:
-#        Ubuntu-16.04:
-#        - /proc/mounts:
-#            match_output: noexec
-#            pattern: /tmp
-#            tag: CIS-1.1.4
-#      description: Set noexec option for /tmp Partition
     mounts_tmp_partition_nosuid:
       data:
         Ubuntu-16.04:
@@ -329,6 +321,7 @@ grep:
             pattern: '^\$FileCreateMode'
             match_output: '0640'
             tag: CIS-4.2.1.3
+            allow_more_strict: true
       description: Ensure rsyslog default file permissions configured
     rsyslog_remote_logging:
       data:
@@ -380,31 +373,34 @@ grep:
       data:
         Ubuntu-16.04:
         - /etc/ssh/sshd_config:
-            pattern: Protocol
-            match_output: '2'
+            pattern: ^Protocol
+            match_output: Protocol\s+2
+            match_output_regex: True
             tag: CIS-5.2.2
       description: Ensure SSH Protocol is set to 2
     ssh_log_level:
       data:
         Ubuntu-16.04:
         - /etc/ssh/sshd_config:
-            pattern: LogLevel
-            match_output: INFO
+            pattern: ^LogLevel
+            match_output: LogLevel\s+INFO
+            match_output_regex: True
             tag: CIS-5.2.3
       description: Ensure SSH LogLevel is set to INFO
     ssh_disable_xforward:
       data:
         Ubuntu-16.04:
         - /etc/ssh/sshd_config:
-            pattern: X11Forwarding
-            match_output: 'no'
+            pattern: ^X11Forwarding
+            match_output: X11Forwarding\s+no
+            match_output_regex: True
             tag: CIS-5.2.4
       description: Ensure SSH X11 forwarding is disabled
     ssh_auth_retries:
       data:
         Ubuntu-16.04:
         - /etc/ssh/sshd_config:
-            pattern: MaxAuthTries
+            pattern: ^MaxAuthTries
             match_output_regex: True
             match_output: "^MaxAuthTries +[1-4]$"
             tag: CIS-5.2.5
@@ -413,56 +409,52 @@ grep:
       data:
         Ubuntu-16.04:
         - /etc/ssh/sshd_config:
-            pattern: IgnoreRhosts
-            match_output: 'yes'
+            pattern: ^IgnoreRhosts
+            match_output: IgnoreRhosts\s+yes
+            match_output_regex: True
             tag: CIS-5.2.6
       description: Ensure SSH IgnoreRhosts is enabled
     ssh_hostbased_auth:
       data:
         Ubuntu-16.04:
         - /etc/ssh/sshd_config:
-            pattern: HostbasedAuthentication
-            match_output: 'no'
+            pattern: ^HostbasedAuthentication
+            match_output: HostbasedAuthentication\s+no
+            match_output_regex: True
             tag: CIS-5.2.7
       description: Ensure SSH HostbasedAuthentication is disabled
     ssh_permit_root:
       data:
         Ubuntu-16.04:
         - /etc/ssh/sshd_config:
-            pattern: PermitRootLogin
-            match_output: 'no'
+            pattern: ^PermitRootLogin
+            match_output: PermitRootLogin\s+no
+            match_output_regex: True
             tag: CIS-5.2.8
       description: Ensure SSH root login is disabled
     ssh_permit_empty_pw:
       data:
         Ubuntu-16.04:
         - /etc/ssh/sshd_config:
-            pattern: PermitEmptyPasswords
-            match_output: 'no'
+            pattern: ^PermitEmptyPasswords
+            match_output: PermitEmptyPasswords\s+no
+            match_output_regex: True
             tag: CIS-5.2.9
       description: Ensure SSH PermitEmptyPasswords is disabled
     ssh_permit_user_env:
       data:
         Ubuntu-16.04:
         - /etc/ssh/sshd_config:
-            pattern: PermitUserEnvironment
-            match_output: 'no'
+            pattern: ^PermitUserEnvironment
+            match_output: PermitUserEnvironment\s+no
+            match_output_regex: True
             tag: CIS-5.2.10
       description: Ensure SSH PermitUserEnvironment is disabled
-    ssh_restrict_cipher:
-      data:
-        Ubuntu-16.04:
-        - /etc/ssh/sshd_config:
-            pattern: MACs
-            match_output: '^MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512,hmac-sha2-256,umac-128@openssh.com$'
-            match_output_regex: True
-            tag: CIS-5.2.11
-      description: Ensure only approved MAC algorithms are used
     sshd_idle_timeout:
       data:
         Ubuntu-16.04:
         - /etc/ssh/sshd_config:
-            pattern: ClientAliveInterval
+            pattern: ^ClientAliveInterval
             match_output: ^ClientAliveInterval +([1-2]{0,1}\d{1,2}|300)$
             match_output_regex: True
             tag: CIS-5.2.12
@@ -485,16 +477,9 @@ grep:
       data:
         Ubuntu-16.04:
         - /etc/ssh/sshd_config:
-            pattern: AllowUsers
-            tag: CIS-5.2.14
-        - /etc/ssh/sshd_config:
-            pattern: AllowGroups
-            tag: CIS-5.2.14
-        - /etc/ssh/sshd_config:
-            pattern: DenyUsers
-            tag: CIS-5.2.14
-        - /etc/ssh/sshd_config:
-            pattern: DenyGroups
+            pattern: '^AllowUsers|^AllowGroups|^DenyUsers|^DenyGroups'
+            grep_args:
+              - '-E'
             tag: CIS-5.2.14
       description:  Ensure SSH access is limited
     sshd_banner:
@@ -601,14 +586,6 @@ grep:
             pattern: INACTIVE=30
             tag: CIS-5.4.1.4
       description: Ensure inactive password lock is 30 days or less
-#    umask:
-#      data:
-#        Ubuntu-16.04:
-#        - /etc/login.defs:
-#            pattern: UMASK
-#            match_output: '077'
-#            tag: CIS-10.4
-#      description: Set Default umask for Users
   blacklist:
     root_passwd_set:
       data:
@@ -617,32 +594,6 @@ grep:
             pattern: '^root:[*\!]:'
             tag: CIS-1.4.3
       description: Ensure authentication required for single user mode
-#    selinux_boot_enabled: #L2 Check so disabled
-#      data:
-#        Ubuntu-16.04:
-#        - /boot/grub/grub.cfg:
-#            match_output: '0'
-#            pattern: 'selinux'
-#            tag: CIS-1.6.1.1
-#        - /boot/grub/grub.cfg:
-#            match_output: '0'
-#            pattern: 'enforcing'
-#            tag: CIS-1.6.1.1
-# CIS-1.7.2 is not applicable as we are not using linux in graphical mode
-#      description: Ensure SELinux is not disabled in bootloader configuration
-#    rsh_inet:
-#      data:
-#        Ubuntu-16.04:
-#        - /etc/inetd.conf:
-#            pattern: '^shell'
-#            tag: CIS-5.1.2
-#        - /etc/inetd.conf:
-#            pattern: '^login'
-#            tag: CIS-5.1.2
-#        - /etc/inetd.conf:
-#            pattern: '^exec'
-#            tag: CIS-5.1.2
-#      description: Ensure rsh server is not enabled
     talkd:
       data:
         Ubuntu-16.04:
@@ -1420,6 +1371,15 @@ misc:
         tag: CIS-1.1.20
         function: sticky_bit_on_world_writable_dirs
     description: Ensure sticky bit is set on all world-writable directories
+  check_log_files_permission:
+    data:
+      Ubuntu-16.04:
+       tag: CIS-4.2.4
+       function: check_directory_files_permission
+       args:
+        - /var/log
+        - 740
+    description: Ensure permissions on all logfiles are configured
   system_account_non_login:
     data:
       Ubuntu-16.04:
@@ -1432,6 +1392,20 @@ misc:
         tag: CIS-5.4.3
         function: default_group_for_root
     description: 'Ensure default group for the root account is GID 0'
+  sshd_approved_macs:
+    data:
+      Ubuntu-16.04:
+       tag: CIS-5.2.11
+       function: check_list_values
+       args:
+         - /etc/ssh/sshd_config
+         - '^MACs'
+         - '^MACs(.*)$'
+         - null
+         - hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512,hmac-sha2-256,umac-128@openssh.com,curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256
+         - null
+         - ','
+    description: Ensure only approved MAC algorithms are used
   no_world_writable_file:
     data:
       Ubuntu-16.04:
