@@ -570,13 +570,17 @@ grep:
     default_umask:
       data:
         Ubuntu-16.04:
-        - /etc/bashrc:
+        - /etc/bash.bashrc:
             pattern: umask
-            match_pattern: '027'
+            match_pattern: '0[257]7'
+            grep_args:
+              - '-E'
             tag: CIS-5.4.4
         - /etc/profile:
             pattern: umask
-            match_pattern: '027'
+            grep_args:
+              - '-E'
+            match_pattern: '0[257]7'
             tag: CIS-5.4.4
       description: Ensure default user umask is 027 or more restrictive 
     passwd_inactive:
@@ -845,12 +849,12 @@ service:
     apport:
       data:
         Ubuntu-16.04:
-        - apport: CIS-4.1
+        - apport: CIS-1.5.1
       description: Restrict Core Dumps
     whoopsie:
       data:
         Ubuntu-16.04:
-        - whoopsie: CIS-4.1
+        - whoopsie: CIS-1.5.1
       description: Restrict Core Dumps
     xinetd:
       data:
