@@ -1113,6 +1113,7 @@ stat:
       Ubuntu-16.04:
       - /boot/grub/grub.cfg:
           mode: 600
+          allow_more_strict: true
           tag: CIS-1.4.1
     description: Ensure permissions on bootloader config are configured
   hosts_allow_perms:
@@ -1122,6 +1123,7 @@ stat:
           gid: 0
           group: root
           mode: 644
+          allow_more_strict: true
           tag: CIS-3.4.4
           uid: 0
           user: root
@@ -1134,6 +1136,7 @@ stat:
           gid: 0
           group: root
           mode: 644
+          allow_more_strict: true
           tag: CIS-3.4.5
           uid: 0
           user: root
@@ -1148,6 +1151,7 @@ stat:
           uid: 0
           user: root
           mode: 600
+          allow_more_strict: true
           tag: CIS-5.1.2
     description:  Ensure permissions on /etc/crontab are configured
   cron_hourly_own_perms:
@@ -1159,6 +1163,7 @@ stat:
           uid: 0
           user: root
           mode: 600
+          allow_more_strict: true
           tag: CIS-5.1.3
     description:  Ensure permissions on /etc/cron.hourly are configured
   cron_daily_own_perms:
@@ -1170,6 +1175,7 @@ stat:
           uid: 0
           user: root
           mode: 600
+          allow_more_strict: true
           tag: CIS-5.1.4
     description:  Ensure permissions on /etc/cron.daily are configured
   cron_weekly_own_perms:
@@ -1181,6 +1187,7 @@ stat:
           uid: 0
           user: root
           mode: 600
+          allow_more_strict: true
           tag: CIS-5.1.5
     description:  Ensure permissions on /etc/cron.weekly are configured
   cron_monthly_own_perms:
@@ -1192,6 +1199,7 @@ stat:
           uid: 0
           user: root
           mode: 600
+          allow_more_strict: true
           tag: CIS-5.1.6
     description:  Ensure permissions on /etc/cron.monthly are configured
   cron_d_own_perms:
@@ -1203,6 +1211,7 @@ stat:
           uid: 0
           user: root
           mode: 700
+          allow_more_strict: true
           tag: CIS-5.1.7
     description:  Ensure permissions on /etc/cron.d are configured
   at_cron_allow:
@@ -1226,6 +1235,7 @@ stat:
           gid: 0
           group: root
           mode: 600
+          allow_more_strict: true
           tag: CIS-5.1.8
           uid: 0
           user: root
@@ -1233,6 +1243,7 @@ stat:
           gid: 0
           group: root
           mode: 600
+          allow_more_strict: true
           tag: CIS-5.1.8
           uid: 0
           user: root
@@ -1246,6 +1257,7 @@ stat:
           user: root
           group: root
           mode: 600
+          allow_more_strict: true
           tag: CIS-5.2.1
     description: Ensure permissions on /etc/ssh/sshd_config are configured
   banner_files_motd:
@@ -1257,6 +1269,7 @@ stat:
           user: root
           group: root
           mode: 644
+          allow_more_strict: true
           tag: CIS-1.7.1.4
     description: Ensure permissions on /etc/motd are configured
   banner_files_issue:
@@ -1268,6 +1281,7 @@ stat:
           user: root
           group: root
           mode: 644
+          allow_more_strict: true
           tag: CIS-1.7.1.5
     description: Ensure permissions on /etc/issue are configured
   banner_files_issue_net:
@@ -1279,6 +1293,7 @@ stat:
           user: root
           group: root
           mode: 644
+          allow_more_strict: true
           tag: CIS-1.7.1.6
     description: Set Warning Banner for Standard Login Services
   passwd_perms:
