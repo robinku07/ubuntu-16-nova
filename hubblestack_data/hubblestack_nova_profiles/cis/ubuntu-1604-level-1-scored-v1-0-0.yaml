@@ -333,34 +333,6 @@ grep:
 #CIS-4.2.2.1 is only applicable if we have syslog-ng package installed
 #CIS-4.2.2.3 is only applicable if we have syslog-ng package installed
 #CIS-4.2.2.4 is only applicable if we have syslog-ng package installed
-    pam_cracklib_settings:
-      data:
-        Ubuntu-16.04:
-        - /etc/pam.d/common-password:
-            pattern: pam_cracklib
-            match_output: 'retry=3'
-            tag: CIS-9.2.1
-        - /etc/pam.d/common-password:
-            pattern: pam_cracklib
-            match_output: 'minlen=14'
-            tag: CIS-9.2.1
-        - /etc/pam.d/common-password:
-            pattern: pam_cracklib
-            match_output: 'dcredit=-1'
-            tag: CIS-9.2.1
-        - /etc/pam.d/common-password:
-            pattern: pam_cracklib
-            match_output: 'ucredit=-1'
-            tag: CIS-9.2.1
-        - /etc/pam.d/common-password:
-            pattern: pam_cracklib
-            match_output: 'ocredit=-1'
-            tag: CIS-9.2.1
-        - /etc/pam.d/common-password:
-            pattern: pam_cracklib
-            match_output: 'lcredit=-1'
-            tag: CIS-9.2.1
-      description: Set Password Creation Requirement Parameters Using pam_cracklib
     pam_password_reuse:
       data:
         Ubuntu-16.04:
