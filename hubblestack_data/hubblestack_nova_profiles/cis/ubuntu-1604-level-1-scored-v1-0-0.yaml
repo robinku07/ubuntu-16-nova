@@ -1,6 +1,3 @@
-# This is mostly a copy from the 14.04 profile, until we have time to do
-# a proper profile
-#4.2.4 Not Implemented
 grep:
   whitelist:
     disable_mount_cramfs:
@@ -107,21 +104,6 @@ grep:
             pattern: /dev/shm
             tag: CIS-1.1.15
       description: Ensure nosuid option set on /dev/shm partition
-    mounts_home_partition:
-      data:
-        Ubuntu-16.04:
-        - /proc/mounts:
-            pattern: /home
-            tag: CIS-1.1.12
-      description: Ensure separate partition exists for /home
-    mounts_home_partition_nodev:
-      data:
-        Ubuntu-16.04:
-        - /proc/mounts:
-            match_output: nodev
-            pattern: /home
-            tag: CIS-1.1.13
-      description: Ensure nodev option set on /home partition
     mounts_tmp_partition:
       data:
         Ubuntu-16.04:
@@ -145,20 +127,6 @@ grep:
             pattern: /tmp
             tag: CIS-1.1.4
       description: Ensure nosuid option set on /tmp partition
-    mounts_var_log_audit_partition:
-      data:
-        Ubuntu-16.04:
-        - /proc/mounts:
-            pattern: /var/log/audit
-            tag: CIS-1.1.11
-      description: Ensure separate partition exists for /var/log/audit
-    mounts_var_log_partition:
-      data:
-        Ubuntu-16.04:
-        - /proc/mounts:
-            pattern: /var/log
-            tag: CIS-1.1.10
-      description: Ensure separate partition exists for /var/log
     mounts_var_partition:
       data:
         Ubuntu-16.04:
@@ -174,6 +142,7 @@ grep:
             pattern: /var
             tag: CIS-1.1.6
       description: Ensure separate partition exists for /var/tmp
+      control: No such partition for var/tmp
     mount_var_tmp_partition_nodev:
       data:
         Ubuntu-16.04:
@@ -182,6 +151,7 @@ grep:
             pattern: /var/tmp
             tag: CIS-1.1.7
       description: Ensure nodev option set on /var/tmp partition
+      control: No such partition for var/tmp
     mount_var_tmp_partition_nosuid:
       data:
         Ubuntu-16.04:
@@ -190,6 +160,7 @@ grep:
             pattern: /var/tmp
             tag: CIS-1.1.8
       description: Ensure nosuid option set on /var/tmp partition
+      control: No such partition for var/tmp
     mount_var_tmp_partition_noexec:
       data:
         Ubuntu-16.04:
@@ -198,6 +169,7 @@ grep:
             pattern: /var/tmp
             tag: CIS-1.1.9
       description: Ensure noexec option set on /var/tmp partition
+      control: No such partition for var/tmp
     aide_filesystem_scans:
       data:
         Ubuntu-16.04:
@@ -206,13 +178,6 @@ grep:
             pattern: aide
             tag: CIS-1.3.2
       description: Ensure filesystem integrity is regularly checked
-    grub_password:
-      data:
-        Ubuntu-16.04:
-        - /boot/grub/grub.cfg:
-            pattern: password
-            tag: CIS-1.4.2
-      description: Ensure bootloader password is set
     core_hard_limit:
       data:
         Ubuntu-16.04:
@@ -238,19 +203,6 @@ grep:
             pattern: RUNASUSER=
             tag: CIS-2.2.1.2
       description: Ensure NTP is configured
-    configure_chrony:
-      data:
-        Ubuntu-16.04:
-        - /etc/chrony/chrony.conf:
-            tag: CIS-2.2.1.3
-            pattern: '^server'
-            match_output: 'server *'
-            match_output_regex: True
-        - /etc/chrony/chrony.conf:
-            tag: CIS-2.2.1.3
-            pattern: ^user
-            match_output: '_chrony'
-      description: Ensure chrony is configured
     local_mta:
       data:
         Ubuntu-16.04:
@@ -330,9 +282,7 @@ grep:
             pattern: ^*.*[^I][^I]*@
             tag: CIS-4.2.1.4
       description: Ensure rsyslog is configured to send logs to a remote log host
-#CIS-4.2.2.1 is only applicable if we have syslog-ng package installed
-#CIS-4.2.2.3 is only applicable if we have syslog-ng package installed
-#CIS-4.2.2.4 is only applicable if we have syslog-ng package installed
+      control: We do not have remote host to send logs to
     pam_password_reuse:
       data:
         Ubuntu-16.04:
@@ -454,6 +404,7 @@ grep:
               - '-E'
             tag: CIS-5.2.14
       description:  Ensure SSH access is limited
+      control: We are using KLAMs
     sshd_banner:
       data:
         Ubuntu-16.04:
@@ -544,15 +495,15 @@ grep:
         Ubuntu-16.04:
         - /etc/bash.bashrc:
             pattern: umask
-            match_pattern: '0[257]7'
+            match_pattern: '0[2367]7'
             grep_args:
               - '-E'
             tag: CIS-5.4.4
         - /etc/profile.d/cis.sh:
             pattern: umask
+            match_pattern: '0[2367]7'
             grep_args:
               - '-E'
-            match_pattern: '0[257]7'
             tag: CIS-5.4.4
       description: Ensure default user umask is 027 or more restrictive 
     passwd_inactive:
@@ -563,13 +514,6 @@ grep:
             tag: CIS-5.4.1.4
       description: Ensure inactive password lock is 30 days or less
   blacklist:
-    root_passwd_set:
-      data:
-        Ubuntu-16.04:
-        - /etc/shadow:
-            pattern: '^root:[*\!]:'
-            tag: CIS-1.4.3
-      description: Ensure authentication required for single user mode
     talkd:
       data:
         Ubuntu-16.04:
@@ -757,38 +701,6 @@ grep:
             pattern: '\s'
             tag: CIS-1.7.1.1
       description: Ensure message of the day is configured properly
-    banner_os_info_issue:
-      data:
-        Ubuntu-16.04:
-        - /etc/issue:
-            pattern: '\v'
-            tag: CIS-1.7.1.2
-        - /etc/issue:
-            pattern: '\r'
-            tag: CIS-1.7.1.2
-        - /etc/issue:
-            pattern: '\m'
-            tag: CIS-1.7.1.2
-        - /etc/issue:
-            pattern: '\s'
-            tag: CIS-1.7.1.2
-      description: Ensure local login warning banner is configured properly
-    banner_os_info_issue_net:
-      data:
-        Ubuntu-16.04:
-        - /etc/issue.net:
-            pattern: '\v'
-            tag: CIS-1.7.1.3
-        - /etc/issue.net:
-            pattern: '\r'
-            tag: CIS-1.7.1.3
-        - /etc/issue.net:
-            pattern: '\m'
-            tag: CIS-1.7.1.3
-        - /etc/issue.net:
-            pattern: '\s'
-            tag: CIS-1.7.1.3
-      description: Ensure remote login warning banner is configured properly
     legacy_entries_passwd:
       data:
         Ubuntu-16.04:
@@ -818,16 +730,6 @@ service:
         Ubuntu-16.04:
         - autofs: CIS-1.1.21
       description: Disable Automounting
-    apport:
-      data:
-        Ubuntu-16.04:
-        - apport: CIS-1.5.1
-      description: Restrict Core Dumps
-    whoopsie:
-      data:
-        Ubuntu-16.04:
-        - whoopsie: CIS-1.5.1
-      description: Restrict Core Dumps
     xinetd:
       data:
         Ubuntu-16.04:
@@ -1063,7 +965,6 @@ pkg:
         Ubuntu-16.04:
         - rsyslog: CIS-4.2.3
       description: Ensure rsyslog is installed
-#CIS-4.2.4 is not implemented as need code side changes
     iptables:
       data:
         Ubuntu-16.04:
@@ -1232,18 +1133,6 @@ stat:
           allow_more_strict: true
           tag: CIS-5.2.1
     description: Ensure permissions on /etc/ssh/sshd_config are configured
-  banner_files_motd:
-    data:
-      Ubuntu-16.04:
-      - /etc/motd:
-          uid: 0
-          gid: 0
-          user: root
-          group: root
-          mode: 644
-          allow_more_strict: true
-          tag: CIS-1.7.1.4
-    description: Ensure permissions on /etc/motd are configured
   banner_files_issue:
     data:
       Ubuntu-16.04:
@@ -1371,12 +1260,14 @@ misc:
         - /var/log
         - 740
     description: Ensure permissions on all logfiles are configured
+    control: Needs to be fixed in AMI. Issue number 1441 in spartans sos
   system_account_non_login:
     data:
       Ubuntu-16.04:
         tag: CIS-5.4.2
         function: system_account_non_login
     description: Ensure system accounts are non-login
+    control: Code change required. Issue number 1536 in spartans sos
   default_group_for_root_account:
     data:
       Ubuntu-16.04:
@@ -1439,7 +1330,7 @@ misc:
         tag: CIS-6.2.7
         function: check_all_users_home_directory
         args:
-        - 500
+        - 1000
     description: 'Ensure all users home directories exist'
   home_directory_permission:
     data:
@@ -1447,13 +1338,14 @@ misc:
         tag: CIS-6.2.8
         function: check_users_home_directory_permissions 
     description: 'Ensure users home directories permissions are 750 or more restrictive'
+    control: Code change required. Issue number 1535 in spartans sos
   user_own_home_directory:
     data:
       Ubuntu-16.04:
         tag: CIS-6.2.9
         function: check_users_own_their_home
         args:
-        - 500
+        - 1000
     description: Ensure users own their home directories
   check_users_dot_files_not_writable:
     data:
